@@ -1,0 +1,1 @@
+* A bot which will find the best flights for me
