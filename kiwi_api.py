@@ -31,6 +31,8 @@ SPECIAL_DESTINATION = [
 	"ES"
 ]
 
+SCAN_DATE = None
+
 # load kiwi api key from seperate file (for security reasons)
 def load_config(path = "config.json.private"):
 	global API_KEY
@@ -121,8 +123,6 @@ def calculate_days_off(departure, arrival):
 	return days_off
 
 def search_flights(date_from, date_to, fly_to = "", output_file = "flights_output.csv"):
-
-	date_of_scan = datetime.now()
 	# default search params - should be changed
 	params = {
 		"fly_from": "TLV",
@@ -163,7 +163,8 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 			source = f"{flight['countryFrom']['name']}/{flight['cityFrom'] }/{flight['flyFrom']}"
 			dest = f"{flight['countryTo']['name']}/{flight['cityTo']}/{flight['flyTo']}"
 			price = int(flight['price'])
-			airlines = ','.join(set([get_airline_name(airline) for airline in flight['airlines']]))
+			# airlines = ','.join(set([get_airline_name(airline) for airline in flight['airlines']]))
+			airlines = ','.join([get_airline_name(route['airline']) for route in flight['route']])
 
 			# datetime files 
 			source_departure = datetime.strptime(flight['route'][0]['local_departure'], r"%Y-%m-%dT%H:%M:%S.%fZ")
@@ -174,7 +175,7 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 			# caclulate how many days off the work are needed
 			days_off = calculate_days_off(source_departure, source_arrival)
 
-			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = date_of_scan, month = source_departure.month)
+			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month)
 
 			db_flight.save()
 				
@@ -194,13 +195,16 @@ def create_report():
 		current_month += 1 
 
 def main():
+	global SCAN_DATE
+	SCAN_DATE = datetime.now()
+
 	date_from = datetime.now()
 	date_to = datetime(2022, 12, 30)
 	
-	# search_flights(date_from, date_to)
+	search_flights(date_from, date_to)
 
-	# # search for special destinations
-	# search_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	# search for special destinations
+	search_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
 
 	create_report()
 
