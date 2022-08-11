@@ -44,4 +44,25 @@ def prepare_query_cheapest_flights_per_month(month_number):
 
 	return flights
 
+def preprae_query_price_drop():
+
+	subquery1 = Flights.select(Flights.fly_from, Flights.fly_to, Flights.departure_to, Flights.arrival_from, \
+				fn.Min(Flights.price).alias("min_price"), \
+				fn.Max(Flights.price).alias("max_price")).group_by(Flights.fly_from, Flights.fly_to, \
+				Flights.departure_to, Flights.arrival_from)
+
+	subquery2 = Flights.select(subquery1.c.fly_to, subquery1.c.fly_from, \
+		subquery1.c.departure_to, subquery1.c.arrival_from, \
+		subquery1.c.min_price).from_(subquery1).where(subquery1.c.min_price != subquery1.c.max_price)
+
+	subquery3 = Flights.select(fn.Max(Flights.date_of_scan).alias('date'))
+
+
+	subquery4 = Flights.select(Flights.fly_from, Flights.fly_to, Flights.departure_to, Flights.arrival_from, Flights.price, \
+		Flights.date_of_scan).join(subquery2, on=( (subquery2.c.fly_to == Flights.fly_to) & \
+		(subquery2.c.fly_from == Flights.fly_from) & \
+		(subquery2.c.min_price == Flights.price))).where(Flights.date_of_scan == subquery3[0].date)
+
+	return subquery4
+
 db.create_tables([Flights, IATA])
