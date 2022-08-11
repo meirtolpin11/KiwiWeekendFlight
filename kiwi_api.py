@@ -4,6 +4,7 @@ import csv
 import json
 from datetime import datetime, timedelta, date
 from peewee import *
+import bot
 import flights_database as db
 
 API_KEY = ""
@@ -40,6 +41,8 @@ def load_config(path = "config.json.private"):
 
 	API_KEY = data['kiwi_api']
 	HEADERS['apikey'] = API_KEY
+	bot.TOKEN = data['bot_token']
+	bot.CHAT_ID = data['chat_id']
 
 def dump_csv(query, file_or_name, include_header=True, close_file=True,
              append=False, csv_writer=None):
@@ -66,7 +69,7 @@ def dump_csv(query, file_or_name, include_header=True, close_file=True,
 
     return fh
 
-def search_for_flight(search_params):
+def query_flight_kiwi(search_params):
 
 	response = requests.get(f"{URL}", params=search_params, headers=HEADERS)
 	return response.json()
@@ -148,7 +151,7 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 		params["date_from"] = params["return_from"] = weekend[0]
 		params["date_to"] = params["return_to"] = weekend[1]
 
-		flights = search_for_flight(params)
+		flights = query_flight_kiwi(params)
 
 		# flights data
 		try:
@@ -178,11 +181,35 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month)
 
 			db_flight.save()
-				
+	
+def generate_message(query):
+	message = ""
+	for flight in query:
+		message += f"\n<b>{flight.fly_to.split('/')[1]}</b> <i>({flight.fly_to.split('/')[0]})</i>\n "
+		 
+		if flight.departure_to.month == flight.arrival_from.month:
+			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d')}-{flight.arrival_from.strftime('%d/%m')}</b> "
+		else:
+			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m')}-{flight.arrival_from.strftime('%d/%m')}</b> "
+
+		message += f"<i>({flight.departure_to.strftime('%a')} - {flight.arrival_from.strftime('%a')})</i> \N{calendar}\n "
+
+		message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
+
+	return message
+
 def create_report():
+	
 
 	cheapest_flights_query = db.prepare_query_cheapest_flights_per_city()
 	dump_csv(cheapest_flights_query, "reports/cheapest.csv")
+
+	message = ""
+	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
+	message += generate_message(cheapest_flights_query)
+
+	bot.send_message_to_chat(message)
+	bot.send_file_to_chat("reports/cheapest.csv", "")
 
 	current_month = datetime.now().month
 	for i in range(4):
@@ -190,16 +217,28 @@ def create_report():
 			current_month -= 12
 
 		month_query = db.prepare_query_cheapest_flights_per_month(current_month)
-		dump_csv(month_query, f"reports/{current_month}.csv")
+		if len(month_query) == 0:
+			current_month += 1
+			continue
 
-		current_month += 1 
+		dump_csv(month_query, f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
+
+		message = ""
+		message += f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(current_month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
+
+		message += generate_message(month_query)
+		bot.send_message_to_chat(message)
+		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "")
+
+		current_month += 1
+
 
 def main():
 	global SCAN_DATE
 	SCAN_DATE = datetime.now()
 
 	date_from = datetime.now()
-	date_to = datetime(2022, 12, 30)
+	date_to = date_from + timedelta(days= 4 * 30)
 	
 	search_flights(date_from, date_to)
 
