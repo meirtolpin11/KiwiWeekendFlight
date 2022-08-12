@@ -13,6 +13,8 @@ class Flights(Model):
 	arrival_to = DateTimeField()
 	departure_from = DateTimeField()
 	arrival_from = DateTimeField()
+	link_to = CharField()
+	link_from = CharField()
 	month = IntegerField()
 	date_of_scan = DateTimeField()
 
@@ -30,17 +32,19 @@ class IATA(Model):
 def prepare_query_cheapest_flights_per_city():
 
 	# query the cheapest flights per city
-	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.nights,\
+	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.airlines, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
-	 Flights.arrival_from).group_by(Flights.fly_to).order_by(Flights.price)
+	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
+	 Flights.link_to, Flights.link_from).group_by(Flights.fly_to).order_by(Flights.price)
 	
 	return flights
 
 def prepare_query_cheapest_flights_per_month(month_number):
 	
-	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.nights,\
+	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.airlines, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
-	 Flights.arrival_from).where(Flights.month == month_number).group_by(Flights.fly_to).order_by(Flights.price)
+	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
+	 Flights.link_to, Flights.link_from).where(Flights.month == month_number).group_by(Flights.fly_to).order_by(Flights.price)
 
 	return flights
 
@@ -58,8 +62,9 @@ def preprae_query_price_drop():
 	subquery3 = Flights.select(fn.Max(Flights.date_of_scan).alias('date'))
 
 
-	subquery4 = Flights.select(Flights.fly_from, Flights.fly_to, Flights.departure_to, Flights.arrival_from, Flights.price, \
-		Flights.date_of_scan).join(subquery2, on=( (subquery2.c.fly_to == Flights.fly_to) & \
+	subquery4 = Flights.select(Flights.fly_from, Flights.fly_to, Flights.departure_to, \
+		Flights.arrival_to, Flights.departure_from, Flights.arrival_from, Flights.airlines, Flights.price, \
+		Flights.date_of_scan, Flights.link_to, Flights.link_from).join(subquery2, on=( (subquery2.c.fly_to == Flights.fly_to) & \
 		(subquery2.c.fly_from == Flights.fly_from) & \
 		(subquery2.c.min_price == Flights.price))).where(Flights.date_of_scan == subquery3[0].date)
 

@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, date
 from peewee import *
 import bot
 import flights_database as db
+import airlines
 
 API_KEY = ""
 URL = "https://tequila-api.kiwi.com/v2/search"
@@ -33,6 +34,7 @@ SPECIAL_DESTINATION = [
 ]
 
 SCAN_DATE = None
+FLY_FROM = 'TLV'
 
 # load kiwi api key from seperate file (for security reasons)
 def load_config(path = "config.json.private"):
@@ -167,7 +169,7 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 			dest = f"{flight['countryTo']['name']}/{flight['cityTo']}/{flight['flyTo']}"
 			price = int(flight['price'])
 			# airlines = ','.join(set([get_airline_name(airline) for airline in flight['airlines']]))
-			airlines = ','.join([get_airline_name(route['airline']) for route in flight['route']])
+			str_airlines = ','.join([get_airline_name(route['airline']) for route in flight['route']])
 
 			# datetime files 
 			source_departure = datetime.strptime(flight['route'][0]['local_departure'], r"%Y-%m-%dT%H:%M:%S.%fZ")
@@ -175,10 +177,23 @@ def search_flights(date_from, date_to, fly_to = "", output_file = "flights_outpu
 			dest_departure = datetime.strptime(flight['route'][1]['local_departure'], r"%Y-%m-%dT%H:%M:%S.%fZ")
 			source_arrival = datetime.strptime(flight['route'][1]['local_arrival'], r"%Y-%m-%dT%H:%M:%S.%fZ")
 
+			link_to = link_from = ""
+
+			if str_airlines.split(',')[0] == str_airlines.split(',')[1]:
+				if str_airlines.split(',')[0].lower() in airlines.airlines_dict.keys():
+					link_to = link_from = airlines.airlines_dict[str_airlines.split(',')[0].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure)
+			else:
+				if str_airlines.split(',')[0].lower() in airlines.airlines_dict.keys():
+					link_to = airlines.airlines_dict[str_airlines.split(',')[0].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure, isround=False)
+
+				if str_airlines.split(',')[1].lower() in airlines.airlines_dict.keys():
+					link_from = airlines.airlines_dict[str_airlines.split(',')[1].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure, isround=False)
+				
+
 			# caclulate how many days off the work are needed
 			days_off = calculate_days_off(source_departure, source_arrival)
 
-			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month)
+			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, link_to = link_to, link_from = link_from)
 
 			db_flight.save()
 	
@@ -196,7 +211,38 @@ def generate_message(query):
 
 		message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
 
+		message += generate_airline_link(flight)
+
+
 	return message
+
+def generate_airline_link(flight):
+	message = ""
+	url_round = None
+
+	if flight.airlines.split(',')[0] == flight.airlines.split(',')[1]:
+
+		if flight.link_to == flight.link_from == "":
+			message += f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}\n"
+		else:
+			message += f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}\n"
+
+	else:
+	
+		if flight.link_to != "":
+			message += f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>, "
+		else:
+			message += f"\t\N{airplane} {flight.airlines.split(',')[0]}, "
+
+		# direction from
+		if flight.link_from != "":
+			message += f"<a href='{flight.link_from}'>{flight.airlines.split(',')[1]}</a> \N{airplane}\n"
+		else:
+			message += f"{flight.airlines.split(',')[1]} \N{airplane}\n"
+
+	return message
+
+
 
 def create_report():
 	
@@ -208,8 +254,8 @@ def create_report():
 	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
 	message += generate_message(cheapest_flights_query)
 
-	bot.send_message_to_chat(message)
-	bot.send_file_to_chat("reports/cheapest.csv", "")
+	bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
+	bot.send_file_to_chat("reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
 
 	current_month = datetime.now().month
 	for i in range(4):
@@ -227,8 +273,8 @@ def create_report():
 		message += f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(current_month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
 
 		message += generate_message(month_query)
-		bot.send_message_to_chat(message)
-		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "")
+		bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
+		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
 
 		current_month += 1
 
