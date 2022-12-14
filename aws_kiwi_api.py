@@ -1,13 +1,19 @@
 import requests
 import urllib
-import csv
 import json
-import helpers
-from datetime import datetime, timedelta, date
-from peewee import *
 import bot
 import flights_database as db
 import airlines
+import boto3
+import os
+import logging
+import helpers
+from aws_helper import download_from_bucket, upload_to_bucket
+from datetime import datetime, timedelta, date
+from peewee import *
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 API_KEY = ""
 URL = "https://tequila-api.kiwi.com/v2/search"
@@ -75,7 +81,6 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 	weekend_dates = helpers.get_weekends(date_from, date_to)
 
 	for weekend in weekend_dates:
-		print(weekend)
 		params["date_from"] = params["return_from"] = weekend[0]
 		params["date_to"] = params["return_to"] = weekend[1]
 
@@ -85,7 +90,6 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 		try:
 			flights_data = flights["data"]
 		except:
-			print(flights)
 			continue
 
 		for flight in flights_data:
@@ -94,6 +98,7 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 			source = f"{flight['countryFrom']['name']}/{flight['cityFrom'] }/{flight['flyFrom']}"
 			dest = f"{flight['countryTo']['name']}/{flight['cityTo']}/{flight['flyTo']}"
 			price = int(flight['price'])
+
 			str_airlines = ','.join([airlines.get_airline_name(route['airline']) for route in flight['route']])
 
 			# datetime files 
@@ -121,19 +126,18 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, link_to = link_to, link_from = link_from)
 
 			db_flight.save()
-	
+
 def create_report():
 	
-
 	cheapest_flights_query = db.prepare_query_cheapest_flights_per_city()
-	helpers.dump_csv(cheapest_flights_query, "reports/cheapest.csv")
+	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
 	message = ""
 	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
 	message += bot.generate_message(cheapest_flights_query)
 
 	bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-	bot.send_file_to_chat("reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
+	bot.send_file_to_chat("/tmp/reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
 
 	current_month = datetime.now().month
 	for i in range(5):
@@ -145,31 +149,42 @@ def create_report():
 			current_month += 1
 			continue
 
-		helpers.dump_csv(month_query, f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
+		helpers.dump_csv(month_query, f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
 
 		message = ""
 		message += f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(current_month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
 
 		message += bot.generate_message(month_query)
 		bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
+		bot.send_file_to_chat(f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
 
 		current_month += 1
 
-def main():
+def lambda_handler(event, context):
 	global SCAN_DATE
+
+	download_from_bucket("flights.db", '/tmp/flight.db')
+	load_config("testing_config.json.private")
+
+	try:
+		os.mkdir(r'/tmp/reports')
+	except Exception as e:
+		logging.error(e.message)
+
 	SCAN_DATE = datetime.now()
 
 	date_from = datetime.now()
 	date_to = date_from + timedelta(days= 5 * 30)
 	
-	#search_flights(date_from, date_to)
 
 	# search for special destinations
 	search_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
 
 	create_report()
 
-if __name__ == '__main__':
-	load_config()
-	main()
+	upload_to_bucket(r'/tmp/flights.db', 'flights.db')
+
+	return{
+		'statusCode': 200,
+		'body': json.dumps('Success')
+	}
