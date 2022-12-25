@@ -19,7 +19,7 @@ def generate_message(query):
 		if flight.price == flight.discount_price:
 			message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
 		else:
-			message += f"\t\N{money bag} <b>{flight.price} nis, Members: {flight.discount_price} nis</b> \N{money bag}\n"
+			message += f"\t\N{money bag} <b>{flight.price} nis, <i>Members: {flight.discount_price} nis</i></b> \N{money bag}\n"
 
 		message += airlines.generate_airline_link(flight)
 

@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase('flights.db')
+db = SqliteDatabase('/tmp/flights.db')
 
 class Flights(Model):
 	fly_from = CharField()
@@ -30,19 +30,19 @@ class IATA(Model):
 	class Meta:
 		database = db
 
-def prepare_query_cheapest_flights_per_city():
+def prepare_flights_per_city():
 
 	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
 
 	# query the cheapest flights per city
-	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.airlines, Flights.nights,\
+	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.discount_price, Flights.airlines, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
 	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
 	 Flights.link_to, Flights.link_from).where(Flights.date_of_scan == last_scan_data[0].date_of_scan).group_by(Flights.fly_to).order_by(Flights.price)
 	
 	return flights
 
-def prepare_query_cheapest_flights_per_month(month_number):
+def prepare_cheapest_flights_city_month(month_number):
 
 	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
 	
@@ -52,6 +52,28 @@ def prepare_query_cheapest_flights_per_month(month_number):
 	 Flights.link_to, Flights.link_from).where((Flights.month == month_number) & (Flights.date_of_scan == last_scan_data[0].date_of_scan)).group_by(Flights.fly_to).order_by(Flights.price)
 
 	return flights
+
+def prepare_cheapest_flights_month(month_number):
+
+	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
+	
+	flights = Flights.select(Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines, Flights.nights,\
+	 Flights.days_off, Flights.departure_to,\
+	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
+	 Flights.link_to, Flights.link_from).where((Flights.month == month_number) & (Flights.date_of_scan == last_scan_data[0].date_of_scan)).order_by(Flights.price).limit(5)
+	return flights
+
+# TODO - REMOVE THIS SHIT
+def prepare_cheapest_flights_month_wizz(month_number):
+
+	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
+	
+	flights = Flights.select(Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines, Flights.nights,\
+	 Flights.days_off, Flights.departure_to,\
+	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
+	 Flights.link_to, Flights.link_from).where((Flights.month == month_number) & (Flights.date_of_scan == last_scan_data[0].date_of_scan) & (Flights.airlines == 'Wizz Air,Wizz Air')).order_by(Flights.price).limit(5)
+	return flights
+
 
 def prepare_query_price_drop():
 

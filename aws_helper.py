@@ -17,7 +17,7 @@ def download_from_bucket(key, local_path):
 		s3.Bucket(BUCKET_NAME).download_file(key, local_path)
 		logging.info(f"{key} downloaded successfully to {local_path}")
 	except Exception as e:
-		logging.error(f"Error when Downloading {key} from S3: {e.message}")
+		logging.error(f"Error when Downloading {key} from S3: {e}")
 	
 
 def upload_to_bucket(path, key):

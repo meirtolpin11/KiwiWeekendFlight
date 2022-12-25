@@ -22,24 +22,28 @@ HEADERS = {
 	"apikey": API_KEY
 }
 
-IATA_CODES_CACHE = {}
+NUM_OF_MONTHS = 5
 
 SPECIAL_DESTINATION = [
-	"HU", 
-	"IT", 
-	"DE",
-	"CZ",
-	"FR",
-	"GR",
-	"BG",
-	"RO",
-	"BE",
-	"PL",
-	"UK",
-	"NL",
-	"ES",
-	"SP"
+	"HU", # Hungary
+	"IT", # Italy
+	"DE", # Germany
+	"CZ", # Czech Republic
+	"FR", # France 
+	"GR", # Greece
+	"BG", # Bulgaria
+	"RO", # Romania
+	"BE", # Belgium
+	"PL", # Poland
+	"NL", # Netherlands
+	"ES", # Spain
+	"SP" # Serbia
 ]
+
+SPECIAL_CHATS = {
+	"HU": ""
+}
+
 
 SCAN_DATE = None
 FLY_FROM = 'TLV'
@@ -47,22 +51,28 @@ FLY_FROM = 'TLV'
 # load kiwi api key from seperate file (for security reasons)
 def load_config(path = "config.json.private"):
 	global API_KEY
-	data = json.load(open(path))
+	global HEADERS
 
-	API_KEY = data['kiwi_api']
-	HEADERS['apikey'] = API_KEY
-	bot.TOKEN = data['bot_token']
-	bot.CHAT_ID = data['chat_id']
-	helpers.currency_api_token = data['currency_convert_api']
+	with open(path) as config:
+		data = json.load(config)
+
+		API_KEY = data['kiwi_api']
+		HEADERS['apikey'] = API_KEY
+
+		# update other files config
+		bot.TOKEN = data['bot_token']
+		bot.CHAT_ID = data['chat_id']
+		SPECIAL_CHATS["HU"] = data['budapest_chat_id']
+		airlines.CURRENCY_API_TOKEN = data['currency_convert_api']
 
 def query_flight_kiwi(search_params):
 
 	response = requests.get(f"{URL}", params=search_params, headers=HEADERS)
 	return response.json()
 
-def search_flights(date_from, date_to, fly_to = "", price_to=400):
+def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 	# default search params - should be changed
-	params = {
+	kiwi_query_params = {
 		"fly_from": "TLV",
 		"fly_to": fly_to,
 		"date_from": "",
@@ -82,15 +92,16 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 	weekend_dates = helpers.get_weekends(date_from, date_to)
 
 	for weekend in weekend_dates:
-		params["date_from"] = params["return_from"] = weekend[0]
-		params["date_to"] = params["return_to"] = weekend[1]
+		kiwi_query_params["date_from"] = kiwi_query_params["return_from"] = weekend[0]
+		kiwi_query_params["date_to"] = kiwi_query_params["return_to"] = weekend[1]
 
-		flights = query_flight_kiwi(params)
+		flights = query_flight_kiwi(kiwi_query_params)
 
 		# flights data
 		try:
 			flights_data = flights["data"]
-		except:
+		except Exception as e:
+			logging.error(f"failed to fetch flight from kiwi api, error:{e}")
 			continue
 
 		for flight in flights_data:
@@ -102,6 +113,7 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 
 			str_airlines = ','.join([airlines.get_airline_name(route['airline']) for route in flight['route']])
 
+			# calculate discount price per airline
 			discount_price = airlines.calculate_discount_price(str_airlines, price)
 
 			# datetime files 
@@ -113,9 +125,12 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 			link_to = link_from = ""
 
 			if str_airlines.split(',')[0] == str_airlines.split(',')[1]:
+				# if the departure and arrival airline is same
 				if str_airlines.split(',')[0].lower() in airlines.airlines_dict.keys():
 					link_to = link_from = airlines.airlines_dict[str_airlines.split(',')[0].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure)
+
 			else:
+				# for diffrent departure and arrival airplane 
 				if str_airlines.split(',')[0].lower() in airlines.airlines_dict.keys():
 					link_to = airlines.airlines_dict[str_airlines.split(',')[0].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure, isround=False)
 
@@ -126,45 +141,53 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 			# caclulate how many days off the work are needed
 			days_off = helpers.calculate_days_off(source_departure, source_arrival)
 
+			# insert the flight into the database 
 			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, discount_price = discount_price, \
 				nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, \
 				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
 				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
 				link_to = link_to, link_from = link_from)
-
 			db_flight.save()
 
-def create_report():
-	
-	cheapest_flights_query = db.prepare_query_cheapest_flights_per_city()
-	helpers.dump_csv(cheapest_flights_query, "reports/cheapest.csv")
+def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_cheapest_flights_city_month):	
+	cheapest_flights_query = db.prepare_flights_per_city()
+	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
+	# Total cheapest flights from the last scan 
 	message = ""
 	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
 	message += bot.generate_message(cheapest_flights_query)
 
-	bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-	bot.send_file_to_chat("reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
+	bot.send_message_to_chat(message, chat_id = telegram_chat_id)
+	bot.send_file_to_chat("/tmp/reports/cheapest.csv", "", chat_id = telegram_chat_id)
 
+	# Cheap flights by Months
 	current_month = datetime.now().month
-	for i in range(5):
+	for i in range(NUM_OF_MONTHS):
+
+		# rotate year 
 		if current_month > 12:
 			current_month -= 12
 
-		month_query = db.prepare_query_cheapest_flights_per_month(current_month)
+		# query the cheapest flights by month
+		month_query = query_function(current_month)
 		if len(month_query) == 0:
 			current_month += 1
 			continue
 
-		helpers.dump_csv(month_query, f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
+		# dump the query output to the reports folder
+		helpers.dump_csv(month_query, f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
 
+		# generate bot message per month
 		message = ""
 		message += f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(current_month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
-
 		message += bot.generate_message(month_query)
-		bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
 
+		# send the message and the query
+		bot.send_message_to_chat(message, chat_id = telegram_chat_id)
+		bot.send_file_to_chat(f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = telegram_chat_id) 
+
+		# continue to the next month
 		current_month += 1
 
 def lambda_handler(event, context):
@@ -174,20 +197,30 @@ def lambda_handler(event, context):
 	load_config("testing_config.json.private")
 
 	try:
-		os.mkdir(r'reports')
+		os.mkdir(r'/tmp/reports')
 	except Exception as e:
-		logging.error(e.message)
+		logging.error(e)
 
 	SCAN_DATE = datetime.now()
 
 	date_from = datetime.now()
-	date_to = date_from + timedelta(days= 5 * 30)
+	date_to = date_from + timedelta(days= NUM_OF_MONTHS * 30)
 	
 
 	# search for special destinations
-	search_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	# generate telegram report
+	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
 
-	create_report()
+
+	# update the scan date for a new scan - TODO: scan_id
+	SCAN_DATE = datetime.now()
+	
+	# Generate flights just to Hungary (for Budapest)
+	scan_all_flights(date_from, date_to, fly_to = 'HU')
+	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month_wizz)
+	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
+
 
 	upload_to_bucket(r'/tmp/flights.db', 'flights.db')
 

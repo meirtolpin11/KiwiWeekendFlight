@@ -125,7 +125,7 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 def create_report():
 	
 
-	cheapest_flights_query = db.prepare_query_cheapest_flights_per_city()
+	cheapest_flights_query = db.prepare_flights_per_city()
 	helpers.dump_csv(cheapest_flights_query, "reports/cheapest.csv")
 
 	message = ""
@@ -140,7 +140,7 @@ def create_report():
 		if current_month > 12:
 			current_month -= 12
 
-		month_query = db.prepare_query_cheapest_flights_per_month(current_month)
+		month_query = db.prepare_cheapest_flights_city_month(current_month)
 		if len(month_query) == 0:
 			current_month += 1
 			continue
