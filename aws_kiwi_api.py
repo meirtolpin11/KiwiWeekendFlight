@@ -8,6 +8,7 @@ import boto3
 import os
 import logging
 import helpers
+import argparse
 from aws_helper import download_from_bucket, upload_to_bucket
 from datetime import datetime, timedelta, date
 from peewee import *
@@ -190,10 +191,21 @@ def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepar
 		# continue to the next month
 		current_month += 1
 
+def parse_args():
+	parser = argparse.ArgumentParser()
+	parser.add_argument(r'--local', dest='local', action='store_true', help = 'run a local instance (not in AWS)')
+	args = parser.parse_args()
+
+	return args
+
 def lambda_handler(event, context):
 	global SCAN_DATE
 
-	download_from_bucket("flights.db", '/tmp/flight.db')
+	args = parse_args()
+
+	if not args.local:
+		download_from_bucket("flights.db", '/tmp/flight.db')
+
 	load_config("testing_config.json.private")
 
 	try:
@@ -222,9 +234,13 @@ def lambda_handler(event, context):
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
 
 
-	upload_to_bucket(r'/tmp/flights.db', 'flights.db')
+	if not args.local:
+		upload_to_bucket(r'/tmp/flights.db', 'flights.db')
 
 	return{
 		'statusCode': 200,
 		'body': json.dumps('Success')
 	}
+
+if __name__ == '__main__':
+	lambda_handler(None, None)
