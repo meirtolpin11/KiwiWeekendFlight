@@ -7,6 +7,7 @@ AIRLINES_DATA = json.loads(open("airlines.json").read())
 CURRENCY_API_TOKEN = None
 
 def calculate_discount_price(str_airlines, price):
+	global CURRENCY_API_TOKEN
 
 	airlines = list(set(str_airlines.split(',')))
 	
@@ -14,8 +15,10 @@ def calculate_discount_price(str_airlines, price):
 	if len(airlines) != 1:
 		return price
 
-	if airlines[0].lower() = 'wizz air':
+	if airlines[0].lower() == 'wizz air':
 		return price - helpers.convert_currency_api(20, "EUR", "ILS", CURRENCY_API_TOKEN)
+
+	return price
 
 def get_airline_name(iata_code):
 
