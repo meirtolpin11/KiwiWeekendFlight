@@ -1,24 +1,36 @@
+import flights_database as db
+import requests
+import json
+
+
+AIRLINES_DATA = json.loads(open("airlines.json").read())
+
 def get_airline_name(iata_code):
 
 	try: 
-		resp = db.IATA.select(db.IATA.airline).where(db.IATA.code == iata_code).execute() 
-		if len(resp) > 0:
-			return resp[0].airline
+		# resp = db.IATA.select(db.IATA.airline).where(db.IATA.code == iata_code).execute() 
+		# if len(resp) > 0:
+		# 	return resp[0].airline
 
-		url = "https://iata-and-icao-codes.p.rapidapi.com/airline"
+		# url = "https://iata-and-icao-codes.p.rapidapi.com/airline"
 
-		querystring = {"iata_code":iata_code}
+		# querystring = {"iata_code":iata_code}
 
-		headers = {
-			"X-RapidAPI-Key": "6c7d471d8bmsh3830faf947c0858p12e8ddjsn6ec3222ee5be",
-			"X-RapidAPI-Host": "iata-and-icao-codes.p.rapidapi.com"
-		}
+		# headers = {
+		# 	"X-RapidAPI-Key": "6c7d471d8bmsh3830faf947c0858p12e8ddjsn6ec3222ee5be",
+		# 	"X-RapidAPI-Host": "iata-and-icao-codes.p.rapidapi.com"
+		# }
 
-		response = requests.request("GET", url, headers=headers, params=querystring)
+		# response = requests.request("GET", url, headers=headers, params=querystring)
 
-		db.IATA(airline=response.json()[0]["name"], code=iata_code).save()
-		return response.json()[0]["name"]
-	except:
+		# print(response.json())
+
+		# db.IATA(airline=response.json()[0]["name"], code=iata_code).save()
+		# return response.json()[0]["name"]
+		
+		return AIRLINES_DATA[iata_code]["name"]
+	except Exception as e:
+		print(e.message)
 		return iata_code
 
 def generate_airline_link(flight):

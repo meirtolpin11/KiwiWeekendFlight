@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase('/tmp/flights.db')
+db = SqliteDatabase('flights.db')
 
 class Flights(Model):
 	fly_from = CharField()
