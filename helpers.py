@@ -1,5 +1,15 @@
 from datetime import timedelta
+import requests
 import csv
+
+
+def convert_currency_api(amount, from_currency, to_currency, api_key):
+	url = f"https://api.freecurrencyapi.com/v1/latest?apikey={api_key}&currencies={to_currency.upper()}&base_currency={from_currency.upper()}"
+
+	response = requests.get(url)
+	result = response.json()
+
+	return int(int(amount) * result["data"][to_currency.upper()])
 
 def daterange(date1, date2):
 	for n in range(int ((date2 - date1).days)+1):

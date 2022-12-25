@@ -1,33 +1,25 @@
 import flights_database as db
 import requests
 import json
-
+import helpers
 
 AIRLINES_DATA = json.loads(open("airlines.json").read())
+CURRENCY_API_TOKEN = None
+
+def calculate_discount_price(str_airlines, price):
+
+	airlines = list(set(str_airlines.split(',')))
+	
+	# diffrent airlines discount price is not supported for now
+	if len(airlines) != 1:
+		return price
+
+	if airlines[0].lower() = 'wizz air':
+		return price - helpers.convert_currency_api(20, "EUR", "ILS", CURRENCY_API_TOKEN)
 
 def get_airline_name(iata_code):
 
 	try: 
-		# resp = db.IATA.select(db.IATA.airline).where(db.IATA.code == iata_code).execute() 
-		# if len(resp) > 0:
-		# 	return resp[0].airline
-
-		# url = "https://iata-and-icao-codes.p.rapidapi.com/airline"
-
-		# querystring = {"iata_code":iata_code}
-
-		# headers = {
-		# 	"X-RapidAPI-Key": "6c7d471d8bmsh3830faf947c0858p12e8ddjsn6ec3222ee5be",
-		# 	"X-RapidAPI-Host": "iata-and-icao-codes.p.rapidapi.com"
-		# }
-
-		# response = requests.request("GET", url, headers=headers, params=querystring)
-
-		# print(response.json())
-
-		# db.IATA(airline=response.json()[0]["name"], code=iata_code).save()
-		# return response.json()[0]["name"]
-		
 		return AIRLINES_DATA[iata_code]["name"]
 	except Exception as e:
 		print(e.message)

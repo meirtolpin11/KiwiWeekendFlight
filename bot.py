@@ -16,7 +16,10 @@ def generate_message(query):
 
 		message += f"<i>({flight.departure_to.strftime('%a')} - {flight.arrival_from.strftime('%a')})</i> \N{calendar}\n "
 
-		message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
+		if flight.price == flight.discount_price:
+			message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
+		else:
+			message += f"\t\N{money bag} <b>{flight.price} nis, Members: {flight.discount_price} nis</b> \N{money bag}\n"
 
 		message += airlines.generate_airline_link(flight)
 
