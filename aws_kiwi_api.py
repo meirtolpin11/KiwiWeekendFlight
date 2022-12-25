@@ -53,6 +53,7 @@ def load_config(path = "config.json.private"):
 	HEADERS['apikey'] = API_KEY
 	bot.TOKEN = data['bot_token']
 	bot.CHAT_ID = data['chat_id']
+	helpers.currency_api_token = data['currency_convert_api']
 
 def query_flight_kiwi(search_params):
 
@@ -101,6 +102,8 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 
 			str_airlines = ','.join([airlines.get_airline_name(route['airline']) for route in flight['route']])
 
+			discount_price = airlines.calculate_discount_price(str_airlines, price)
+
 			# datetime files 
 			source_departure = datetime.strptime(flight['route'][0]['local_departure'], r"%Y-%m-%dT%H:%M:%S.%fZ")
 			dest_arrival = datetime.strptime(flight['route'][0]['local_arrival'], r"%Y-%m-%dT%H:%M:%S.%fZ")
@@ -123,7 +126,11 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 			# caclulate how many days off the work are needed
 			days_off = helpers.calculate_days_off(source_departure, source_arrival)
 
-			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, link_to = link_to, link_from = link_from)
+			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, discount_price = discount_price, \
+				nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, \
+				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
+				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
+				link_to = link_to, link_from = link_from)
 
 			db_flight.save()
 

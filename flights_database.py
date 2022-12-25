@@ -8,6 +8,7 @@ class Flights(Model):
 	nights = IntegerField()
 	days_off = IntegerField()
 	price = IntegerField()
+	discount_price = IntegerField()
 	airlines = CharField()
 	departure_to = DateTimeField()
 	arrival_to = DateTimeField()
@@ -45,7 +46,7 @@ def prepare_query_cheapest_flights_per_month(month_number):
 
 	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
 	
-	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.airlines, Flights.nights,\
+	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.discount_price, Flights.airlines, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
 	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
 	 Flights.link_to, Flights.link_from).where((Flights.month == month_number) & (Flights.date_of_scan == last_scan_data[0].date_of_scan)).group_by(Flights.fly_to).order_by(Flights.price)
