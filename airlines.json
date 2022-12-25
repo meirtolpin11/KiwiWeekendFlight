@@ -1,0 +1,6440 @@
+{
+	"I4":{
+		"name": "Interstate Airlines",
+		"code": "I4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I4@2x.png"
+	},
+	"F0":{
+		"name": "Fly Jordan",
+		"code": "F0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F0@2x.png"
+	},
+	"9L":{
+		"name": "West Link Airlines",
+		"code": "9L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9L@2x.png"
+	},
+	"4L":{
+		"name": "Palau National Airlines",
+		"code": "4L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4L@2x.png"
+	},
+	"0B":{
+		"name": "Blue Air",
+		"code": "0B",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/0B@2x.png"
+	},
+	"8L":{
+		"name": "Lucky Air",
+		"code": "8L",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/8L@2x.png"
+	},
+	"WA":{
+		"name": "KLM Cityhopper",
+		"code": "WA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WA@2x.png"
+	},
+	"0Q":{
+		"name": "Hydro - Quebec",
+		"code": "0Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0Q@2x.png"
+	},
+	"GP":{
+		"name": "Guangxi Beibu Gulf Airlines Co., Ltd.",
+		"code": "GP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GP@2x.png"
+	},
+	"4V":{
+		"name": "Lignes Aeriennes Congolaises",
+		"code": "4V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4V@2x.png"
+	},
+	"3S":{
+		"name": "Air Antilles Express",
+		"code": "3S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3S@2x.png"
+	},
+	"M7":{
+		"name": "Marsland Aviation",
+		"code": "M7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M7@2x.png"
+	},
+	"4K":{
+		"name": "Kenn Borek Air Ltd.",
+		"code": "4K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4K@2x.png"
+	},
+	"EU":{
+		"name": "Chengdu Airlines",
+		"code": "EU",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/EU@2x.png"
+	},
+	"BA":{
+		"name": "British Airways",
+		"code": "BA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BA@2x.png"
+	},
+	"EP":{
+		"name": "Iran Aseman Airlines",
+		"code": "EP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EP@2x.png"
+	},
+	"RO":{
+		"name": "Tarom",
+		"code": "RO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RO@2x.png"
+	},
+	"WO":{
+		"name": "Swoop",
+		"code": "WO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WO@2x.png"
+	},
+	"YV":{
+		"name": "Mesa Airlines",
+		"code": "YV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YV@2x.png"
+	},
+	"4I":{
+		"name": "IHY Izmir Havayollari A.S.",
+		"code": "4I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4I@2x.png"
+	},
+	"X1":{
+		"name": "Fortune",
+		"code": "X1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X1@2x.png"
+	},
+	"MM":{
+		"name": "Peach",
+		"code": "MM",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/MM@2x.png"
+	},
+	"0O":{
+		"name": "Air Ocean",
+		"code": "0O",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0O@2x.png"
+	},
+	"2M":{
+		"name": "Moldavian Airlines",
+		"code": "2M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2M@2x.png"
+	},
+	"СД":{
+		"name": "SKOL",
+		"code": "СД",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/СД@2x.png"
+	},
+	"N4":{
+		"name": "Nordwind Airlines",
+		"code": "N4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N4@2x.png"
+	},
+	"UM":{
+		"name": "Air Zimbabwe",
+		"code": "UM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UM@2x.png"
+	},
+	"IE":{
+		"name": "Solomon Airlines",
+		"code": "IE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IE@2x.png"
+	},
+	"EJ":{
+		"name": "New England Airlines",
+		"code": "EJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EJ@2x.png"
+	},
+	"4R":{
+		"name": "CJSC Royal Flight airlines",
+		"code": "4R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4R@2x.png"
+	},
+	"BF":{
+		"name": "French Blue",
+		"code": "BF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BF@2x.png"
+	},
+	"WF":{
+		"name": "Wideroe",
+		"code": "WF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WF@2x.png"
+	},
+	"VF":{
+		"name": "Valuair",
+		"code": "VF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VF@2x.png"
+	},
+	"0Y":{
+		"name": "FlyArystan",
+		"code": "0Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0Y@2x.png"
+	},
+	"MC":{
+		"name": "Air Mobility Command",
+		"code": "MC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MC@2x.png"
+	},
+	"H4":{
+		"name": "HiSky",
+		"code": "H4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/H4@2x.png"
+	},
+	"DS":{
+		"name": "easyJet Switzerland",
+		"code": "DS",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DS@2x.png"
+	},
+	"CJ":{
+		"name": "BA Cityflyer",
+		"code": "CJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CJ@2x.png"
+	},
+	"WH":{
+		"name": "Webjet Linhas Aereas",
+		"code": "WH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WH@2x.png"
+	},
+	"N9":{
+		"name": "Nova Airways",
+		"code": "N9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N9@2x.png"
+	},
+	"TE":{
+		"name": "Sky-Taxi",
+		"code": "TE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TE@2x.png"
+	},
+	"OT":{
+		"name": "Aeropelican Air Services",
+		"code": "OT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OT@2x.png"
+	},
+	"8H":{
+		"name": "BH Air",
+		"code": "8H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8H@2x.png"
+	},
+	"2P":{
+		"name": "PAL Express",
+		"code": "2P",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/2P@2x.png"
+	},
+	"Y4":{
+		"name": "Volaris",
+		"code": "Y4",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/Y4@2x.png"
+	},
+	"B5":{
+		"name": "East African Safari Air",
+		"code": "B5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B5@2x.png"
+	},
+	"QY":{
+		"name": "European Air Transport",
+		"code": "QY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QY@2x.png"
+	},
+	"M4":{
+		"name": "Mistral Air",
+		"code": "M4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M4@2x.png"
+	},
+	"XE":{
+		"name": "ExpressJet",
+		"code": "XE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XE@2x.png"
+	},
+	"GA":{
+		"name": "Garuda Indonesia",
+		"code": "GA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GA@2x.png"
+	},
+	"UF":{
+		"name": "UM Airlines",
+		"code": "UF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UF@2x.png"
+	},
+	"5M":{
+		"name": "Hi Fly Ltd",
+		"code": "5M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5M@2x.png"
+	},
+	"5E":{
+		"name": "Siam Ga Co. Ltd.",
+		"code": "5E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5E@2x.png"
+	},
+	"1L":{
+		"name": "CitizenPlane",
+		"code": "1L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1L@2x.png"
+	},
+	"5H":{
+		"name": "Fly540",
+		"code": "5H",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/5H@2x.png"
+	},
+	"KT":{
+		"name": "SiAvia",
+		"code": "KT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KT@2x.png"
+	},
+	"HQ":{
+		"name": "Thomas Cook Airlines Belgium",
+		"code": "HQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HQ@2x.png"
+	},
+	"PQ":{
+		"name": "SkyUp Airlines",
+		"code": "PQ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/PQ@2x.png"
+	},
+	"S6":{
+		"name": "Sunrise Airways",
+		"code": "S6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S6@2x.png"
+	},
+	"SL":{
+		"name": "Thai Lion Air",
+		"code": "SL",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/SL@2x.png"
+	},
+	"2F":{
+		"name": "Afrinat International Airlines",
+		"code": "2F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2F@2x.png"
+	},
+	"XL":{
+		"name": "LATAM Ecuador",
+		"code": "XL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XL@2x.png"
+	},
+	"7H":{
+		"name": "Ravn Alaska",
+		"code": "7H",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/7H@2x.png"
+	},
+	"MR":{
+		"name": "Hunnu Air",
+		"code": "MR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MR@2x.png"
+	},
+	"UO":{
+		"name": "Hong Kong Express Airways",
+		"code": "UO",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/UO@2x.png"
+	},
+	"MN":{
+		"name": "Comair",
+		"code": "MN",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/MN@2x.png"
+	},
+	"ID":{
+		"name": "Batik Air",
+		"code": "ID",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ID@2x.png"
+	},
+	"1J":{
+		"name": "Axess International Network Inc.",
+		"code": "1J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1J@2x.png"
+	},
+	"KX":{
+		"name": "Cayman Airways",
+		"code": "KX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KX@2x.png"
+	},
+	"F2":{
+		"name": "Safarilink Aviation",
+		"code": "F2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F2@2x.png"
+	},
+	"3D":{
+		"name": "DoKaSch",
+		"code": "3D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3D@2x.png"
+	},
+	"5U":{
+		"name": "Transportes Aéreos Regionales",
+		"code": "5U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5U@2x.png"
+	},
+	"1C":{
+		"name": "Hewlett-Packard (Schweiz) GmbH",
+		"code": "1C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1C@2x.png"
+	},
+	"DC":{
+		"name": "Braathens Regional",
+		"code": "DC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DC@2x.png"
+	},
+	"NQ":{
+		"name": "Air Japan",
+		"code": "NQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NQ@2x.png"
+	},
+	"PA":{
+		"name": "airblue",
+		"code": "PA",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/PA@2x.png"
+	},
+	"I8":{
+		"name": "Izhavia",
+		"code": "I8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I8@2x.png"
+	},
+	"SJ":{
+		"name": "Sriwijaya Air",
+		"code": "SJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SJ@2x.png"
+	},
+	"YE":{
+		"name": "Yan Air Ltd",
+		"code": "YE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YE@2x.png"
+	},
+	"M6":{
+		"name": "Amerijet International Inc.",
+		"code": "M6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M6@2x.png"
+	},
+	"EN":{
+		"name": "Air Dolomiti",
+		"code": "EN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EN@2x.png"
+	},
+	"EB":{
+		"name": "Wamos Air",
+		"code": "EB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EB@2x.png"
+	},
+	"JZ":{
+		"name": "Jatayu Airlines",
+		"code": "JZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JZ@2x.png"
+	},
+	"AC":{
+		"name": "Air Canada",
+		"code": "AC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AC@2x.png"
+	},
+	"Z2":{
+		"name": "AirAsia Zest",
+		"code": "Z2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z2@2x.png"
+	},
+	"VZ":{
+		"name": "Thai Vietjet Air",
+		"code": "VZ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VZ@2x.png"
+	},
+	"Y1":{
+		"name": "Travel Technology Interactive SA",
+		"code": "Y1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Y1@2x.png"
+	},
+	"B9":{
+		"name": "Iran Air Tours",
+		"code": "B9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B9@2x.png"
+	},
+	"GK":{
+		"name": "Jetstar Japan",
+		"code": "GK",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/GK@2x.png"
+	},
+	"A3":{
+		"name": "Aegean Airlines",
+		"code": "A3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A3@2x.png"
+	},
+	"4P":{
+		"name": "Travel Air",
+		"code": "4P",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4P@2x.png"
+	},
+	"ON":{
+		"name": "Nauru Airline",
+		"code": "ON",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ON@2x.png"
+	},
+	"RZ":{
+		"name": "Sansa Airlines",
+		"code": "RZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RZ@2x.png"
+	},
+	"YX":{
+		"name": "Republic Airlines",
+		"code": "YX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YX@2x.png"
+	},
+	"OJ":{
+		"name": "Fly Jamaica Airways",
+		"code": "OJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OJ@2x.png"
+	},
+	"YH":{
+		"name": "Sunsplash Aviation, LLC.",
+		"code": "YH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YH@2x.png"
+	},
+	"9K":{
+		"name": "Cape Air",
+		"code": "9K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9K@2x.png"
+	},
+	"GV":{
+		"name": "Grant Aviation, Inc.",
+		"code": "GV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GV@2x.png"
+	},
+	"J4":{
+		"name": "BADR AIRLINES",
+		"code": "J4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J4@2x.png"
+	},
+	"AX":{
+		"name": "Trans States Airlines",
+		"code": "AX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AX@2x.png"
+	},
+	"IS":{
+		"name": "AIS Airlines B.V.",
+		"code": "IS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IS@2x.png"
+	},
+	"LV":{
+		"name": "Level",
+		"code": "LV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LV@2x.png"
+	},
+	"9A":{
+		"name": "Eaglexpress Air Charter Sdn.Bhd.dbaEaglexpress Air",
+		"code": "9A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9A@2x.png"
+	},
+	"U8":{
+		"name": "Tus Airways",
+		"code": "U8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U8@2x.png"
+	},
+	"ZU":{
+		"name": "SUN-AIR",
+		"code": "ZU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZU@2x.png"
+	},
+	"2J":{
+		"name": "Air Burkina",
+		"code": "2J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2J@2x.png"
+	},
+	"BM":{
+		"name": "BMI Regional",
+		"code": "BM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BM@2x.png"
+	},
+	"QR":{
+		"name": "Qatar Airways",
+		"code": "QR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QR@2x.png"
+	},
+	"AM":{
+		"name": "Aeromexico",
+		"code": "AM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AM@2x.png"
+	},
+	"KG":{
+		"name": "Aerogaviota",
+		"code": "KG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KG@2x.png"
+	},
+	"LT":{
+		"name": "Air Lituanica",
+		"code": "LT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LT@2x.png"
+	},
+	"Q2":{
+		"name": "Maldivian",
+		"code": "Q2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q2@2x.png"
+	},
+	"K2":{
+		"name": "Eurolot",
+		"code": "K2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K2@2x.png"
+	},
+	"6U":{
+		"name": "Air Cargo Germany",
+		"code": "6U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6U@2x.png"
+	},
+	"S8":{
+		"name": "Sounds Air Travel & Tourism Ltd.",
+		"code": "S8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S8@2x.png"
+	},
+	"7C":{
+		"name": "Jeju Air",
+		"code": "7C",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/7C@2x.png"
+	},
+	"ST":{
+		"name": "Germania",
+		"code": "ST",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ST@2x.png"
+	},
+	"MU":{
+		"name": "China Eastern Airlines",
+		"code": "MU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MU@2x.png"
+	},
+	"EG":{
+		"name": "Ernest Airline",
+		"code": "EG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EG@2x.png"
+	},
+	"3R":{
+		"name": "Avior Airlines",
+		"code": "3R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3R@2x.png"
+	},
+	"DR":{
+		"name": "Ruili Airlines",
+		"code": "DR",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DR@2x.png"
+	},
+	"P7":{
+		"name": "Small Planet Airlines",
+		"code": "P7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P7@2x.png"
+	},
+	"TQ":{
+		"name": "Tandem Aero",
+		"code": "TQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TQ@2x.png"
+	},
+	"8P":{
+		"name": "Pacific Coastal Airlines",
+		"code": "8P",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8P@2x.png"
+	},
+	"4M":{
+		"name": "LATAM Argentina",
+		"code": "4M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4M@2x.png"
+	},
+	"YM":{
+		"name": "Air Montenegro",
+		"code": "YM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YM@2x.png"
+	},
+	"LA":{
+		"name": "LATAM Chile",
+		"code": "LA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LA@2x.png"
+	},
+	"UH":{
+		"name": "Atlasjet Ukraine",
+		"code": "UH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UH@2x.png"
+	},
+	"HS":{
+		"name": "Héli Sécurité Hélicopter Airline",
+		"code": "HS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HS@2x.png"
+	},
+	"MG":{
+		"name": "Miami Air Lease, Inc.",
+		"code": "MG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MG@2x.png"
+	},
+	"H7":{
+		"name": "HiSky",
+		"code": "H7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/H7@2x.png"
+	},
+	"IG":{
+		"name": "Air Italy",
+		"code": "IG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/IG@2x.png"
+	},
+	"O2":{
+		"name": "Linear Air",
+		"code": "O2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O2@2x.png"
+	},
+	"KV":{
+		"name": "Asian Express Airline",
+		"code": "KV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KV@2x.png"
+	},
+	"EZ":{
+		"name": "Sun-Air of Scandinavia",
+		"code": "EZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EZ@2x.png"
+	},
+	"XZ":{
+		"name": "South African Express",
+		"code": "XZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XZ@2x.png"
+	},
+	"4S":{
+		"name": "Solar Cargo, C.A.",
+		"code": "4S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4S@2x.png"
+	},
+	"G3":{
+		"name": "Gol Transportes Aéreos",
+		"code": "G3",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/G3@2x.png"
+	},
+	"AA":{
+		"name": "American Airlines",
+		"code": "AA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AA@2x.png"
+	},
+	"6Y":{
+		"name": "SmartLynx Airlines",
+		"code": "6Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6Y@2x.png"
+	},
+	"8S":{
+		"name": "TurboJET",
+		"code": "8S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8S@2x.png"
+	},
+	"6N":{
+		"name": "Niger Airlines",
+		"code": "6N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6N@2x.png"
+	},
+	"NF":{
+		"name": "Air Vanuatu",
+		"code": "NF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NF@2x.png"
+	},
+	"Q4":{
+		"name": "Starlink Aviation",
+		"code": "Q4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q4@2x.png"
+	},
+	"NA":{
+		"name": "Nesma Airlines",
+		"code": "NA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NA@2x.png"
+	},
+	"5W":{
+		"name": "Wizz Air",
+		"code": "5W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5W@2x.png"
+	},
+	"BO":{
+		"name": "BB Airways",
+		"code": "BO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BO@2x.png"
+	},
+	"AN":{
+		"name": "HOP!",
+		"code": "AN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AN@2x.png"
+	},
+	"FW":{
+		"name": "Ibex Airlines",
+		"code": "FW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FW@2x.png"
+	},
+	"LE":{
+		"name": "Laparkan Airways, Inc.",
+		"code": "LE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LE@2x.png"
+	},
+	"3M":{
+		"name": "Silver Airways",
+		"code": "3M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3M@2x.png"
+	},
+	"NM":{
+		"name": "Manx2",
+		"code": "NM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NM@2x.png"
+	},
+	"0W":{
+		"name": "Business jet",
+		"code": "0W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0W@2x.png"
+	},
+	"1I":{
+		"name": "ChallengAir",
+		"code": "1I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1I@2x.png"
+	},
+	"OO":{
+		"name": "SkyWest Airlines",
+		"code": "OO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OO@2x.png"
+	},
+	"PZ":{
+		"name": "LATAM Paraguay",
+		"code": "PZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PZ@2x.png"
+	},
+	"J3":{
+		"name": "Northwestern Air",
+		"code": "J3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J3@2x.png"
+	},
+	"PO":{
+		"name": "Polar Air Cargo Worldwide, Inc.",
+		"code": "PO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PO@2x.png"
+	},
+	"H8":{
+		"name": "Hesa Airlines",
+		"code": "H8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/H8@2x.png"
+	},
+	"XW":{
+		"name": "NokScoot",
+		"code": "XW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XW@2x.png"
+	},
+	"GQ":{
+		"name": "Sky Express",
+		"code": "GQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GQ@2x.png"
+	},
+	"B7":{
+		"name": "Uni Air",
+		"code": "B7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B7@2x.png"
+	},
+	"KQ":{
+		"name": "Kenya Airways",
+		"code": "KQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KQ@2x.png"
+	},
+	"4U":{
+		"name": "Germanwings",
+		"code": "4U",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/4U@2x.png"
+	},
+	"G5":{
+		"name": "China Express Airlines",
+		"code": "G5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/G5@2x.png"
+	},
+	"5N":{
+		"name": "Smartavia",
+		"code": "5N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5N@2x.png"
+	},
+	"YF":{
+		"name": "Department of National Defence",
+		"code": "YF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YF@2x.png"
+	},
+	"LL":{
+		"name": "Miami Air International",
+		"code": "LL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LL@2x.png"
+	},
+	"7I":{
+		"name": "Insel Air",
+		"code": "7I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7I@2x.png"
+	},
+	"4J":{
+		"name": "FlyDamas",
+		"code": "4J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4J@2x.png"
+	},
+	"MD":{
+		"name": "Air Madagascar",
+		"code": "MD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MD@2x.png"
+	},
+	"9G":{
+		"name": "9G Rail",
+		"code": "9G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9G@2x.png"
+	},
+	"AS":{
+		"name": "Alaska Airlines",
+		"code": "AS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AS@2x.png"
+	},
+	"RA":{
+		"name": "Royal Nepal Airlines",
+		"code": "RA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RA@2x.png"
+	},
+	"5Z":{
+		"name": "CemAir",
+		"code": "5Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5Z@2x.png"
+	},
+	"CG":{
+		"name": "Airlines PNG",
+		"code": "CG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CG@2x.png"
+	},
+	"JU":{
+		"name": "Air Serbia",
+		"code": "JU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JU@2x.png"
+	},
+	"H2":{
+		"name": "Sky Airline",
+		"code": "H2",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/H2@2x.png"
+	},
+	"GH":{
+		"name": "Globus Airlines",
+		"code": "GH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GH@2x.png"
+	},
+	"F7":{
+		"name": "iFly Airlines",
+		"code": "F7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F7@2x.png"
+	},
+	"AR":{
+		"name": "Aerolineas Argentinas",
+		"code": "AR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AR@2x.png"
+	},
+	"SB":{
+		"name": "Aircalin",
+		"code": "SB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SB@2x.png"
+	},
+	"UX":{
+		"name": "Air Europa",
+		"code": "UX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UX@2x.png"
+	},
+	"1S":{
+		"name": "Sabre Inc.",
+		"code": "1S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1S@2x.png"
+	},
+	"JM":{
+		"name": "Air Jamaica",
+		"code": "JM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JM@2x.png"
+	},
+	"FG":{
+		"name": "Ariana Afghan Airlines",
+		"code": "FG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FG@2x.png"
+	},
+	"SG":{
+		"name": "SpiceJet",
+		"code": "SG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/SG@2x.png"
+	},
+	"QF":{
+		"name": "Qantas",
+		"code": "QF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QF@2x.png"
+	},
+	"7T":{
+		"name": "Trenitalia",
+		"code": "7T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7T@2x.png"
+	},
+	"N6":{
+		"name": "Nomad Aviation (PTY) Ltd.",
+		"code": "N6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N6@2x.png"
+	},
+	"QH":{
+		"name": "Bamboo Airways",
+		"code": "QH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QH@2x.png"
+	},
+	"H9":{
+		"name": "Himalaya Airlines",
+		"code": "H9",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/H9@2x.png"
+	},
+	"BU":{
+		"name": "Compagnie Africaine d'Aviation",
+		"code": "BU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BU@2x.png"
+	},
+	"7K":{
+		"name": "MetroJet",
+		"code": "7K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7K@2x.png"
+	},
+	"BV":{
+		"name": "Blue Panorama Airlines",
+		"code": "BV",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/BV@2x.png"
+	},
+	"2C":{
+		"name": "SNCF",
+		"code": "2C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2C@2x.png"
+	},
+	"OA":{
+		"name": "Olympic Air",
+		"code": "OA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OA@2x.png"
+	},
+	"KL":{
+		"name": "KLM",
+		"code": "KL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KL@2x.png"
+	},
+	"JJ":{
+		"name": "LATAM Brasil",
+		"code": "JJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JJ@2x.png"
+	},
+	"8U":{
+		"name": "Afriqiyah Airways",
+		"code": "8U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8U@2x.png"
+	},
+	"6T":{
+		"name": "Air Mandalay",
+		"code": "6T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6T@2x.png"
+	},
+	"FM":{
+		"name": "Shanghai Airlines",
+		"code": "FM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FM@2x.png"
+	},
+	"L4":{
+		"name": "Air Service Liege",
+		"code": "L4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L4@2x.png"
+	},
+	"W5":{
+		"name": "Mahan Airlines",
+		"code": "W5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W5@2x.png"
+	},
+	"VN":{
+		"name": "Vietnam Airlines",
+		"code": "VN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VN@2x.png"
+	},
+	"XP":{
+		"name": "TEM Enterprises",
+		"code": "XP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XP@2x.png"
+	},
+	"DB":{
+		"name": "Brit Air",
+		"code": "DB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DB@2x.png"
+	},
+	"3G":{
+		"name": "Gambia Bird Airlines",
+		"code": "3G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3G@2x.png"
+	},
+	"N8":{
+		"name": "National Airlines",
+		"code": "N8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N8@2x.png"
+	},
+	"YO":{
+		"name": "Heli Air Monaco",
+		"code": "YO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YO@2x.png"
+	},
+	"HV":{
+		"name": "Transavia",
+		"code": "HV",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/HV@2x.png"
+	},
+	"FQ":{
+		"name": "Brindabella Airlines",
+		"code": "FQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FQ@2x.png"
+	},
+	"9W":{
+		"name": "Jet Airways",
+		"code": "9W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9W@2x.png"
+	},
+	"V0":{
+		"name": "Conviasa",
+		"code": "V0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V0@2x.png"
+	},
+	"8E":{
+		"name": "Bering Air",
+		"code": "8E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8E@2x.png"
+	},
+	"II":{
+		"name": "IBC Airways",
+		"code": "II",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/II@2x.png"
+	},
+	"TP":{
+		"name": "TAP Portugal",
+		"code": "TP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TP@2x.png"
+	},
+	"YC":{
+		"name": "Yamal Airlines",
+		"code": "YC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YC@2x.png"
+	},
+	"SK":{
+		"name": "Scandinavian Airlines",
+		"code": "SK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SK@2x.png"
+	},
+	"UY":{
+		"name": "Air Caucasus",
+		"code": "UY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UY@2x.png"
+	},
+	"M8":{
+		"name": "SkyJet",
+		"code": "M8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M8@2x.png"
+	},
+	"IX":{
+		"name": "Air India Express",
+		"code": "IX",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/IX@2x.png"
+	},
+	"TM":{
+		"name": "LAM Mozambique Airlines",
+		"code": "TM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TM@2x.png"
+	},
+	"Z9":{
+		"name": "Bek Air",
+		"code": "Z9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z9@2x.png"
+	},
+	"IM":{
+		"name": "JSC Aircompany ATMA",
+		"code": "IM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IM@2x.png"
+	},
+	"YR":{
+		"name": "Grand Canyon Airlines, Inc.dba Scenic Airlines",
+		"code": "YR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YR@2x.png"
+	},
+	"PS":{
+		"name": "UIA",
+		"code": "PS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PS@2x.png"
+	},
+	"V3":{
+		"name": "Carpatair",
+		"code": "V3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V3@2x.png"
+	},
+	"T4":{
+		"name": "TRIP Linhas Aéreas",
+		"code": "T4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T4@2x.png"
+	},
+	"AI":{
+		"name": "Air India",
+		"code": "AI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AI@2x.png"
+	},
+	"PL":{
+		"name": "Southern Air Charter",
+		"code": "PL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PL@2x.png"
+	},
+	"Q7":{
+		"name": "SkyBahamas Airlines",
+		"code": "Q7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q7@2x.png"
+	},
+	"5K":{
+		"name": "Hi Fly",
+		"code": "5K",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/5K@2x.png"
+	},
+	"CL":{
+		"name": "Lufthansa CityLine",
+		"code": "CL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CL@2x.png"
+	},
+	"O3":{
+		"name": "Orange Air, LLCN/A",
+		"code": "O3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O3@2x.png"
+	},
+	"DU":{
+		"name": "Norwegian Long Haul",
+		"code": "DU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DU@2x.png"
+	},
+	"CT":{
+		"name": "Alitalia CityLiner",
+		"code": "CT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CT@2x.png"
+	},
+	"VE":{
+		"name": "C.A.I. Second",
+		"code": "VE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VE@2x.png"
+	},
+	"4N":{
+		"name": "Air North Charter and Training Ltd.",
+		"code": "4N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4N@2x.png"
+	},
+	"G7":{
+		"name": "GoJet Airlines",
+		"code": "G7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/G7@2x.png"
+	},
+	"E6":{
+		"name": "Bringer Air Cargo",
+		"code": "E6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/E6@2x.png"
+	},
+	"VR":{
+		"name": "TACV Cabo Verde Airlines",
+		"code": "VR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VR@2x.png"
+	},
+	"3J":{
+		"name": "Cargo Three Inc. dba Pan Air Cargo",
+		"code": "3J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3J@2x.png"
+	},
+	"P2":{
+		"name": "Airkenya Express",
+		"code": "P2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P2@2x.png"
+	},
+	"1F":{
+		"name": "INFINI Travel Information, Inc.",
+		"code": "1F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1F@2x.png"
+	},
+	"9C":{
+		"name": "Spring Airlines",
+		"code": "9C",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/9C@2x.png"
+	},
+	"U3":{
+		"name": "As Avies",
+		"code": "U3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U3@2x.png"
+	},
+	"CE":{
+		"name": "Chalair Aviation",
+		"code": "CE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CE@2x.png"
+	},
+	"4D":{
+		"name": "Air Sinai",
+		"code": "4D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4D@2x.png"
+	},
+	"SR":{
+		"name": "Sundair",
+		"code": "SR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SR@2x.png"
+	},
+	"SV":{
+		"name": "Saudia",
+		"code": "SV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SV@2x.png"
+	},
+	"OY":{
+		"name": "Andes Lineas Aereas",
+		"code": "OY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OY@2x.png"
+	},
+	"GO":{
+		"name": "ULS Airlines Cargo",
+		"code": "GO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GO@2x.png"
+	},
+	"DY":{
+		"name": "Norwegian Air Shuttle",
+		"code": "DY",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DY@2x.png"
+	},
+	"1G":{
+		"name": "Travelport Global Distribution SystemB.V.",
+		"code": "1G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1G@2x.png"
+	},
+	"HW":{
+		"name": "North-Wright Airways",
+		"code": "HW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HW@2x.png"
+	},
+	"CD":{
+		"name": "Corendon Dutch Airlines",
+		"code": "CD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CD@2x.png"
+	},
+	"ZK":{
+		"name": "Great Lakes Airlines",
+		"code": "ZK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZK@2x.png"
+	},
+	"DP":{
+		"name": "Pobeda",
+		"code": "DP",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DP@2x.png"
+	},
+	"EC":{
+		"name": "OpenSkies",
+		"code": "EC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EC@2x.png"
+	},
+	"FD":{
+		"name": "Thai AirAsia",
+		"code": "FD",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FD@2x.png"
+	},
+	"DH":{
+		"name": "Douniah Airlines",
+		"code": "DH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DH@2x.png"
+	},
+	"5C":{
+		"name": "Nature Air",
+		"code": "5C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5C@2x.png"
+	},
+	"HG":{
+		"name": "Niki",
+		"code": "HG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/HG@2x.png"
+	},
+	"4Z":{
+		"name": "Airlink",
+		"code": "4Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4Z@2x.png"
+	},
+	"AB":{
+		"name": "Air Berlin",
+		"code": "AB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AB@2x.png"
+	},
+	"KY":{
+		"name": "Kunming Airlines",
+		"code": "KY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KY@2x.png"
+	},
+	"GM":{
+		"name": "Germania Flug",
+		"code": "GM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GM@2x.png"
+	},
+	"9Q":{
+		"name": "Caicos Express Airways",
+		"code": "9Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9Q@2x.png"
+	},
+	"WT":{
+		"name": "Swiftair",
+		"code": "WT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WT@2x.png"
+	},
+	"5Q":{
+		"name": "BQB Lineas Aereas",
+		"code": "5Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5Q@2x.png"
+	},
+	"LS":{
+		"name": "Jet2.com",
+		"code": "LS",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/LS@2x.png"
+	},
+	"W6":{
+		"name": "Wizz Air",
+		"code": "W6",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/W6@2x.png"
+	},
+	"G6":{
+		"name": "Ghadames Air Transport",
+		"code": "G6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/G6@2x.png"
+	},
+	"RU":{
+		"name": "AirBridgeCargo",
+		"code": "RU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RU@2x.png"
+	},
+	"AZ":{
+		"name": "ITA Airways",
+		"code": "AZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AZ@2x.png"
+	},
+	"F8":{
+		"name": "Flair Airlines Ltd.",
+		"code": "F8",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/F8@2x.png"
+	},
+	"J5":{
+		"name": "Alaska Seaplane",
+		"code": "J5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J5@2x.png"
+	},
+	"R4":{
+		"name": "RUS Aviation",
+		"code": "R4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R4@2x.png"
+	},
+	"JF":{
+		"name": "Jet Asia Airways",
+		"code": "JF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JF@2x.png"
+	},
+	"9J":{
+		"name": "Dana Airlines Limited",
+		"code": "9J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9J@2x.png"
+	},
+	"JN":{
+		"name": "Joon",
+		"code": "JN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JN@2x.png"
+	},
+	"3F":{
+		"name": "FlyOne",
+		"code": "3F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3F@2x.png"
+	},
+	"GL":{
+		"name": "Air Greenland",
+		"code": "GL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GL@2x.png"
+	},
+	"IZ":{
+		"name": "Arkia",
+		"code": "IZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IZ@2x.png"
+	},
+	"1N":{
+		"name": "Navitaire",
+		"code": "1N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1N@2x.png"
+	},
+	"7A":{
+		"name": "Air Jet",
+		"code": "7A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7A@2x.png"
+	},
+	"KE":{
+		"name": "Korean Air",
+		"code": "KE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KE@2x.png"
+	},
+	"P5":{
+		"name": "Aerorepublica",
+		"code": "P5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P5@2x.png"
+	},
+	"0G":{
+		"name": "Grumeti Air",
+		"code": "0G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0G@2x.png"
+	},
+	"GS":{
+		"name": "Tianjin Airlines",
+		"code": "GS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GS@2x.png"
+	},
+	"T5":{
+		"name": "Turkmenistan Airlines",
+		"code": "T5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T5@2x.png"
+	},
+	"XU":{
+		"name": "African Express Airways (K)  Limited",
+		"code": "XU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XU@2x.png"
+	},
+	"AF":{
+		"name": "Air France",
+		"code": "AF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AF@2x.png"
+	},
+	"I3":{
+		"name": "ATA Airlines",
+		"code": "I3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I3@2x.png"
+	},
+	"ЕП":{
+		"name": "Armenia Airways",
+		"code": "ЕП",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ЕП@2x.png"
+	},
+	"IJ":{
+		"name": "Spring Airlines Japan",
+		"code": "IJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/IJ@2x.png"
+	},
+	"IL":{
+		"name": "PT.Trigana Air Service",
+		"code": "IL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IL@2x.png"
+	},
+	"3K":{
+		"name": "Jetstar Asia",
+		"code": "3K",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/3K@2x.png"
+	},
+	"YN":{
+		"name": "Air Creebec",
+		"code": "YN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YN@2x.png"
+	},
+	"WI":{
+		"name": "White Airways",
+		"code": "WI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WI@2x.png"
+	},
+	"CA":{
+		"name": "Air China",
+		"code": "CA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CA@2x.png"
+	},
+	"JR":{
+		"name": "Joy Air",
+		"code": "JR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JR@2x.png"
+	},
+	"JL":{
+		"name": "Japan Airlines",
+		"code": "JL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JL@2x.png"
+	},
+	"S7":{
+		"name": "S7 Airlines",
+		"code": "S7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S7@2x.png"
+	},
+	"P0":{
+		"name": "Proflight Zambia",
+		"code": "P0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P0@2x.png"
+	},
+	"2I":{
+		"name": "Star Peru",
+		"code": "2I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2I@2x.png"
+	},
+	"HO":{
+		"name": "Juneyao Airlines",
+		"code": "HO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HO@2x.png"
+	},
+	"TN":{
+		"name": "Air Tahiti Nui",
+		"code": "TN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TN@2x.png"
+	},
+	"B3":{
+		"name": "Bhutan Airlines",
+		"code": "B3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B3@2x.png"
+	},
+	"DG":{
+		"name": "Tigerair Philippines",
+		"code": "DG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DG@2x.png"
+	},
+	"BP":{
+		"name": "Air Botswana",
+		"code": "BP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BP@2x.png"
+	},
+	"US":{
+		"name": "US Airways",
+		"code": "US",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/US@2x.png"
+	},
+	"ZL":{
+		"name": "Regional Express",
+		"code": "ZL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZL@2x.png"
+	},
+	"3N":{
+		"name": "Air Urga",
+		"code": "3N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3N@2x.png"
+	},
+	"4T":{
+		"name": "Belair Airlines",
+		"code": "4T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4T@2x.png"
+	},
+	"EE":{
+		"name": "Regional Jet OÜ",
+		"code": "EE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EE@2x.png"
+	},
+	"X9":{
+		"name": "Avion Express",
+		"code": "X9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X9@2x.png"
+	},
+	"OL":{
+		"name": "Polynesian Airlines",
+		"code": "OL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OL@2x.png"
+	},
+	"5R":{
+		"name": "Rutas Aereas, C.A. dba  RUTACA",
+		"code": "5R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5R@2x.png"
+	},
+	"BC":{
+		"name": "Skymark Airlines",
+		"code": "BC",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/BC@2x.png"
+	},
+	"U7":{
+		"name": "Air Uganda",
+		"code": "U7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U7@2x.png"
+	},
+	"3L":{
+		"name": "Air Arabia Abu Dhabi",
+		"code": "3L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3L@2x.png"
+	},
+	"SY":{
+		"name": "Sun Country Airlines",
+		"code": "SY",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/SY@2x.png"
+	},
+	"ZH":{
+		"name": "Shenzhen Airlines",
+		"code": "ZH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZH@2x.png"
+	},
+	"JW":{
+		"name": "Vanilla Air",
+		"code": "JW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/JW@2x.png"
+	},
+	"NN":{
+		"name": "VIM Airlines",
+		"code": "NN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NN@2x.png"
+	},
+	"K7":{
+		"name": "Air KBZ",
+		"code": "K7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K7@2x.png"
+	},
+	"H6":{
+		"name": "Bulgarian Air Charter",
+		"code": "H6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/H6@2x.png"
+	},
+	"TH":{
+		"name": "Raya Airways Sdn. Bhd.dba Raya Airways",
+		"code": "TH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TH@2x.png"
+	},
+	"RR":{
+		"name": "Buzz",
+		"code": "RR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RR@2x.png"
+	},
+	"PC":{
+		"name": "Pegasus Airlines",
+		"code": "PC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PC@2x.png"
+	},
+	"0S":{
+		"name": "Sunday Express",
+		"code": "0S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0S@2x.png"
+	},
+	"MT":{
+		"name": "Thomas Cook Airlines",
+		"code": "MT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MT@2x.png"
+	},
+	"S1":{
+		"name": "Lufthansa Systems",
+		"code": "S1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S1@2x.png"
+	},
+	"V2":{
+		"name": "Vision Airlines",
+		"code": "V2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V2@2x.png"
+	},
+	"D6":{
+		"name": "Inter Air",
+		"code": "D6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D6@2x.png"
+	},
+	"RB":{
+		"name": "Syrian Arab Airlines",
+		"code": "RB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RB@2x.png"
+	},
+	"RQ":{
+		"name": "Kam Air",
+		"code": "RQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RQ@2x.png"
+	},
+	"JQ":{
+		"name": "Jetstar",
+		"code": "JQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JQ@2x.png"
+	},
+	"IB":{
+		"name": "Iberia",
+		"code": "IB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IB@2x.png"
+	},
+	"7M":{
+		"name": "MAYAir",
+		"code": "7M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7M@2x.png"
+	},
+	"LX":{
+		"name": "Swiss International Air Lines",
+		"code": "LX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LX@2x.png"
+	},
+	"RH":{
+		"name": "PT Republic Express Airlines",
+		"code": "RH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RH@2x.png"
+	},
+	"P1":{
+		"name": "Public Charters",
+		"code": "P1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P1@2x.png"
+	},
+	"ZW":{
+		"name": "Air Wisconsin Airlines Corporation(AWAC)",
+		"code": "ZW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZW@2x.png"
+	},
+	"HI":{
+		"name": "Papillon Airways",
+		"code": "HI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HI@2x.png"
+	},
+	"W3":{
+		"name": "Arik Air",
+		"code": "W3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W3@2x.png"
+	},
+	"0X":{
+		"name": "Air Excel",
+		"code": "0X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0X@2x.png"
+	},
+	"QG":{
+		"name": "Citilink Airlines",
+		"code": "QG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/QG@2x.png"
+	},
+	"PJ":{
+		"name": "Air Saint Pierre",
+		"code": "PJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PJ@2x.png"
+	},
+	"OM":{
+		"name": "MIAT Mongolian Airlines",
+		"code": "OM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OM@2x.png"
+	},
+	"BH":{
+		"name": "Hawkair",
+		"code": "BH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BH@2x.png"
+	},
+	"UW":{
+		"name": "Uni-Top Airlines",
+		"code": "UW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UW@2x.png"
+	},
+	"C1":{
+		"name": "Tectimes Sudamerica",
+		"code": "C1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C1@2x.png"
+	},
+	"VL":{
+		"name": "Air Via Ltd.",
+		"code": "VL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VL@2x.png"
+	},
+	"IN":{
+		"name": "NAM Air",
+		"code": "IN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IN@2x.png"
+	},
+	"SS":{
+		"name": "Corsair International",
+		"code": "SS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SS@2x.png"
+	},
+	"A2":{
+		"name": "Animawings",
+		"code": "A2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A2@2x.png"
+	},
+	"UK":{
+		"name": "Vistara",
+		"code": "UK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UK@2x.png"
+	},
+	"5V":{
+		"name": "Everts Air Cargo",
+		"code": "5V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5V@2x.png"
+	},
+	"J7":{
+		"name": "Afrijet Business Service",
+		"code": "J7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J7@2x.png"
+	},
+	"L7":{
+		"name": "Linea Aerea Carguera de Colombia S.A.",
+		"code": "L7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L7@2x.png"
+	},
+	"CN":{
+		"name": "Grand China Air",
+		"code": "CN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CN@2x.png"
+	},
+	"9P":{
+		"name": "Air Arabia Jordan",
+		"code": "9P",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/9P@2x.png"
+	},
+	"VB":{
+		"name": "VivaAerobus",
+		"code": "VB",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VB@2x.png"
+	},
+	"L9":{
+		"name": "Lumiwings",
+		"code": "L9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L9@2x.png"
+	},
+	"F9":{
+		"name": "Frontier Airlines",
+		"code": "F9",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/F9@2x.png"
+	},
+	"T0":{
+		"name": "TACA Peru",
+		"code": "T0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T0@2x.png"
+	},
+	"V6":{
+		"name": "Clairmont Holdings Ltd dba VI Air Link",
+		"code": "V6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V6@2x.png"
+	},
+	"BS":{
+		"name": "US-Bangla Airlines",
+		"code": "BS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BS@2x.png"
+	},
+	"IP":{
+		"name": "Apsara International Air",
+		"code": "IP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IP@2x.png"
+	},
+	"QC":{
+		"name": "Camair-Co",
+		"code": "QC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QC@2x.png"
+	},
+	"TZ":{
+		"name": "Scoot",
+		"code": "TZ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TZ@2x.png"
+	},
+	"AP":{
+		"name": "Air One",
+		"code": "AP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AP@2x.png"
+	},
+	"7Q":{
+		"name": "Elite Airways",
+		"code": "7Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7Q@2x.png"
+	},
+	"A5":{
+		"name": "HOP!",
+		"code": "A5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A5@2x.png"
+	},
+	"L1":{
+		"name": "E-Savtravel",
+		"code": "L1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L1@2x.png"
+	},
+	"3U":{
+		"name": "Sichuan Airlines",
+		"code": "3U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3U@2x.png"
+	},
+	"HE":{
+		"name": "LGW Luftfahrtgesellschaft Walter",
+		"code": "HE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HE@2x.png"
+	},
+	"7G":{
+		"name": "StarFlyer",
+		"code": "7G",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/7G@2x.png"
+	},
+	"FU":{
+		"name": "Fuzhou Airlines",
+		"code": "FU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FU@2x.png"
+	},
+	"TG":{
+		"name": "Thai Airways",
+		"code": "TG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TG@2x.png"
+	},
+	"KK":{
+		"name": "Atlas Global Airlines",
+		"code": "KK",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/KK@2x.png"
+	},
+	"XA":{
+		"name": "ARINC(Aeronautical Radio, Inc.)",
+		"code": "XA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XA@2x.png"
+	},
+	"8F":{
+		"name": "STP Airways",
+		"code": "8F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8F@2x.png"
+	},
+	"SI":{
+		"name": "Blue Islands",
+		"code": "SI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SI@2x.png"
+	},
+	"2U":{
+		"name": "Sun d'Or International Airlines",
+		"code": "2U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2U@2x.png"
+	},
+	"UV":{
+		"name": "Helicópteros del Sureste",
+		"code": "UV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UV@2x.png"
+	},
+	"5T":{
+		"name": "Canadian North",
+		"code": "5T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5T@2x.png"
+	},
+	"SC":{
+		"name": "Shandong Airlines",
+		"code": "SC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SC@2x.png"
+	},
+	"OG":{
+		"name": "Air Freight NZ",
+		"code": "OG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OG@2x.png"
+	},
+	"KH":{
+		"name": "Kyrgyz Air",
+		"code": "KH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KH@2x.png"
+	},
+	"C5":{
+		"name": "CommutAir",
+		"code": "C5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C5@2x.png"
+	},
+	"L3":{
+		"name": "Lynx Aviation",
+		"code": "L3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L3@2x.png"
+	},
+	"EK":{
+		"name": "Emirates",
+		"code": "EK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EK@2x.png"
+	},
+	"FF":{
+		"name": "Airshop B.V.",
+		"code": "FF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FF@2x.png"
+	},
+	"V5":{
+		"name": "Aerovías DAP",
+		"code": "V5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V5@2x.png"
+	},
+	"6I":{
+		"name": "Air Alsie",
+		"code": "6I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6I@2x.png"
+	},
+	"SU":{
+		"name": "Aeroflot",
+		"code": "SU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SU@2x.png"
+	},
+	"8D":{
+		"name": "FITS Aviation (Pvt) Ltd",
+		"code": "8D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8D@2x.png"
+	},
+	"G9":{
+		"name": "Air Arabia",
+		"code": "G9",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/G9@2x.png"
+	},
+	"BN":{
+		"name": "Bahrain Air",
+		"code": "BN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BN@2x.png"
+	},
+	"UL":{
+		"name": "Srilankan Airlines",
+		"code": "UL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UL@2x.png"
+	},
+	"F3":{
+		"name": "Flyadeal",
+		"code": "F3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F3@2x.png"
+	},
+	"VY":{
+		"name": "Vueling",
+		"code": "VY",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VY@2x.png"
+	},
+	"R6":{
+		"name": "DOT LT",
+		"code": "R6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R6@2x.png"
+	},
+	"ZP":{
+		"name": "Silk Way Airlines",
+		"code": "ZP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZP@2x.png"
+	},
+	"2K":{
+		"name": "Avianca Ecuador",
+		"code": "2K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2K@2x.png"
+	},
+	"OK":{
+		"name": "Czech Airlines",
+		"code": "OK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OK@2x.png"
+	},
+	"LW":{
+		"name": "Pacific Wings",
+		"code": "LW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LW@2x.png"
+	},
+	"ZX":{
+		"name": "Air Georgian Ltd. dba Air Alliance",
+		"code": "ZX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZX@2x.png"
+	},
+	"9N":{
+		"name": "Tropic Air Limited",
+		"code": "9N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9N@2x.png"
+	},
+	"ER":{
+		"name": "Air East",
+		"code": "ER",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ER@2x.png"
+	},
+	"O6":{
+		"name": "Avianca Brazil",
+		"code": "O6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O6@2x.png"
+	},
+	"VH":{
+		"name": "Viva Air Colombia",
+		"code": "VH",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VH@2x.png"
+	},
+	"LU":{
+		"name": "LAN Express",
+		"code": "LU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LU@2x.png"
+	},
+	"7V":{
+		"name": "Federal Air",
+		"code": "7V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7V@2x.png"
+	},
+	"PN":{
+		"name": "China West Air",
+		"code": "PN",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/PN@2x.png"
+	},
+	"VV":{
+		"name": "Viva Air",
+		"code": "VV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VV@2x.png"
+	},
+	"RC":{
+		"name": "Atlantic Airways",
+		"code": "RC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RC@2x.png"
+	},
+	"MO":{
+		"name": "Calm Air International",
+		"code": "MO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MO@2x.png"
+	},
+	"RD":{
+		"name": "French Armed Forces",
+		"code": "RD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RD@2x.png"
+	},
+	"ZT":{
+		"name": "Titan Airways Limited",
+		"code": "ZT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZT@2x.png"
+	},
+	"YW":{
+		"name": "Air Nostrum",
+		"code": "YW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YW@2x.png"
+	},
+	"K5":{
+		"name": "SeaPort Airlines",
+		"code": "K5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K5@2x.png"
+	},
+	"IO":{
+		"name": "IrAero",
+		"code": "IO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IO@2x.png"
+	},
+	"OC":{
+		"name": "Oriental Air Bridge",
+		"code": "OC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OC@2x.png"
+	},
+	"1B":{
+		"name": "Abacus International Pte. Ltd.",
+		"code": "1B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1B@2x.png"
+	},
+	"ZI":{
+		"name": "Aigle Azur",
+		"code": "ZI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZI@2x.png"
+	},
+	"XG":{
+		"name": "SunExpress Deutschland",
+		"code": "XG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XG@2x.png"
+	},
+	"VI":{
+		"name": "Volga-Dnepr Airlines",
+		"code": "VI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VI@2x.png"
+	},
+	"GZ":{
+		"name": "Air Rarotonga",
+		"code": "GZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GZ@2x.png"
+	},
+	"HD":{
+		"name": "Air Do",
+		"code": "HD",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/HD@2x.png"
+	},
+	"N3":{
+		"name": "Aerolíneas Mas",
+		"code": "N3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N3@2x.png"
+	},
+	"NC":{
+		"name": "Cobham Aviation Services Australia",
+		"code": "NC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NC@2x.png"
+	},
+	"1K":{
+		"name": "Sutra Inc.",
+		"code": "1K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1K@2x.png"
+	},
+	"TD":{
+		"name": "Atlantis European Airways",
+		"code": "TD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TD@2x.png"
+	},
+	"O8":{
+		"name": "Siam Air",
+		"code": "O8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O8@2x.png"
+	},
+	"FA":{
+		"name": "Safair",
+		"code": "FA",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FA@2x.png"
+	},
+	"MI":{
+		"name": "Silkair",
+		"code": "MI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MI@2x.png"
+	},
+	"1U":{
+		"name": "ITA Software Inc.",
+		"code": "1U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1U@2x.png"
+	},
+	"8B":{
+		"name": "Business Air Co Ltd",
+		"code": "8B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8B@2x.png"
+	},
+	"RF":{
+		"name": "Connellan air disaster",
+		"code": "RF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RF@2x.png"
+	},
+	"ML":{
+		"name": "Air Mediterranee",
+		"code": "ML",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ML@2x.png"
+	},
+	"A4":{
+		"name": "Azimut",
+		"code": "A4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A4@2x.png"
+	},
+	"1E":{
+		"name": "Travelsky Technology Limited",
+		"code": "1E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1E@2x.png"
+	},
+	"D0":{
+		"name": "DHL Air Limited",
+		"code": "D0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D0@2x.png"
+	},
+	"8W":{
+		"name": "Private Wings",
+		"code": "8W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8W@2x.png"
+	},
+	"VO":{
+		"name": "Tyrolean Airways",
+		"code": "VO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VO@2x.png"
+	},
+	"XC":{
+		"name": "Corendon Airlines",
+		"code": "XC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XC@2x.png"
+	},
+	"0L":{
+		"name": "Lodyssey",
+		"code": "0L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0L@2x.png"
+	},
+	"1X":{
+		"name": "Fly Branson Travel dba Branson AirExpress",
+		"code": "1X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1X@2x.png"
+	},
+	"UB":{
+		"name": "Myanmar National Airlines",
+		"code": "UB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UB@2x.png"
+	},
+	"NY":{
+		"name": "Air Iceland",
+		"code": "NY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NY@2x.png"
+	},
+	"3E":{
+		"name": "Air Choice One",
+		"code": "3E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3E@2x.png"
+	},
+	"ZA":{
+		"name": "Skywings Asia Airlines Co., Ltd.",
+		"code": "ZA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZA@2x.png"
+	},
+	"B0":{
+		"name": "La Compagnie",
+		"code": "B0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B0@2x.png"
+	},
+	"7N":{
+		"name": "Pan American World Airways",
+		"code": "7N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7N@2x.png"
+	},
+	"9U":{
+		"name": "Air Moldova",
+		"code": "9U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9U@2x.png"
+	},
+	"FH":{
+		"name": "Freebird Airlines",
+		"code": "FH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FH@2x.png"
+	},
+	"Z6":{
+		"name": "Dniproavia",
+		"code": "Z6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z6@2x.png"
+	},
+	"UP":{
+		"name": "Bahamasair",
+		"code": "UP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UP@2x.png"
+	},
+	"DF":{
+		"name": "Condor",
+		"code": "DF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DF@2x.png"
+	},
+	"Z4":{
+		"name": "Zagros Air Co.",
+		"code": "Z4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z4@2x.png"
+	},
+	"S9":{
+		"name": "Starbow",
+		"code": "S9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S9@2x.png"
+	},
+	"6C":{
+		"name": "Air Timor",
+		"code": "6C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6C@2x.png"
+	},
+	"DO":{
+		"name": "Discovery Airways",
+		"code": "DO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DO@2x.png"
+	},
+	"CZ":{
+		"name": "China Southern Airlines",
+		"code": "CZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CZ@2x.png"
+	},
+	"P4":{
+		"name": "Aerolíneas Sosa",
+		"code": "P4",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/P4@2x.png"
+	},
+	"YY":{
+		"name": "Major Airline",
+		"code": "YY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YY@2x.png"
+	},
+	"O9":{
+		"name": "NOVA Airlines",
+		"code": "O9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O9@2x.png"
+	},
+	"BY":{
+		"name": "Thomson Airways",
+		"code": "BY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BY@2x.png"
+	},
+	"1D":{
+		"name": "Radixx Solutions International, Inc.",
+		"code": "1D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1D@2x.png"
+	},
+	"J9":{
+		"name": "Jazeera Airways",
+		"code": "J9",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/J9@2x.png"
+	},
+	"3Z":{
+		"name": "Travel Service Polska Sp. z.o.o.",
+		"code": "3Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3Z@2x.png"
+	},
+	"C6":{
+		"name": "CanJet",
+		"code": "C6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C6@2x.png"
+	},
+	"YP":{
+		"name": "Perimeter Aviation Ltd.",
+		"code": "YP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YP@2x.png"
+	},
+	"1T":{
+		"name": "PT Aerosystems Indonesia",
+		"code": "1T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1T@2x.png"
+	},
+	"NX":{
+		"name": "Air Macau",
+		"code": "NX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NX@2x.png"
+	},
+	"SM":{
+		"name": "AIR CAIRO",
+		"code": "SM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SM@2x.png"
+	},
+	"RS":{
+		"name": "Sky Regional Airlines",
+		"code": "RS",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/RS@2x.png"
+	},
+	"3O":{
+		"name": "Air Arabia Maroc",
+		"code": "3O",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/3O@2x.png"
+	},
+	"TX":{
+		"name": "Air Caraibes",
+		"code": "TX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TX@2x.png"
+	},
+	"NJ":{
+		"name": "Aero VIP",
+		"code": "NJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NJ@2x.png"
+	},
+	"FS":{
+		"name": "Syphax Airlines",
+		"code": "FS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FS@2x.png"
+	},
+	"LD":{
+		"name": "AHK Air Hong Kong Limited",
+		"code": "LD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LD@2x.png"
+	},
+	"WP":{
+		"name": "Island Air",
+		"code": "WP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WP@2x.png"
+	},
+	"R5":{
+		"name": "Jordan Aviation",
+		"code": "R5",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/R5@2x.png"
+	},
+	"XR":{
+		"name": "Virgin Australia",
+		"code": "XR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XR@2x.png"
+	},
+	"V8":{
+		"name": "Iliamna Air Taxi Inc.",
+		"code": "V8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V8@2x.png"
+	},
+	"XQ":{
+		"name": "Sun Express",
+		"code": "XQ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XQ@2x.png"
+	},
+	"1H":{
+		"name": "JSC \"Sirena-Travel\"",
+		"code": "1H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1H@2x.png"
+	},
+	"Q8":{
+		"name": "Trans Air Congo",
+		"code": "Q8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q8@2x.png"
+	},
+	"KO":{
+		"name": "Komiaviatrans",
+		"code": "KO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KO@2x.png"
+	},
+	"AH":{
+		"name": "Air Algerie",
+		"code": "AH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AH@2x.png"
+	},
+	"PG":{
+		"name": "Bangkok Airways",
+		"code": "PG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PG@2x.png"
+	},
+	"KC":{
+		"name": "Air Astana",
+		"code": "KC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KC@2x.png"
+	},
+	"5A":{
+		"name": "Alpine Aviation Inc.",
+		"code": "5A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5A@2x.png"
+	},
+	"CM":{
+		"name": "Copa Airlines",
+		"code": "CM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CM@2x.png"
+	},
+	"OE":{
+		"name": "Laudamotion",
+		"code": "OE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OE@2x.png"
+	},
+	"2Y":{
+		"name": "PT. My Indo Airlines",
+		"code": "2Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2Y@2x.png"
+	},
+	"SF":{
+		"name": "Tassili Airlines",
+		"code": "SF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SF@2x.png"
+	},
+	"NG":{
+		"name": "Aero Contractors",
+		"code": "NG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NG@2x.png"
+	},
+	"9X":{
+		"name": "Executive Express Aviation LLC dbaSouthern Airways",
+		"code": "9X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9X@2x.png"
+	},
+	"RT":{
+		"name": "UVT Aero",
+		"code": "RT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RT@2x.png"
+	},
+	"MZ":{
+		"name": "Merpati Nusantara Airlines",
+		"code": "MZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MZ@2x.png"
+	},
+	"QL":{
+		"name": "LASER Airlines",
+		"code": "QL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QL@2x.png"
+	},
+	"T7":{
+		"name": "Twin Jet",
+		"code": "T7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T7@2x.png"
+	},
+	"LN":{
+		"name": "Libyan Airlines",
+		"code": "LN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LN@2x.png"
+	},
+	"D2":{
+		"name": "Severstal Air",
+		"code": "D2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D2@2x.png"
+	},
+	"J8":{
+		"name": "Berjaya Air",
+		"code": "J8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J8@2x.png"
+	},
+	"TF":{
+		"name": "BRA",
+		"code": "TF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TF@2x.png"
+	},
+	"7F":{
+		"name": "First Air",
+		"code": "7F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7F@2x.png"
+	},
+	"DE":{
+		"name": "Condor",
+		"code": "DE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DE@2x.png"
+	},
+	"K4":{
+		"name": "ALS Ltd.",
+		"code": "K4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K4@2x.png"
+	},
+	"FX":{
+		"name": "FedEx",
+		"code": "FX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FX@2x.png"
+	},
+	"FE":{
+		"name": "Far Eastern Air Transport",
+		"code": "FE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FE@2x.png"
+	},
+	"A9":{
+		"name": "Georgian Airways",
+		"code": "A9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A9@2x.png"
+	},
+	"JY":{
+		"name": "InterCaribbean Airways",
+		"code": "JY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JY@2x.png"
+	},
+	"XX":{
+		"name": "Major Airline",
+		"code": "XX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XX@2x.png"
+	},
+	"3P":{
+		"name": "Tiara Air Aruba",
+		"code": "3P",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3P@2x.png"
+	},
+	"WV":{
+		"name": "Westair Aviation",
+		"code": "WV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WV@2x.png"
+	},
+	"LC":{
+		"name": "Skyway Costa Rica",
+		"code": "LC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LC@2x.png"
+	},
+	"D5":{
+		"name": "DHL Aero Expreso S.A.",
+		"code": "D5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D5@2x.png"
+	},
+	"DT":{
+		"name": "TAAG Angola Airlines",
+		"code": "DT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DT@2x.png"
+	},
+	"2H":{
+		"name": "Thalys International",
+		"code": "2H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2H@2x.png"
+	},
+	"4Q":{
+		"name": "Safi Airways",
+		"code": "4Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4Q@2x.png"
+	},
+	"HP":{
+		"name": "Amapola Flyg AB",
+		"code": "HP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HP@2x.png"
+	},
+	"T2":{
+		"name": "Nakina Air Service",
+		"code": "T2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T2@2x.png"
+	},
+	"G4":{
+		"name": "Allegiant Air",
+		"code": "G4",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/G4@2x.png"
+	},
+	"S2":{
+		"name": "Jet Lite",
+		"code": "S2",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/S2@2x.png"
+	},
+	"GJ":{
+		"name": "Loong Air",
+		"code": "GJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GJ@2x.png"
+	},
+	"86":{
+		"name": "Up Israel",
+		"code": "86",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/86@2x.png"
+	},
+	"FV":{
+		"name": "Rossiya Airlines",
+		"code": "FV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FV@2x.png"
+	},
+	"KI":{
+		"name": "KrasAvia",
+		"code": "KI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KI@2x.png"
+	},
+	"FC":{
+		"name": "FlyCorporate",
+		"code": "FC",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FC@2x.png"
+	},
+	"PY":{
+		"name": "Surinam Airways",
+		"code": "PY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PY@2x.png"
+	},
+	"VS":{
+		"name": "Virgin Atlantic",
+		"code": "VS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VS@2x.png"
+	},
+	"D9":{
+		"name": "Donavia",
+		"code": "D9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D9@2x.png"
+	},
+	"3V":{
+		"name": "TNT Airways",
+		"code": "3V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3V@2x.png"
+	},
+	"JB":{
+		"name": "Helijet",
+		"code": "JB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JB@2x.png"
+	},
+	"IR":{
+		"name": "Iran Air",
+		"code": "IR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IR@2x.png"
+	},
+	"EX":{
+		"name": "Thai Express Air Co. Ltd",
+		"code": "EX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EX@2x.png"
+	},
+	"5S":{
+		"name": "Global Aviation Services Group",
+		"code": "5S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5S@2x.png"
+	},
+	"DK":{
+		"name": "Thomas Cook Airlines Scandinavia",
+		"code": "DK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DK@2x.png"
+	},
+	"FY":{
+		"name": "Firefly",
+		"code": "FY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FY@2x.png"
+	},
+	"DD":{
+		"name": "Nok Air",
+		"code": "DD",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DD@2x.png"
+	},
+	"LY":{
+		"name": "El Al Israel Airlines",
+		"code": "LY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LY@2x.png"
+	},
+	"6A":{
+		"name": "Armenia Airways",
+		"code": "6A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6A@2x.png"
+	},
+	"EH":{
+		"name": "ANA Wings",
+		"code": "EH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EH@2x.png"
+	},
+	"5X":{
+		"name": "UPS",
+		"code": "5X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5X@2x.png"
+	},
+	"H1":{
+		"name": "Hahn Air",
+		"code": "H1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/H1@2x.png"
+	},
+	"XH":{
+		"name": "Special Ground Handling Service -XH",
+		"code": "XH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XH@2x.png"
+	},
+	"ТФ":{
+		"name": "Avia Traffic Company",
+		"code": "ТФ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ТФ@2x.png"
+	},
+	"R3":{
+		"name": "Yakutia Airlines",
+		"code": "R3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R3@2x.png"
+	},
+	"P8":{
+		"name": "Air Mekong",
+		"code": "P8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P8@2x.png"
+	},
+	"Z3":{
+		"name": "PM Air LLC",
+		"code": "Z3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z3@2x.png"
+	},
+	"TS":{
+		"name": "Air Transat",
+		"code": "TS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TS@2x.png"
+	},
+	"TV":{
+		"name": "Tibet Airlines",
+		"code": "TV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TV@2x.png"
+	},
+	"CU":{
+		"name": "Cubana de Aviación",
+		"code": "CU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CU@2x.png"
+	},
+	"GR":{
+		"name": "Aurigny Air Services",
+		"code": "GR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GR@2x.png"
+	},
+	"Q1":{
+		"name": "Sqiva Sistem",
+		"code": "Q1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q1@2x.png"
+	},
+	"WS":{
+		"name": "Westjet",
+		"code": "WS",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/WS@2x.png"
+	},
+	"TB":{
+		"name": "Jetairfly",
+		"code": "TB",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TB@2x.png"
+	},
+	"NE":{
+		"name": "Nesma Airlines",
+		"code": "NE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NE@2x.png"
+	},
+	"P3":{
+		"name": "Passaredo Linhas Aereas",
+		"code": "P3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P3@2x.png"
+	},
+	"6D":{
+		"name": "Travel Service Slovensko",
+		"code": "6D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6D@2x.png"
+	},
+	"3Y":{
+		"name": "Kartika Airlines",
+		"code": "3Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3Y@2x.png"
+	},
+	"HY":{
+		"name": "Uzbekistan Airways",
+		"code": "HY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HY@2x.png"
+	},
+	"Q3":{
+		"name": "Anguilla Air Services, Ltd",
+		"code": "Q3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q3@2x.png"
+	},
+	"6H":{
+		"name": "Israir Airlines",
+		"code": "6H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6H@2x.png"
+	},
+	"R2":{
+		"name": "Orenair",
+		"code": "R2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R2@2x.png"
+	},
+	"IW":{
+		"name": "Wings Air",
+		"code": "IW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/IW@2x.png"
+	},
+	"NL":{
+		"name": "Shaheen Air",
+		"code": "NL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NL@2x.png"
+	},
+	"XB":{
+		"name": "IATA - Clearing HouseInternational Air Transport Association",
+		"code": "XB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XB@2x.png"
+	},
+	"BE":{
+		"name": "Flybe",
+		"code": "BE",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/BE@2x.png"
+	},
+	"JC":{
+		"name": "Japan Air Commuter",
+		"code": "JC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JC@2x.png"
+	},
+	"E2":{
+		"name": "Eagle Atlantic Airlines",
+		"code": "E2",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/E2@2x.png"
+	},
+	"7J":{
+		"name": "Tajik Air",
+		"code": "7J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7J@2x.png"
+	},
+	"NH":{
+		"name": "All Nippon Airways",
+		"code": "NH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NH@2x.png"
+	},
+	"8V":{
+		"name": "Wright Air Service",
+		"code": "8V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8V@2x.png"
+	},
+	"1M":{
+		"name": "JSC Transport Automated InformationSystems - TAIS",
+		"code": "1M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1M@2x.png"
+	},
+	"UU":{
+		"name": "Air Austral",
+		"code": "UU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UU@2x.png"
+	},
+	"JG":{
+		"name": "JETGO Australia",
+		"code": "JG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JG@2x.png"
+	},
+	"G8":{
+		"name": "Go!",
+		"code": "G8",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/G8@2x.png"
+	},
+	"K1":{
+		"name": "Topas Co. Ltd.",
+		"code": "K1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K1@2x.png"
+	},
+	"TA":{
+		"name": "TACA Airlines",
+		"code": "TA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TA@2x.png"
+	},
+	"ZJ":{
+		"name": "Zambezi Airlines",
+		"code": "ZJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZJ@2x.png"
+	},
+	"LZ":{
+		"name": "Belle Air",
+		"code": "LZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LZ@2x.png"
+	},
+	"QM":{
+		"name": "Monacair",
+		"code": "QM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QM@2x.png"
+	},
+	"OQ":{
+		"name": "Chongqing Airlines",
+		"code": "OQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OQ@2x.png"
+	},
+	"EQ":{
+		"name": "TAME Linea Aerea del Ecuador",
+		"code": "EQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EQ@2x.png"
+	},
+	"LR":{
+		"name": "Avianca Costa Rica",
+		"code": "LR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LR@2x.png"
+	},
+	"SX":{
+		"name": "SkyWork Airlines",
+		"code": "SX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SX@2x.png"
+	},
+	"2Z":{
+		"name": "Passaredo Transportes Aereos S.A.",
+		"code": "2Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2Z@2x.png"
+	},
+	"AV":{
+		"name": "Avianca",
+		"code": "AV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AV@2x.png"
+	},
+	"RY":{
+		"name": "Jiangxi Air",
+		"code": "RY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RY@2x.png"
+	},
+	"HF":{
+		"name": "Air Côte d'Ivoire",
+		"code": "HF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HF@2x.png"
+	},
+	"9B":{
+		"name": "AccesRail",
+		"code": "9B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9B@2x.png"
+	},
+	"W2":{
+		"name": "FlexFlight",
+		"code": "W2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W2@2x.png"
+	},
+	"TO":{
+		"name": "Transavia",
+		"code": "TO",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TO@2x.png"
+	},
+	"JP":{
+		"name": "Adria Airways",
+		"code": "JP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JP@2x.png"
+	},
+	"EY":{
+		"name": "Etihad Airways",
+		"code": "EY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EY@2x.png"
+	},
+	"EL":{
+		"name": "Ellinair",
+		"code": "EL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EL@2x.png"
+	},
+	"Y5":{
+		"name": "Golden Myanmar Airlines Public Co., Ltd",
+		"code": "Y5",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/Y5@2x.png"
+	},
+	"LH":{
+		"name": "Lufthansa",
+		"code": "LH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LH@2x.png"
+	},
+	"IY":{
+		"name": "Yemenia",
+		"code": "IY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IY@2x.png"
+	},
+	"6W":{
+		"name": "FlyBosnia",
+		"code": "6W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6W@2x.png"
+	},
+	"7Y":{
+		"name": "Mann Yadanarpon Airlines",
+		"code": "7Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7Y@2x.png"
+	},
+	"8R":{
+		"name": "Sol Lineas Aereas",
+		"code": "8R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8R@2x.png"
+	},
+	"WM":{
+		"name": "Winair",
+		"code": "WM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WM@2x.png"
+	},
+	"QZ":{
+		"name": "Indonesia AirAsia",
+		"code": "QZ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/QZ@2x.png"
+	},
+	"5O":{
+		"name": "ASL Airlines France",
+		"code": "5O",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5O@2x.png"
+	},
+	"6O":{
+		"name": "Orbest",
+		"code": "6O",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6O@2x.png"
+	},
+	"L6":{
+		"name": "Mauritania Airlines International",
+		"code": "L6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L6@2x.png"
+	},
+	"1R":{
+		"name": "Bird Information Systems Private Limited",
+		"code": "1R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1R@2x.png"
+	},
+	"6K":{
+		"name": "Kyrgyz Trans Avia",
+		"code": "6K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6K@2x.png"
+	},
+	"YJ":{
+		"name": "Asian Wings Airways Limited",
+		"code": "YJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YJ@2x.png"
+	},
+	"UZ":{
+		"name": "Buraq Air Transport (BRQ)",
+		"code": "UZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UZ@2x.png"
+	},
+	"U9":{
+		"name": "Tatarstan Airlines",
+		"code": "U9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U9@2x.png"
+	},
+	"CH":{
+		"name": "Bemidji Airlines",
+		"code": "CH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CH@2x.png"
+	},
+	"0R":{
+		"name": "Renegade Air",
+		"code": "0R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0R@2x.png"
+	},
+	"XY":{
+		"name": "Nas Air",
+		"code": "XY",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XY@2x.png"
+	},
+	"YI":{
+		"name": "Air Sunshine Inc.",
+		"code": "YI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YI@2x.png"
+	},
+	"5D":{
+		"name": "Aerolitoral S.A. de C.V.",
+		"code": "5D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5D@2x.png"
+	},
+	"YK":{
+		"name": "Avia Traffic Company",
+		"code": "YK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YK@2x.png"
+	},
+	"LK":{
+		"name": "Lao Skyway",
+		"code": "LK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LK@2x.png"
+	},
+	"CI":{
+		"name": "China Airlines",
+		"code": "CI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CI@2x.png"
+	},
+	"HU":{
+		"name": "Hainan Airlines",
+		"code": "HU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HU@2x.png"
+	},
+	"LJ":{
+		"name": "Jin Air",
+		"code": "LJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/LJ@2x.png"
+	},
+	"3X":{
+		"name": "Premier Trans Aire Inc.",
+		"code": "3X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3X@2x.png"
+	},
+	"1A":{
+		"name": "Amadeus IT Group SA",
+		"code": "1A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1A@2x.png"
+	},
+	"T1":{
+		"name": "TIK Systems",
+		"code": "T1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T1@2x.png"
+	},
+	"AW":{
+		"name": "Africa World Airlines",
+		"code": "AW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AW@2x.png"
+	},
+	"8Q":{
+		"name": "Onur Air",
+		"code": "8Q",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/8Q@2x.png"
+	},
+	"AL":{
+		"name": "Malta Air",
+		"code": "AL",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/AL@2x.png"
+	},
+	"C4":{
+		"name": "Conquest Air, Inc.",
+		"code": "C4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C4@2x.png"
+	},
+	"YU":{
+		"name": "EuroAtlantic Airways S.A.",
+		"code": "YU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YU@2x.png"
+	},
+	"D8":{
+		"name": "Norwegian Air International",
+		"code": "D8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D8@2x.png"
+	},
+	"HX":{
+		"name": "Hong Kong Airlines",
+		"code": "HX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HX@2x.png"
+	},
+	"4F":{
+		"name": "Air City",
+		"code": "4F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4F@2x.png"
+	},
+	"6L":{
+		"name": "Aklak Air",
+		"code": "6L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6L@2x.png"
+	},
+	"IH":{
+		"name": "Southern Sky",
+		"code": "IH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IH@2x.png"
+	},
+	"9F":{
+		"name": "Eurostar",
+		"code": "9F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9F@2x.png"
+	},
+	"AU":{
+		"name": "Austral Lineas Aereas",
+		"code": "AU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AU@2x.png"
+	},
+	"2G":{
+		"name": "Angara Airlines",
+		"code": "2G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2G@2x.png"
+	},
+	"AT":{
+		"name": "Royal Air Maroc",
+		"code": "AT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AT@2x.png"
+	},
+	"SH":{
+		"name": "Sharp Airlines",
+		"code": "SH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SH@2x.png"
+	},
+	"XI":{
+		"name": "Aeronautical Telecommunications Ltd.(AEROTEL)",
+		"code": "XI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XI@2x.png"
+	},
+	"X3":{
+		"name": "TUI fly",
+		"code": "X3",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/X3@2x.png"
+	},
+	"RX":{
+		"name": "Regent Airways",
+		"code": "RX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RX@2x.png"
+	},
+	"TK":{
+		"name": "Turkish Airlines",
+		"code": "TK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TK@2x.png"
+	},
+	"BB":{
+		"name": "Seaborne Airlines",
+		"code": "BB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BB@2x.png"
+	},
+	"ZM":{
+		"name": "Air Manas",
+		"code": "ZM",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/ZM@2x.png"
+	},
+	"PX":{
+		"name": "Air Niugini",
+		"code": "PX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PX@2x.png"
+	},
+	"E9":{
+		"name": "Evelop Airlines",
+		"code": "E9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/E9@2x.png"
+	},
+	"AK":{
+		"name": "AirAsia",
+		"code": "AK",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/AK@2x.png"
+	},
+	"QT":{
+		"name": "Avianca Cargo",
+		"code": "QT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QT@2x.png"
+	},
+	"UD":{
+		"name": "Hex Air",
+		"code": "UD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UD@2x.png"
+	},
+	"DW":{
+		"name": "Aero-Charter Ukraine",
+		"code": "DW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DW@2x.png"
+	},
+	"2L":{
+		"name": "Helvetic Airways",
+		"code": "2L",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/2L@2x.png"
+	},
+	"ZR":{
+		"name": "Aviacon Zitotrans Air Company JSC",
+		"code": "ZR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZR@2x.png"
+	},
+	"2W":{
+		"name": "Welcome Air",
+		"code": "2W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2W@2x.png"
+	},
+	"9T":{
+		"name": "ACT Havayollari A.S.",
+		"code": "9T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9T@2x.png"
+	},
+	"W1":{
+		"name": "World Ticket Ltd",
+		"code": "W1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W1@2x.png"
+	},
+	"IT":{
+		"name": "Tigerair Taiwan",
+		"code": "IT",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/IT@2x.png"
+	},
+	"J1":{
+		"name": "One Jet, Inc.",
+		"code": "J1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J1@2x.png"
+	},
+	"XS":{
+		"name": "SITA - Airlines WorldwideTelecommunications and Information Svcs",
+		"code": "XS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XS@2x.png"
+	},
+	"VJ":{
+		"name": "VietjetAir",
+		"code": "VJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VJ@2x.png"
+	},
+	"GW":{
+		"name": "GetJet",
+		"code": "GW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GW@2x.png"
+	},
+	"GC":{
+		"name": "Gambia International Airlines",
+		"code": "GC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GC@2x.png"
+	},
+	"7E":{
+		"name": "Sylt Air GmbH",
+		"code": "7E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7E@2x.png"
+	},
+	"U6":{
+		"name": "Ural Airlines",
+		"code": "U6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U6@2x.png"
+	},
+	"MH":{
+		"name": "Malaysia Airlines",
+		"code": "MH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MH@2x.png"
+	},
+	"7P":{
+		"name": "Air Panama",
+		"code": "7P",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7P@2x.png"
+	},
+	"UG":{
+		"name": "Tunisair Express",
+		"code": "UG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UG@2x.png"
+	},
+	"7D":{
+		"name": "Maluti Sky",
+		"code": "7D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7D@2x.png"
+	},
+	"BI":{
+		"name": "Royal Brunei",
+		"code": "BI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BI@2x.png"
+	},
+	"8N":{
+		"name": "Regional Air Services",
+		"code": "8N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8N@2x.png"
+	},
+	"U2":{
+		"name": "EasyJet",
+		"code": "U2",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/U2@2x.png"
+	},
+	"NB":{
+		"name": "Skypower Express Airways",
+		"code": "NB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NB@2x.png"
+	},
+	"55":{
+		"name": "Buta Airways",
+		"code": "55",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/55@2x.png"
+	},
+	"QX":{
+		"name": "Horizon Air",
+		"code": "QX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QX@2x.png"
+	},
+	"Q5":{
+		"name": "40-Mile Air",
+		"code": "Q5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q5@2x.png"
+	},
+	"RJ":{
+		"name": "Royal Jordanian",
+		"code": "RJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RJ@2x.png"
+	},
+	"UN":{
+		"name": "Transaero Airlines",
+		"code": "UN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UN@2x.png"
+	},
+	"JT":{
+		"name": "Lion Air",
+		"code": "JT",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/JT@2x.png"
+	},
+	"M3":{
+		"name": "North Flying",
+		"code": "M3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M3@2x.png"
+	},
+	"0E":{
+		"name": "Northwest",
+		"code": "0E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0E@2x.png"
+	},
+	"QO":{
+		"name": "Quikjet Cargo Airlines Pvt. Ltd",
+		"code": "QO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QO@2x.png"
+	},
+	"0J":{
+		"name": "Premium Jet AG",
+		"code": "0J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0J@2x.png"
+	},
+	"7S":{
+		"name": "Ryan Air Service",
+		"code": "7S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7S@2x.png"
+	},
+	"2B":{
+		"name": "Ak Bars Aero",
+		"code": "2B",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/2B@2x.png"
+	},
+	"0H":{
+		"name": "Uzbekistan Airways Express",
+		"code": "0H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0H@2x.png"
+	},
+	"FP":{
+		"name": "Servicios Aéreos de los Andes",
+		"code": "FP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FP@2x.png"
+	},
+	"3A":{
+		"name": "Chu Kong Passenger Transport Co. Ltd.",
+		"code": "3A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3A@2x.png"
+	},
+	"MX":{
+		"name": "Mexicana de Aviación",
+		"code": "MX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MX@2x.png"
+	},
+	"PV":{
+		"name": "St Barth Commuter",
+		"code": "PV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PV@2x.png"
+	},
+	"CC":{
+		"name": "CM Airlines",
+		"code": "CC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CC@2x.png"
+	},
+	"MW":{
+		"name": "Mokulele Airlines",
+		"code": "MW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MW@2x.png"
+	},
+	"ET":{
+		"name": "Ethiopian Airlines",
+		"code": "ET",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ET@2x.png"
+	},
+	"MP":{
+		"name": "Martinair",
+		"code": "MP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MP@2x.png"
+	},
+	"N2":{
+		"name": "Trans-Mediterranean Airways",
+		"code": "N2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N2@2x.png"
+	},
+	"2A":{
+		"name": "Deutsche Bahn AG",
+		"code": "2A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2A@2x.png"
+	},
+	"EV":{
+		"name": "ExpressJet",
+		"code": "EV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EV@2x.png"
+	},
+	"9I":{
+		"name": "Alliance Air",
+		"code": "9I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9I@2x.png"
+	},
+	"SP":{
+		"name": "SATA Air Acores",
+		"code": "SP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SP@2x.png"
+	},
+	"CS":{
+		"name": "Continental Micronesia, Inc.",
+		"code": "CS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CS@2x.png"
+	},
+	"1Z":{
+		"name": "Sabre Pacific",
+		"code": "1Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1Z@2x.png"
+	},
+	"MY":{
+		"name": "Maya Island Air",
+		"code": "MY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MY@2x.png"
+	},
+	"7L":{
+		"name": "Aerocaribbean",
+		"code": "7L",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7L@2x.png"
+	},
+	"VU":{
+		"name": "Vuelos Economicos Centroamericanos",
+		"code": "VU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VU@2x.png"
+	},
+	"WU":{
+		"name": "Wizz Air Ukraine",
+		"code": "WU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WU@2x.png"
+	},
+	"9R":{
+		"name": "Southern Air",
+		"code": "9R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9R@2x.png"
+	},
+	"U5":{
+		"name": "Karinou Airlines",
+		"code": "U5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U5@2x.png"
+	},
+	"ED":{
+		"name": "AirExplore",
+		"code": "ED",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ED@2x.png"
+	},
+	"O4":{
+		"name": "Antrak Air",
+		"code": "O4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/O4@2x.png"
+	},
+	"A8":{
+		"name": "Aerolink Uganda Limited",
+		"code": "A8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A8@2x.png"
+	},
+	"2S":{
+		"name": "Kinda Airlines",
+		"code": "2S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2S@2x.png"
+	},
+	"V9":{
+		"name": "Thai Vietjet Air",
+		"code": "V9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V9@2x.png"
+	},
+	"6G":{
+		"name": "Sun Air Express",
+		"code": "6G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6G@2x.png"
+	},
+	"ZB":{
+		"name": "Monarch Airlines",
+		"code": "ZB",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/ZB@2x.png"
+	},
+	"U1":{
+		"name": "Videcom International Limited",
+		"code": "U1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/U1@2x.png"
+	},
+	"OB":{
+		"name": "Boliviana de Aviación",
+		"code": "OB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OB@2x.png"
+	},
+	"VT":{
+		"name": "Air Tahiti",
+		"code": "VT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VT@2x.png"
+	},
+	"W7":{
+		"name": "Wings of Lebanon S.a.l",
+		"code": "W7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W7@2x.png"
+	},
+	"5B":{
+		"name": "Bassaka Air Limited",
+		"code": "5B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5B@2x.png"
+	},
+	"HK":{
+		"name": "Skippers Aviation",
+		"code": "HK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HK@2x.png"
+	},
+	"W8":{
+		"name": "Cargojet Airways Ltd.",
+		"code": "W8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W8@2x.png"
+	},
+	"WW":{
+		"name": "WOW Air ehf",
+		"code": "WW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/WW@2x.png"
+	},
+	"NU":{
+		"name": "Japan Transocean Air",
+		"code": "NU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NU@2x.png"
+	},
+	"OR":{
+		"name": "TUI Airlines Netherlands",
+		"code": "OR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OR@2x.png"
+	},
+	"HR":{
+		"name": "Hahn Air",
+		"code": "HR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HR@2x.png"
+	},
+	"SW":{
+		"name": "Air Namibia",
+		"code": "SW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SW@2x.png"
+	},
+	"EW":{
+		"name": "Eurowings",
+		"code": "EW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/EW@2x.png"
+	},
+	"GE":{
+		"name": "Transasia Airways",
+		"code": "GE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GE@2x.png"
+	},
+	"6R":{
+		"name": "ALROSA",
+		"code": "6R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6R@2x.png"
+	},
+	"WK":{
+		"name": "Edelweiss Air",
+		"code": "WK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WK@2x.png"
+	},
+	"Z8":{
+		"name": "Amaszonas",
+		"code": "Z8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z8@2x.png"
+	},
+	"C3":{
+		"name": "Trade Air",
+		"code": "C3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C3@2x.png"
+	},
+	"W4":{
+		"name": "LC Busre SAC",
+		"code": "W4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/W4@2x.png"
+	},
+	"M2":{
+		"name": "MHS Aviation",
+		"code": "M2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M2@2x.png"
+	},
+	"BT":{
+		"name": "airBaltic",
+		"code": "BT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BT@2x.png"
+	},
+	"V7":{
+		"name": "Volotea",
+		"code": "V7",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/V7@2x.png"
+	},
+	"G2":{
+		"name": "Jet Express",
+		"code": "G2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/G2@2x.png"
+	},
+	"DL":{
+		"name": "Delta Air Lines",
+		"code": "DL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DL@2x.png"
+	},
+	"XD":{
+		"name": "Air Transport Association of Americad\\b\\a Airlines for America",
+		"code": "XD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XD@2x.png"
+	},
+	"K3":{
+		"name": "Taquan Air",
+		"code": "K3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K3@2x.png"
+	},
+	"HN":{
+		"name": "Afghan Jet International",
+		"code": "HN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HN@2x.png"
+	},
+	"J6":{
+		"name": "Jet Ops",
+		"code": "J6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J6@2x.png"
+	},
+	"ZF":{
+		"name": "Azur Air",
+		"code": "ZF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZF@2x.png"
+	},
+	"TW":{
+		"name": "T'way Air",
+		"code": "TW",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TW@2x.png"
+	},
+	"KM":{
+		"name": "Air Malta",
+		"code": "KM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KM@2x.png"
+	},
+	"QK":{
+		"name": "Jazz",
+		"code": "QK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QK@2x.png"
+	},
+	"AE":{
+		"name": "Mandarin Airlines",
+		"code": "AE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AE@2x.png"
+	},
+	"DI":{
+		"name": "Norwegian Air",
+		"code": "DI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DI@2x.png"
+	},
+	"KD":{
+		"name": "PT Kal Star Aviation",
+		"code": "KD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KD@2x.png"
+	},
+	"NI":{
+		"name": "Portugália",
+		"code": "NI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NI@2x.png"
+	},
+	"ZZ":{
+		"name": "American Eagle",
+		"code": "ZZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZZ@2x.png"
+	},
+	"VP":{
+		"name": "Villa Air Pvt. Ltd. dba Villa Air",
+		"code": "VP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VP@2x.png"
+	},
+	"KZ":{
+		"name": "Nippon Cargo Airlines",
+		"code": "KZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KZ@2x.png"
+	},
+	"N7":{
+		"name": "Nordic Regional Airline",
+		"code": "N7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N7@2x.png"
+	},
+	"DZ":{
+		"name": "Donghai Airlines",
+		"code": "DZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DZ@2x.png"
+	},
+	"VA":{
+		"name": "Virgin Australia",
+		"code": "VA",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VA@2x.png"
+	},
+	"8M":{
+		"name": "Myanmar Airways International",
+		"code": "8M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8M@2x.png"
+	},
+	"CB":{
+		"name": "Caribbean Air Export Import Inc.",
+		"code": "CB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CB@2x.png"
+	},
+	"8C":{
+		"name": "Air Transport International L.L.C.",
+		"code": "8C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8C@2x.png"
+	},
+	"R7":{
+		"name": "Aserca Airlines",
+		"code": "R7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R7@2x.png"
+	},
+	"T8":{
+		"name": "Telair International GmbH",
+		"code": "T8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T8@2x.png"
+	},
+	"UE":{
+		"name": "Ultimate Jetcharters",
+		"code": "UE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UE@2x.png"
+	},
+	"E7":{
+		"name": "Equaflight Service",
+		"code": "E7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/E7@2x.png"
+	},
+	"X5":{
+		"name": "S.C. Ten Airways S.R.L.",
+		"code": "X5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X5@2x.png"
+	},
+	"FB":{
+		"name": "Bulgaria Air",
+		"code": "FB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FB@2x.png"
+	},
+	"WN":{
+		"name": "Southwest Airlines",
+		"code": "WN",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/WN@2x.png"
+	},
+	"I9":{
+		"name": "Air Italy",
+		"code": "I9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I9@2x.png"
+	},
+	"5J":{
+		"name": "Cebu Pacific",
+		"code": "5J",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/5J@2x.png"
+	},
+	"EM":{
+		"name": "Empire Airlines",
+		"code": "EM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EM@2x.png"
+	},
+	"EA":{
+		"name": "East Horizon Airlines",
+		"code": "EA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EA@2x.png"
+	},
+	"IU":{
+		"name": "SW Italia s.p.a.",
+		"code": "IU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IU@2x.png"
+	},
+	"BL":{
+		"name": "Jetstar Pacific Airlines",
+		"code": "BL",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/BL@2x.png"
+	},
+	"JS":{
+		"name": "Air Koryo",
+		"code": "JS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JS@2x.png"
+	},
+	"IQ":{
+		"name": "Qazaq Air",
+		"code": "IQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IQ@2x.png"
+	},
+	"4H":{
+		"name": "Hi Air",
+		"code": "4H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4H@2x.png"
+	},
+	"GF":{
+		"name": "Gulf Air",
+		"code": "GF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GF@2x.png"
+	},
+	"PF":{
+		"name": "Primera Air",
+		"code": "PF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PF@2x.png"
+	},
+	"1P":{
+		"name": "Worldspan",
+		"code": "1P",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1P@2x.png"
+	},
+	"NP":{
+		"name": "Nile Air",
+		"code": "NP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NP@2x.png"
+	},
+	"M5":{
+		"name": "Kenmore Air",
+		"code": "M5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M5@2x.png"
+	},
+	"YS":{
+		"name": "HOP!",
+		"code": "YS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YS@2x.png"
+	},
+	"3T":{
+		"name": "Tarco Air",
+		"code": "3T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3T@2x.png"
+	},
+	"WJ":{
+		"name": "Labrador Airways Limited",
+		"code": "WJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WJ@2x.png"
+	},
+	"TY":{
+		"name": "Air Caledonie",
+		"code": "TY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TY@2x.png"
+	},
+	"QJ":{
+		"name": "Jet Airways Inc.",
+		"code": "QJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QJ@2x.png"
+	},
+	"VG":{
+		"name": "VLM Airlines",
+		"code": "VG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VG@2x.png"
+	},
+	"2R":{
+		"name": "VIA Rail Canada Inc.",
+		"code": "2R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2R@2x.png"
+	},
+	"AO":{
+		"name": "Australian Airlines",
+		"code": "AO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AO@2x.png"
+	},
+	"0M":{
+		"name": "Premier Airlines",
+		"code": "0M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0M@2x.png"
+	},
+	"MK":{
+		"name": "Air Mauritius",
+		"code": "MK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MK@2x.png"
+	},
+	"A7":{
+		"name": "Air Niamey",
+		"code": "A7",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/A7@2x.png"
+	},
+	"B6":{
+		"name": "JetBlue Airways",
+		"code": "B6",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/B6@2x.png"
+	},
+	"OS":{
+		"name": "Austrian Airlines",
+		"code": "OS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OS@2x.png"
+	},
+	"4B":{
+		"name": "Boutique Air",
+		"code": "4B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4B@2x.png"
+	},
+	"ZC":{
+		"name": "Korongo Airlines",
+		"code": "ZC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZC@2x.png"
+	},
+	"ND":{
+		"name": "Sky Wings Airlines",
+		"code": "ND",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ND@2x.png"
+	},
+	"YT":{
+		"name": "Yeti Airlines Domestic Pvt. Ltd.",
+		"code": "YT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YT@2x.png"
+	},
+	"EI":{
+		"name": "Aer Lingus",
+		"code": "EI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EI@2x.png"
+	},
+	"B2":{
+		"name": "Belavia",
+		"code": "B2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B2@2x.png"
+	},
+	"2O":{
+		"name": "Redemption Inc.",
+		"code": "2O",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2O@2x.png"
+	},
+	"C7":{
+		"name": "Cinnamon Air",
+		"code": "C7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C7@2x.png"
+	},
+	"GY":{
+		"name": "Colorful Guizhou Airlines",
+		"code": "GY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GY@2x.png"
+	},
+	"QN":{
+		"name": "Air Armenia",
+		"code": "QN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QN@2x.png"
+	},
+	"ES":{
+		"name": "DHL Aviation EEMEA B.S.C.(c)",
+		"code": "ES",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ES@2x.png"
+	},
+	"D3":{
+		"name": "Daallo Airlines",
+		"code": "D3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D3@2x.png"
+	},
+	"2Q":{
+		"name": "Air Cargo Carriers, LLC.",
+		"code": "2Q",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2Q@2x.png"
+	},
+	"P9":{
+		"name": "Peruvian Airlines",
+		"code": "P9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P9@2x.png"
+	},
+	"YQ":{
+		"name": "TAR Aerolíneas",
+		"code": "YQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YQ@2x.png"
+	},
+	"V1":{
+		"name": "IBS Software Services Americas, Inc.",
+		"code": "V1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V1@2x.png"
+	},
+	"CF":{
+		"name": "China Postal Airlines Ltd.",
+		"code": "CF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CF@2x.png"
+	},
+	"MB":{
+		"name": "MNG Airlines",
+		"code": "MB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MB@2x.png"
+	},
+	"HH":{
+		"name": "Qanot Sharq",
+		"code": "HH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HH@2x.png"
+	},
+	"CQ":{
+		"name": "Coastal Travels",
+		"code": "CQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CQ@2x.png"
+	},
+	"7B":{
+		"name": "Bees Airline",
+		"code": "7B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7B@2x.png"
+	},
+	"JH":{
+		"name": "Fuji Dream Airlines",
+		"code": "JH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JH@2x.png"
+	},
+	"UJ":{
+		"name": "Almasria Universal Airlines",
+		"code": "UJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UJ@2x.png"
+	},
+	"BX":{
+		"name": "Air Busan",
+		"code": "BX",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/BX@2x.png"
+	},
+	"PR":{
+		"name": "Philippine Airlines",
+		"code": "PR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PR@2x.png"
+	},
+	"XJ":{
+		"name": "Thai AirAsia X",
+		"code": "XJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XJ@2x.png"
+	},
+	"UC":{
+		"name": "LAN Chile Cargo",
+		"code": "UC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UC@2x.png"
+	},
+	"JE":{
+		"name": "Mango",
+		"code": "JE",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/JE@2x.png"
+	},
+	"Q6":{
+		"name": "Skytrans Airlines",
+		"code": "Q6",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/Q6@2x.png"
+	},
+	"QQ":{
+		"name": "Alliance Airlines",
+		"code": "QQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QQ@2x.png"
+	},
+	"1V":{
+		"name": "Galileo International",
+		"code": "1V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1V@2x.png"
+	},
+	"OZ":{
+		"name": "Asiana Airlines",
+		"code": "OZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OZ@2x.png"
+	},
+	"F1":{
+		"name": "Farelogix Qatar Airways",
+		"code": "F1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F1@2x.png"
+	},
+	"N0":{
+		"name": "Norse Atlantic Airways",
+		"code": "N0",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/N0@2x.png"
+	},
+	"PI":{
+		"name": "Polar Airlines",
+		"code": "PI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PI@2x.png"
+	},
+	"Y7":{
+		"name": "NordStar",
+		"code": "Y7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Y7@2x.png"
+	},
+	"BG":{
+		"name": "Biman Bangladesh Airlines",
+		"code": "BG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BG@2x.png"
+	},
+	"OW":{
+		"name": "Skyward Express",
+		"code": "OW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OW@2x.png"
+	},
+	"RE":{
+		"name": "Stobart Air",
+		"code": "RE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RE@2x.png"
+	},
+	"CY":{
+		"name": "Cyprus Airways",
+		"code": "CY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CY@2x.png"
+	},
+	"S3":{
+		"name": "Santa Barbara Airlines",
+		"code": "S3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S3@2x.png"
+	},
+	"7O":{
+		"name": "Travel Service",
+		"code": "7O",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7O@2x.png"
+	},
+	"KP":{
+		"name": "ASKY Airlines",
+		"code": "KP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KP@2x.png"
+	},
+	"BJ":{
+		"name": "Nouvelair",
+		"code": "BJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BJ@2x.png"
+	},
+	"SZ":{
+		"name": "Somon Air",
+		"code": "SZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SZ@2x.png"
+	},
+	"Q9":{
+		"name": "Air Liaison",
+		"code": "Q9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Q9@2x.png"
+	},
+	"MJ":{
+		"name": "MyWay Airlines",
+		"code": "MJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/MJ@2x.png"
+	},
+	"B4":{
+		"name": "ZanAir",
+		"code": "B4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B4@2x.png"
+	},
+	"FO":{
+		"name": "Felix Airways",
+		"code": "FO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FO@2x.png"
+	},
+	"NT":{
+		"name": "Binter Canarias",
+		"code": "NT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NT@2x.png"
+	},
+	"8T":{
+		"name": "Air Tindi",
+		"code": "8T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8T@2x.png"
+	},
+	"XK":{
+		"name": "Air Corsica",
+		"code": "XK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XK@2x.png"
+	},
+	"Y8":{
+		"name": "Yangtze River Express",
+		"code": "Y8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Y8@2x.png"
+	},
+	"TL":{
+		"name": "Airnorth",
+		"code": "TL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TL@2x.png"
+	},
+	"VK":{
+		"name": "Level",
+		"code": "VK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VK@2x.png"
+	},
+	"3H":{
+		"name": "Air Inuit",
+		"code": "3H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3H@2x.png"
+	},
+	"RP":{
+		"name": "Chautauqua Airlines",
+		"code": "RP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RP@2x.png"
+	},
+	"5I":{
+		"name": "Alsa Grupo SLU",
+		"code": "5I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5I@2x.png"
+	},
+	"JD":{
+		"name": "Beijing Capital Airlines",
+		"code": "JD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JD@2x.png"
+	},
+	"NW":{
+		"name": "Northwest Airlines",
+		"code": "NW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NW@2x.png"
+	},
+	"C2":{
+		"name": "CEIBA Intercontinental",
+		"code": "C2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C2@2x.png"
+	},
+	"J0":{
+		"name": "Jetlink Express",
+		"code": "J0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J0@2x.png"
+	},
+	"Y9":{
+		"name": "Kish Airlines",
+		"code": "Y9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Y9@2x.png"
+	},
+	"5F":{
+		"name": "FlyOne",
+		"code": "5F",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5F@2x.png"
+	},
+	"X4":{
+		"name": "Air Excursion, LLC",
+		"code": "X4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X4@2x.png"
+	},
+	"BZ":{
+		"name": "Blue Bird Airways",
+		"code": "BZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BZ@2x.png"
+	},
+	"K8":{
+		"name": "Kan Air",
+		"code": "K8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K8@2x.png"
+	},
+	"L8":{
+		"name": "Afric Aviation",
+		"code": "L8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L8@2x.png"
+	},
+	"I6":{
+		"name": "Air Indus",
+		"code": "I6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I6@2x.png"
+	},
+	"C8":{
+		"name": "Cronos Airlines",
+		"code": "C8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/C8@2x.png"
+	},
+	"SN":{
+		"name": "Brussels Airlines",
+		"code": "SN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SN@2x.png"
+	},
+	"8I":{
+		"name": "Insel Air",
+		"code": "8I",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8I@2x.png"
+	},
+	"UA":{
+		"name": "United Airlines",
+		"code": "UA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UA@2x.png"
+	},
+	"9V":{
+		"name": "Avior Airlines",
+		"code": "9V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9V@2x.png"
+	},
+	"BK":{
+		"name": "Okay Airways",
+		"code": "BK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BK@2x.png"
+	},
+	"PM":{
+		"name": "Canaryfly",
+		"code": "PM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PM@2x.png"
+	},
+	"NZ":{
+		"name": "Air New Zealand",
+		"code": "NZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NZ@2x.png"
+	},
+	"PK":{
+		"name": "Pakistan International Airlines",
+		"code": "PK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PK@2x.png"
+	},
+	"WY":{
+		"name": "Oman Air",
+		"code": "WY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WY@2x.png"
+	},
+	"RV":{
+		"name": "8165343 Canada Inc. dba Air Canada rouge",
+		"code": "RV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RV@2x.png"
+	},
+	"JI":{
+		"name": "Meraj Air",
+		"code": "JI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JI@2x.png"
+	},
+	"4G":{
+		"name": "Gazpromavia",
+		"code": "4G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4G@2x.png"
+	},
+	"PE":{
+		"name": "People's Viennaline",
+		"code": "PE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PE@2x.png"
+	},
+	"1Y":{
+		"name": "Electronic Data Systems Corporation",
+		"code": "1Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/1Y@2x.png"
+	},
+	"J2":{
+		"name": "Azerbaijan Airlines",
+		"code": "J2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/J2@2x.png"
+	},
+	"7R":{
+		"name": "RusLine",
+		"code": "7R",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7R@2x.png"
+	},
+	"8A":{
+		"name": "Panama Airways",
+		"code": "8A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8A@2x.png"
+	},
+	"6Z":{
+		"name": "Euro-Asia Air",
+		"code": "6Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6Z@2x.png"
+	},
+	"DX":{
+		"name": "Danish Air Transport",
+		"code": "DX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DX@2x.png"
+	},
+	"FL":{
+		"name": "Airtran Airways",
+		"code": "FL",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FL@2x.png"
+	},
+	"PRM":{
+		"name": "Premier Airlines",
+		"code": "PRM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PRM@2x.png"
+	},
+	"IK":{
+		"name": "Air Kiribati Limited",
+		"code": "IK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/IK@2x.png"
+	},
+	"QS":{
+		"name": "SmartWings",
+		"code": "QS",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/QS@2x.png"
+	},
+	"HM":{
+		"name": "Air Seychelles",
+		"code": "HM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HM@2x.png"
+	},
+	"UT":{
+		"name": "Utair",
+		"code": "UT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UT@2x.png"
+	},
+	"OU":{
+		"name": "Croatia Airlines",
+		"code": "OU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OU@2x.png"
+	},
+	"JO":{
+		"name": "Jonika Airlines",
+		"code": "JO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JO@2x.png"
+	},
+	"L2":{
+		"name": "Lynden Air Cargo, LLC",
+		"code": "L2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/L2@2x.png"
+	},
+	"3C":{
+		"name": "Calima Aviacion S.L",
+		"code": "3C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3C@2x.png"
+	},
+	"KB":{
+		"name": "Druk Air",
+		"code": "KB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KB@2x.png"
+	},
+	"D7":{
+		"name": "AirAsia X",
+		"code": "D7",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/D7@2x.png"
+	},
+	"PW":{
+		"name": "Precision Air",
+		"code": "PW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PW@2x.png"
+	},
+	"FJ":{
+		"name": "Fiji Airways",
+		"code": "FJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FJ@2x.png"
+	},
+	"QV":{
+		"name": "Lao Airlines",
+		"code": "QV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QV@2x.png"
+	},
+	"KR":{
+		"name": "Air Bishkek",
+		"code": "KR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KR@2x.png"
+	},
+	"XO":{
+		"name": "South East Asian Airlines (SEAIR)International, Inc.",
+		"code": "XO",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/XO@2x.png"
+	},
+	"RL":{
+		"name": "Royal Flight",
+		"code": "RL",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RL@2x.png"
+	},
+	"SD":{
+		"name": "Sudan Airways",
+		"code": "SD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SD@2x.png"
+	},
+	"LG":{
+		"name": "Luxair",
+		"code": "LG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LG@2x.png"
+	},
+	"TR":{
+		"name": "Scoot",
+		"code": "TR",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TR@2x.png"
+	},
+	"ZV":{
+		"name": "V Air Corporation",
+		"code": "ZV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZV@2x.png"
+	},
+	"A6":{
+		"name": "Air Alps Aviation",
+		"code": "A6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/A6@2x.png"
+	},
+	"ZS":{
+		"name": "JSC Kazaviaspas",
+		"code": "ZS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZS@2x.png"
+	},
+	"SA":{
+		"name": "South African Airways",
+		"code": "SA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SA@2x.png"
+	},
+	"AG":{
+		"name": "Aruba Airlines",
+		"code": "AG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AG@2x.png"
+	},
+	"GG":{
+		"name": "Sky Lease I, Inc.",
+		"code": "GG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GG@2x.png"
+	},
+	"NK":{
+		"name": "Spirit Airlines",
+		"code": "NK",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/NK@2x.png"
+	},
+	"CP":{
+		"name": "Compass Airlines",
+		"code": "CP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CP@2x.png"
+	},
+	"VC":{
+		"name": "Charter Air Transport, Inc.",
+		"code": "VC",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VC@2x.png"
+	},
+	"DM":{
+		"name": "Asian Air",
+		"code": "DM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DM@2x.png"
+	},
+	"BW":{
+		"name": "Caribbean Airlines",
+		"code": "BW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BW@2x.png"
+	},
+	"JV":{
+		"name": "Bearskin Airlines",
+		"code": "JV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JV@2x.png"
+	},
+	"01":{
+		"name": "JetHunter",
+		"code": "01",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/01@2x.png"
+	},
+	"YG":{
+		"name": "South Airlines",
+		"code": "YG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/YG@2x.png"
+	},
+	"6E":{
+		"name": "IndiGo",
+		"code": "6E",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/6E@2x.png"
+	},
+	"KN":{
+		"name": "China United Airlines",
+		"code": "KN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KN@2x.png"
+	},
+	"5Y":{
+		"name": "Atlas Air",
+		"code": "5Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5Y@2x.png"
+	},
+	"HJ":{
+		"name": "Hellas Jet",
+		"code": "HJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HJ@2x.png"
+	},
+	"ME":{
+		"name": "Middle East Airlines",
+		"code": "ME",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ME@2x.png"
+	},
+	"4E":{
+		"name": "Stabo Air Limited",
+		"code": "4E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4E@2x.png"
+	},
+	"ZN":{
+		"name": "NAYSA",
+		"code": "ZN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZN@2x.png"
+	},
+	"8G":{
+		"name": "Mid Africa Aviation",
+		"code": "8G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8G@2x.png"
+	},
+	"AJ":{
+		"name": "Aztec Airways",
+		"code": "AJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AJ@2x.png"
+	},
+	"R0":{
+		"name": "Russian Railways",
+		"code": "R0",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R0@2x.png"
+	},
+	"0A":{
+		"name": "Emetebe S.A.",
+		"code": "0A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0A@2x.png"
+	},
+	"DN":{
+		"name": "Norwegian Air",
+		"code": "DN",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DN@2x.png"
+	},
+	"XM":{
+		"name": "C.A.I. First",
+		"code": "XM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XM@2x.png"
+	},
+	"2D":{
+		"name": "Eastern Airlines, LLC",
+		"code": "2D",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2D@2x.png"
+	},
+	"GT":{
+		"name": "Vista Georgia",
+		"code": "GT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GT@2x.png"
+	},
+	"RK":{
+		"name": "Skyview Airways Company Limiteddba Skyview",
+		"code": "RK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RK@2x.png"
+	},
+	"P6":{
+		"name": "Pascan Aviation",
+		"code": "P6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/P6@2x.png"
+	},
+	"QA":{
+		"name": "Cimber",
+		"code": "QA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QA@2x.png"
+	},
+	"PB":{
+		"name": "Provincial Airlines",
+		"code": "PB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PB@2x.png"
+	},
+	"7U":{
+		"name": "Alpha Air Transport",
+		"code": "7U",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7U@2x.png"
+	},
+	"OD":{
+		"name": "Malindo Air",
+		"code": "OD",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/OD@2x.png"
+	},
+	"ZG":{
+		"name": "ZIPAIR Tokyo",
+		"code": "ZG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZG@2x.png"
+	},
+	"TI":{
+		"name": "Tailwind Airlines",
+		"code": "TI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TI@2x.png"
+	},
+	"WX":{
+		"name": "Cityjet",
+		"code": "WX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WX@2x.png"
+	},
+	"PH":{
+		"name": "Transavia Denmark",
+		"code": "PH",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PH@2x.png"
+	},
+	"KU":{
+		"name": "Kuwait Airways",
+		"code": "KU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KU@2x.png"
+	},
+	"WC":{
+		"name": "Islena de Inversiones S.A. de C.V.dba Islena Airlines",
+		"code": "WC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WC@2x.png"
+	},
+	"M9":{
+		"name": "Motor Sich Airlines",
+		"code": "M9",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/M9@2x.png"
+	},
+	"I2":{
+		"name": "Iberia Express",
+		"code": "I2",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/I2@2x.png"
+	},
+	"TU":{
+		"name": "Tunisair",
+		"code": "TU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TU@2x.png"
+	},
+	"OV":{
+		"name": "SalamAir",
+		"code": "OV",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/OV@2x.png"
+	},
+	"0T":{
+		"name": "AnadoluJet",
+		"code": "0T",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/0T@2x.png"
+	},
+	"EO":{
+		"name": "Pegas Fly",
+		"code": "EO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/EO@2x.png"
+	},
+	"6J":{
+		"name": "Solaseed Air",
+		"code": "6J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6J@2x.png"
+	},
+	"KS":{
+		"name": "Penair",
+		"code": "KS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KS@2x.png"
+	},
+	"B8":{
+		"name": "Eritrean Airlines",
+		"code": "B8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B8@2x.png"
+	},
+	"6M":{
+		"name": "Zacarias Moreno",
+		"code": "6M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6M@2x.png"
+	},
+	"K6":{
+		"name": "Cambodia Angkor Air",
+		"code": "K6",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/K6@2x.png"
+	},
+	"ZY":{
+		"name": "Sky Airlines",
+		"code": "ZY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/ZY@2x.png"
+	},
+	"F4":{
+		"name": "Air Flamenco",
+		"code": "F4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F4@2x.png"
+	},
+	"Z7":{
+		"name": "Amaszonas",
+		"code": "Z7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/Z7@2x.png"
+	},
+	"FI":{
+		"name": "Icelandair",
+		"code": "FI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/FI@2x.png"
+	},
+	"4W":{
+		"name": "Warbelow's Air Ventures",
+		"code": "4W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4W@2x.png"
+	},
+	"9E":{
+		"name": "Endeavor Air",
+		"code": "9E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9E@2x.png"
+	},
+	"KJ":{
+		"name": "Air Incheon",
+		"code": "KJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KJ@2x.png"
+	},
+	"KW":{
+		"name": "Kharkiv Airlines",
+		"code": "KW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KW@2x.png"
+	},
+	"GI":{
+		"name": "Itek Air",
+		"code": "GI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GI@2x.png"
+	},
+	"QW":{
+		"name": "Qingdao Airlines",
+		"code": "QW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QW@2x.png"
+	},
+	"S4":{
+		"name": "SATA",
+		"code": "S4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S4@2x.png"
+	},
+	"4Y":{
+		"name": "Airbus Transport International",
+		"code": "4Y",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4Y@2x.png"
+	},
+	"AD":{
+		"name": "Azul Brazilian Airlines",
+		"code": "AD",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/AD@2x.png"
+	},
+	"SE":{
+		"name": "XL Airways France",
+		"code": "SE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SE@2x.png"
+	},
+	"GU":{
+		"name": "Aviateca",
+		"code": "GU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GU@2x.png"
+	},
+	"CO":{
+		"name": "Cobalt Air",
+		"code": "CO",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/CO@2x.png"
+	},
+	"RM":{
+		"name": "Armenia Aircompany",
+		"code": "RM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RM@2x.png"
+	},
+	"8J":{
+		"name": "EcoJet",
+		"code": "8J",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8J@2x.png"
+	},
+	"QB":{
+		"name": "Qeshm Air",
+		"code": "QB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QB@2x.png"
+	},
+	"WB":{
+		"name": "RwandAir",
+		"code": "WB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WB@2x.png"
+	},
+	"HZ":{
+		"name": "Aurora",
+		"code": "HZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HZ@2x.png"
+	},
+	"VX":{
+		"name": "Virgin America ",
+		"code": "VX",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/VX@2x.png"
+	},
+	"D4":{
+		"name": "Alidaunia",
+		"code": "D4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/D4@2x.png"
+	},
+	"GB":{
+		"name": "ABX Air, Inc.",
+		"code": "GB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/GB@2x.png"
+	},
+	"QP":{
+		"name": "Airkenya Express",
+		"code": "QP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QP@2x.png"
+	},
+	"W9":{
+		"name": "Wizz Air",
+		"code": "W9",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/W9@2x.png"
+	},
+	"WE":{
+		"name": "Thai Smile",
+		"code": "WE",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WE@2x.png"
+	},
+	"6V":{
+		"name": "AVANZA",
+		"code": "6V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6V@2x.png"
+	},
+	"UR":{
+		"name": "Uganda Airlines",
+		"code": "UR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UR@2x.png"
+	},
+	"CV":{
+		"name": "Cargolux",
+		"code": "CV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CV@2x.png"
+	},
+	"N5":{
+		"name": "Nolinor Aviation",
+		"code": "N5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/N5@2x.png"
+	},
+	"JA":{
+		"name": "B&H Airlines",
+		"code": "JA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/JA@2x.png"
+	},
+	"ZE":{
+		"name": "Eastar Jet",
+		"code": "ZE",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/ZE@2x.png"
+	},
+	"PP":{
+		"name": "Jet Aviation Business",
+		"code": "PP",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PP@2x.png"
+	},
+	"S5":{
+		"name": "Shuttle America",
+		"code": "S5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/S5@2x.png"
+	},
+	"XT":{
+		"name": "Globus LLС",
+		"code": "XT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XT@2x.png"
+	},
+	"VW":{
+		"name": "Aeromar",
+		"code": "VW",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VW@2x.png"
+	},
+	"TC":{
+		"name": "Air Tanzania",
+		"code": "TC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TC@2x.png"
+	},
+	"NO":{
+		"name": "Neos",
+		"code": "NO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NO@2x.png"
+	},
+	"CX":{
+		"name": "Cathay Pacific",
+		"code": "CX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CX@2x.png"
+	},
+	"LB":{
+		"name": "Bul Air",
+		"code": "LB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LB@2x.png"
+	},
+	"7Z":{
+		"name": "Halcyonair",
+		"code": "7Z",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7Z@2x.png"
+	},
+	"HB":{
+		"name": "Asia Atlantic Airlines",
+		"code": "HB",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HB@2x.png"
+	},
+	"DQ":{
+		"name": "Delta Connection",
+		"code": "DQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DQ@2x.png"
+	},
+	"RI":{
+		"name": "Tigerair Mandala",
+		"code": "RI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RI@2x.png"
+	},
+	"T3":{
+		"name": "Eastern Airways",
+		"code": "T3",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/T3@2x.png"
+	},
+	"HC":{
+		"name": "Aero-Tropics Air Services",
+		"code": "HC",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HC@2x.png"
+	},
+	"3W":{
+		"name": "Malawian Airlines",
+		"code": "3W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/3W@2x.png"
+	},
+	"4O":{
+		"name": "Interjet",
+		"code": "4O",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/4O@2x.png"
+	},
+	"9S":{
+		"name": "Southern Air Inc.",
+		"code": "9S",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9S@2x.png"
+	},
+	"VQ":{
+		"name": "Novoair",
+		"code": "VQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/VQ@2x.png"
+	},
+	"OI":{
+		"name": "Hinterland Aviation",
+		"code": "OI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OI@2x.png"
+	},
+	"V4":{
+		"name": "Vieques Air Link",
+		"code": "V4",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/V4@2x.png"
+	},
+	"AY":{
+		"name": "Finnair",
+		"code": "AY",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/AY@2x.png"
+	},
+	"6B":{
+		"name": "TUIfly Nordic",
+		"code": "6B",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/6B@2x.png"
+	},
+	"2V":{
+		"name": "Amtrak",
+		"code": "2V",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2V@2x.png"
+	},
+	"WZ":{
+		"name": "Red Wings Airlines",
+		"code": "WZ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/WZ@2x.png"
+	},
+	"DJ":{
+		"name": "AirAsia Japan",
+		"code": "DJ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/DJ@2x.png"
+	},
+	"LI":{
+		"name": "Liat",
+		"code": "LI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LI@2x.png"
+	},
+	"4X":{
+		"name": "Mercury Air Cargo, Inc.",
+		"code": "4X",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4X@2x.png"
+	},
+	"X7":{
+		"name": "Exec Air, Inc. of Naples",
+		"code": "X7",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X7@2x.png"
+	},
+	"8K":{
+		"name": "K-Mile Air Co. Ltd",
+		"code": "8K",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/8K@2x.png"
+	},
+	"RG":{
+		"name": "Rotana Jet",
+		"code": "RG",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/RG@2x.png"
+	},
+	"WG":{
+		"name": "Sunwing Airlines",
+		"code": "WG",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/WG@2x.png"
+	},
+	"LM":{
+		"name": "Loganair",
+		"code": "LM",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LM@2x.png"
+	},
+	"DV":{
+		"name": "SCAT",
+		"code": "DV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/DV@2x.png"
+	},
+	"MQ":{
+		"name": "Envoy Air",
+		"code": "MQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MQ@2x.png"
+	},
+	"FR":{
+		"name": "Ryanair",
+		"code": "FR",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FR@2x.png"
+	},
+	"PD":{
+		"name": "Porter Airlines",
+		"code": "PD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/PD@2x.png"
+	},
+	"MS":{
+		"name": "EgyptAir",
+		"code": "MS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MS@2x.png"
+	},
+	"XF":{
+		"name": "Vladivostok Air",
+		"code": "XF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XF@2x.png"
+	},
+	"4A":{
+		"name": "Aero Transporte S.A.",
+		"code": "4A",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4A@2x.png"
+	},
+	"TT":{
+		"name": "Tigerair Australia",
+		"code": "TT",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/TT@2x.png"
+	},
+	"HA":{
+		"name": "Hawaiian Airlines",
+		"code": "HA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HA@2x.png"
+	},
+	"KA":{
+		"name": "Aero Nomad Airlines",
+		"code": "KA",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KA@2x.png"
+	},
+	"SQ":{
+		"name": "Singapore Airlines",
+		"code": "SQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/SQ@2x.png"
+	},
+	"UQ":{
+		"name": "Urumqi Air",
+		"code": "UQ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UQ@2x.png"
+	},
+	"E5":{
+		"name": "Air Arabia Egypt",
+		"code": "E5",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/E5@2x.png"
+	},
+	"KF":{
+		"name": "Blue1",
+		"code": "KF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/KF@2x.png"
+	},
+	"CR":{
+		"name": "OAG",
+		"code": "CR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CR@2x.png"
+	},
+	"AQ":{
+		"name": "9 Air",
+		"code": "AQ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/AQ@2x.png"
+	},
+	"FN":{
+		"name": "fastjet",
+		"code": "FN",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FN@2x.png"
+	},
+	"X8":{
+		"name": "Airmax S.A.",
+		"code": "X8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/X8@2x.png"
+	},
+	"7W":{
+		"name": "Windrose Airlines",
+		"code": "7W",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/7W@2x.png"
+	},
+	"4C":{
+		"name": "LAN COLOMBIA AIRLINES",
+		"code": "4C",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/4C@2x.png"
+	},
+	"MF":{
+		"name": "Xiamen Airlines",
+		"code": "MF",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/MF@2x.png"
+	},
+	"QD":{
+		"name": "Dobrolet",
+		"code": "QD",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QD@2x.png"
+	},
+	"TJ":{
+		"name": "Tradewind Aviation",
+		"code": "TJ",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/TJ@2x.png"
+	},
+	"2N":{
+		"name": "Nextjet",
+		"code": "2N",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2N@2x.png"
+	},
+	"I5":{
+		"name": "AirAsia India",
+		"code": "I5",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/I5@2x.png"
+	},
+	"F5":{
+		"name": "Aerotranscargo",
+		"code": "F5",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/F5@2x.png"
+	},
+	"OX":{
+		"name": "Orient Thai Airlines",
+		"code": "OX",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/OX@2x.png"
+	},
+	"5G":{
+		"name": "Shirak Avia",
+		"code": "5G",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/5G@2x.png"
+	},
+	"XV":{
+		"name": "BVI Airways",
+		"code": "XV",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/XV@2x.png"
+	},
+	"BR":{
+		"name": "Eva Air",
+		"code": "BR",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/BR@2x.png"
+	},
+	"CK":{
+		"name": "China Cargo Airlines",
+		"code": "CK",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/CK@2x.png"
+	},
+	"R1":{
+		"name": "Zapways, Inc.",
+		"code": "R1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/R1@2x.png"
+	},
+	"QU":{
+		"name": "Azur Air Ukraine",
+		"code": "QU",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/QU@2x.png"
+	},
+	"LO":{
+		"name": "LOT Polish Airlines",
+		"code": "LO",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/LO@2x.png"
+	},
+	"UI":{
+		"name": "Auric Air Services Limited",
+		"code": "UI",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/UI@2x.png"
+	},
+	"9M":{
+		"name": "Central Mountain Air",
+		"code": "9M",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9M@2x.png"
+	},
+	"2E":{
+		"name": "Smokey Bay Air, Inc.",
+		"code": "2E",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/2E@2x.png"
+	},
+	"EF":{
+		"name": "Fly CamInter",
+		"code": "EF",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/EF@2x.png"
+	},
+	"B1":{
+		"name": "TAB - Transportes Aéreos Bolivianos",
+		"code": "B1",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/B1@2x.png"
+	},
+	"E8":{
+		"name": "Tayaran Jet",
+		"code": "E8",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/E8@2x.png"
+	},
+	"FZ":{
+		"name": "Flydubai",
+		"code": "FZ",
+		"is_lowcost": true,
+		"logo": "https://pics.avs.io/200/200/FZ@2x.png"
+	},
+	"NS":{
+		"name": "Hebei Airlines",
+		"code": "NS",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/NS@2x.png"
+	},
+	"HT":{
+		"name": "Ningxia Cargo Airlines CO.,LTD",
+		"code": "HT",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/HT@2x.png"
+	},
+	"9H":{
+		"name": "Chang An Airlines",
+		"code": "9H",
+		"is_lowcost": false,
+		"logo": "https://pics.avs.io/200/200/9H@2x.png"
+	}
+}

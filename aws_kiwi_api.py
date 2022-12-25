@@ -130,14 +130,14 @@ def search_flights(date_from, date_to, fly_to = "", price_to=400):
 def create_report():
 	
 	cheapest_flights_query = db.prepare_query_cheapest_flights_per_city()
-	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
+	helpers.dump_csv(cheapest_flights_query, "reports/cheapest.csv")
 
 	message = ""
 	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
 	message += bot.generate_message(cheapest_flights_query)
 
 	bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-	bot.send_file_to_chat("/tmp/reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
+	bot.send_file_to_chat("reports/cheapest.csv", "", chat_id = bot.CHAT_ID)
 
 	current_month = datetime.now().month
 	for i in range(5):
@@ -149,14 +149,14 @@ def create_report():
 			current_month += 1
 			continue
 
-		helpers.dump_csv(month_query, f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
+		helpers.dump_csv(month_query, f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv")
 
 		message = ""
 		message += f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(current_month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
 
 		message += bot.generate_message(month_query)
 		bot.send_message_to_chat(message, chat_id = bot.CHAT_ID)
-		bot.send_file_to_chat(f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
+		bot.send_file_to_chat(f"reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = bot.CHAT_ID) 
 
 		current_month += 1
 
@@ -167,7 +167,7 @@ def lambda_handler(event, context):
 	load_config("testing_config.json.private")
 
 	try:
-		os.mkdir(r'/tmp/reports')
+		os.mkdir(r'reports')
 	except Exception as e:
 		logging.error(e.message)
 

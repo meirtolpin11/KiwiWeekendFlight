@@ -39,7 +39,7 @@ SCAN_DATE = None
 FLY_FROM = 'TLV'
 
 # load kiwi api key from seperate file (for security reasons)
-def load_config(path = "config.json.private"):
+def load_config(path = "testing_config.json.private"):
 	global API_KEY
 	data = json.load(open(path))
 
