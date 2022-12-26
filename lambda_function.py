@@ -220,9 +220,9 @@ def lambda_handler(event, context):
 	
 
 	# search for special destinations
-	#scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
 	# generate telegram report
-	#generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
+	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
 
 
 	# update the scan date for a new scan - TODO: scan_id
@@ -230,6 +230,8 @@ def lambda_handler(event, context):
 	
 	# Generate flights just to Hungary (for Budapest)
 	scan_all_flights(date_from, date_to, fly_to = 'HU')
+	
+	# Get only wizzair flights
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month,\
 	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6)
 
