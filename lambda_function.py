@@ -150,7 +150,7 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 				link_to = link_to, link_from = link_from)
 			db_flight.save()
 
-def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_cheapest_flights_city_month):	
+def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_cheapest_flights_city_month, **query_params):	
 	cheapest_flights_query = db.prepare_flights_per_city()
 	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
@@ -171,7 +171,7 @@ def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepar
 			current_month -= 12
 
 		# query the cheapest flights by month
-		month_query = query_function(current_month)
+		month_query = query_function(current_month, **query_params)
 		if len(month_query) == 0:
 			current_month += 1
 			continue
@@ -220,9 +220,9 @@ def lambda_handler(event, context):
 	
 
 	# search for special destinations
-	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	#scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
 	# generate telegram report
-	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
+	#generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
 
 
 	# update the scan date for a new scan - TODO: scan_id
@@ -230,8 +230,10 @@ def lambda_handler(event, context):
 	
 	# Generate flights just to Hungary (for Budapest)
 	scan_all_flights(date_from, date_to, fly_to = 'HU')
-	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month_wizz)
-	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
+	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month,\
+	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6)
+
+	# generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
 
 
 	if not args.local:
