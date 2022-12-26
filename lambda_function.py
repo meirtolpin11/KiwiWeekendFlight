@@ -148,9 +148,10 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
 				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
 				link_to = link_to, link_from = link_from)
+
 			db_flight.save()
 
-def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_cheapest_flights_city_month, **query_params):	
+def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_flights_per_city, **query_params):	
 	cheapest_flights_query = db.prepare_flights_per_city()
 	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
@@ -171,7 +172,14 @@ def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepar
 			current_month -= 12
 
 		# query the cheapest flights by month
-		month_query = query_function(current_month, **query_params)
+		if "where" in query_params:
+			where_backup = query_params["where"] 
+			query_params["where"] = query_params["where"] & (db.Flights.month  == current_month)
+			month_query = query_function(**query_params)
+			query_params["where"] = where_backup
+		else:
+			month_query = query_function(where=db.Flights.month == current_month, **query_params)
+
 		if len(month_query) == 0:
 			current_month += 1
 			continue
