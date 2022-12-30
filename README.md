@@ -20,6 +20,5 @@ You can also provide a Telegram `Bot Token` and `Chat ID` and get reports to you
 * You can read about kiwi API here - `https://tequila.kiwi.com/portal/docs/tequila_api/search_api`
 
 ## TODO
-* Argparse
 * External configuration
 * Price drop notifications
