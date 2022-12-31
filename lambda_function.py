@@ -92,7 +92,7 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 
 	weekend_dates = helpers.get_weekends(date_from, date_to)
 
-	for weekend in weekend_dates:
+	for weekend_id, weekend in enumerate(weekend_dates):
 		kiwi_query_params["date_from"] = kiwi_query_params["return_from"] = weekend[0]
 		kiwi_query_params["date_to"] = kiwi_query_params["return_to"] = weekend[1]
 
@@ -147,11 +147,16 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 				nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, \
 				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
 				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
-				link_to = link_to, link_from = link_from)
+				link_to = link_to, link_from = link_from, weekend_id = weekend_id)
 
 			db_flight.save()
 
-def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepare_flights_per_city, **query_params):	
+def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, query_function=db.prepare_flights_per_city, **query_params):	
+
+	# if required to run without sending report to telegram
+	if dont_send:
+		return
+
 	cheapest_flights_query = db.prepare_flights_per_city()
 	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
@@ -202,6 +207,8 @@ def generate_and_send_telegram_report(telegram_chat_id, query_function=db.prepar
 def parse_args():
 	parser = argparse.ArgumentParser()
 	parser.add_argument(r'--local', dest='local', action='store_true', help = 'run a local instance (not in AWS)')
+	parser.add_argument(r'--dont-send', dest='dont_send', action='store_true', help = 'don\'t send report to telegram')
+
 	args = parser.parse_args()
 
 	return args
@@ -214,7 +221,8 @@ def lambda_handler(event, context):
 	if not args.local:
 		download_from_bucket("flights.db", '/tmp/flight.db')
 
-	load_config("testing_config.json.private")
+	#load_config("testing_config.json.private")
+	load_config()
 
 	try:
 		os.mkdir(r'/tmp/reports')
@@ -230,7 +238,7 @@ def lambda_handler(event, context):
 	# search for special destinations
 	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
 	# generate telegram report
-	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID)
+	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send)
 
 
 	# update the scan date for a new scan - TODO: scan_id
@@ -241,7 +249,7 @@ def lambda_handler(event, context):
 	
 	# Get only wizzair flights
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month,\
-	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6)
+	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6, dont_send = args.dont_send)
 
 	# generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
 
