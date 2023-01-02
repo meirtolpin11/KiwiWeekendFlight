@@ -9,7 +9,14 @@ def convert_currency_api(amount, from_currency, to_currency, api_key):
 	response = requests.get(url)
 	result = response.json()
 
-	return int(int(amount) * result["data"][to_currency.upper()])
+	try:
+		return int(int(amount) * result["data"][to_currency.upper()])
+	except:
+		# TODO: fix this shit
+		if to_currency.lower() == "eur":
+			return int(int(amount) * 3.74)
+		else:
+			return 0
 
 def daterange(date1, date2):
 	for n in range(int ((date2 - date1).days)+1):

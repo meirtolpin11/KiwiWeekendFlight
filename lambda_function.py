@@ -64,6 +64,7 @@ def load_config(path = "config.json.private"):
 		bot.TOKEN = data['bot_token']
 		bot.CHAT_ID = data['chat_id']
 		SPECIAL_CHATS["HU"] = data['budapest_chat_id']
+		SPECIAL_CHATS["CZ"] = data['czech_chat_id']
 		airlines.CURRENCY_API_TOKEN = data['currency_convert_api']
 
 def query_flight_kiwi(search_params):
@@ -208,6 +209,9 @@ def parse_args():
 	parser = argparse.ArgumentParser()
 	parser.add_argument(r'--local', dest='local', action='store_true', help = 'run a local instance (not in AWS)')
 	parser.add_argument(r'--dont-send', dest='dont_send', action='store_true', help = 'don\'t send report to telegram')
+	parser.add_argument(r'-from', dest='from_date', help = 'scan start date (DD-MM-YY)')
+	parser.add_argument(r'-to', dest='to_date', help = 'scan end date (DD-MM-YY)')
+	parser.add_argument(r'-price', dest='price', help = 'max ticket price (nis)', default=500)
 
 	args = parser.parse_args()
 
@@ -221,8 +225,8 @@ def lambda_handler(event, context):
 	if not args.local:
 		download_from_bucket("flights.db", '/tmp/flight.db')
 
-	#load_config("testing_config.json.private")
-	load_config()
+	load_config("testing_config.json.private")
+	#load_config()
 
 	try:
 		os.mkdir(r'/tmp/reports')
@@ -233,25 +237,35 @@ def lambda_handler(event, context):
 
 	date_from = datetime.now()
 	date_to = date_from + timedelta(days= NUM_OF_MONTHS * 30)
-	
+		
+	if args.from_date and args.to_date:
+		date_from = datetime.strptime(args.from_date, "%d-%m-%y")
+		date_to = datetime.strptime(args.to_date, "%d-%m-%y")
 
 	# search for special destinations
-	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION))
+	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION), price_to=args.price)
 	# generate telegram report
 	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send)
-
 
 	# update the scan date for a new scan - TODO: scan_id
 	SCAN_DATE = datetime.now()
 	
 	# Generate flights just to Hungary (for Budapest)
-	scan_all_flights(date_from, date_to, fly_to = 'HU')
+	scan_all_flights(date_from, date_to, fly_to = 'HU', price_to=args.price)
 	
 	# Get only wizzair flights
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month,\
 	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6, dont_send = args.dont_send)
 
-	# generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month)
+	# update the scan date for a new scan - TODO: scan_id
+	SCAN_DATE = datetime.now()
+
+	# Generate flights just to Hungary (for Budapest)
+	scan_all_flights(date_from, date_to, fly_to = 'CZ', price_to=2500)
+	
+	# Get only wizzair flights
+	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["CZ"], query_function=db.prepare_cheapest_flights_month,
+						limit = 6, dont_send = args.dont_send)
 
 
 	if not args.local:
