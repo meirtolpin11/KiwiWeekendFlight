@@ -13,7 +13,7 @@ def convert_currency_api(amount, from_currency, to_currency, api_key):
 		return int(int(amount) * result["data"][to_currency.upper()])
 	except:
 		# TODO: fix this shit
-		if to_currency.lower() == "eur":
+		if from_currency.lower() == "eur":
 			return int(int(amount) * 3.74)
 		else:
 			return 0
