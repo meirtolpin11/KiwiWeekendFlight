@@ -2,16 +2,24 @@ from datetime import timedelta
 import requests
 import csv
 
+CACHED_RATES = {}
 
-def convert_currency_api(amount, from_currency, to_currency, api_key):
-	url = f"https://api.freecurrencyapi.com/v1/latest?apikey={api_key}&currencies={to_currency.upper()}&base_currency={from_currency.upper()}"
+def convert_currency_api(amount, from_currency, to_currency):
 
-	response = requests.get(url)
-	result = response.json()
+	if f"{from_currency}:{to_currency}" not in CACHED_RATES.keys():
+		url = f"https://open.er-api.com/v6/latest/{from_currency.upper()}"
+
+		response = requests.get(url)
+		result = response.json()
+		
+		CACHED_RATES[f"{from_currency}:{to_currency}"] = result
+	else:
+		result = CACHED_RATES[f"{from_currency}:{to_currency}"]
 
 	try:
-		return int(int(amount) * result["data"][to_currency.upper()])
-	except:
+		return int(int(amount) * result["rates"][to_currency.upper()])
+	except Exception as e:
+		print(f"Error while fetching currency info {e}")
 		# TODO: fix this shit
 		if from_currency.lower() == "eur":
 			return int(int(amount) * 3.74)

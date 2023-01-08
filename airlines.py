@@ -15,9 +15,10 @@ def calculate_discount_price(str_airlines, price):
 	if len(airlines) != 1:
 		return price
 
-	if airlines[0].lower() == 'wizz air' and price >= helpers.convert_currency_api(40, "EUR", "ILS", CURRENCY_API_TOKEN):
+	members_discount = helpers.convert_currency_api(40, "EUR", "ILS")
+	if airlines[0].lower() == 'wizz air' and price >= members_discount:
 		# Ticket price should be more then 19.99 EUR in every direction
-		return price - helpers.convert_currency_api(20, "EUR", "ILS", CURRENCY_API_TOKEN)
+		return price - members_discount
 
 	return price
 
