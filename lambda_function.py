@@ -152,12 +152,9 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 
 			db_flight.save()
 
-def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, query_function=db.prepare_flights_per_city, **query_params):	
+def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, print_output = False, query_function=db.prepare_flights_per_city, **query_params):	
 
-	# if required to run without sending report to telegram
-	if dont_send:
-		return
-
+	
 	cheapest_flights_query = db.prepare_flights_per_city()
 	helpers.dump_csv(cheapest_flights_query, "/tmp/reports/cheapest.csv")
 
@@ -166,8 +163,9 @@ def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, query_f
 	message += "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
 	message += bot.generate_message(cheapest_flights_query)
 
-	bot.send_message_to_chat(message, chat_id = telegram_chat_id)
-	bot.send_file_to_chat("/tmp/reports/cheapest.csv", "", chat_id = telegram_chat_id)
+	if not dont_send:
+		bot.send_message_to_chat(message, chat_id = telegram_chat_id)
+		bot.send_file_to_chat("/tmp/reports/cheapest.csv", "", chat_id = telegram_chat_id)
 
 	# Cheap flights by Months
 	current_month = datetime.now().month
@@ -199,8 +197,12 @@ def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, query_f
 		message += bot.generate_message(month_query)
 
 		# send the message and the query
-		bot.send_message_to_chat(message, chat_id = telegram_chat_id)
-		bot.send_file_to_chat(f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = telegram_chat_id) 
+		if not dont_send:
+			bot.send_message_to_chat(message, chat_id = telegram_chat_id)
+			bot.send_file_to_chat(f"/tmp/reports/{datetime.strptime(str(current_month), '%m').strftime('%B')}.csv", "", chat_id = telegram_chat_id) 
+
+		if print_output:
+			print(message)
 
 		# continue to the next month
 		current_month += 1
@@ -208,6 +210,7 @@ def generate_and_send_telegram_report(telegram_chat_id, dont_send=False, query_f
 def parse_args():
 	parser = argparse.ArgumentParser()
 	parser.add_argument(r'--local', dest='local', action='store_true', help = 'run a local instance (not in AWS)')
+	parser.add_argument(r'--print', dest='print', action='store_true', help = 'print output to the terminal (not in AWS)')
 	parser.add_argument(r'--dont-send', dest='dont_send', action='store_true', help = 'don\'t send report to telegram')
 	parser.add_argument(r'-from', dest='from_date', help = 'scan start date (DD-MM-YY)')
 	parser.add_argument(r'-to', dest='to_date', help = 'scan end date (DD-MM-YY)')
@@ -245,7 +248,7 @@ def lambda_handler(event, context):
 	# search for special destinations
 	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION), price_to=args.price)
 	# generate telegram report
-	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send)
+	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send, print_output = args.print)
 
 	# update the scan date for a new scan - TODO: scan_id
 	SCAN_DATE = datetime.now()
@@ -255,7 +258,7 @@ def lambda_handler(event, context):
 	
 	# Get only wizzair flights
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["HU"], query_function=db.prepare_cheapest_flights_month,\
-	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6, dont_send = args.dont_send)
+	 where=db.Flights.airlines == "Wizz Air,Wizz Air", limit = 6, dont_send = args.dont_send, print_output = args.print)
 
 	# update the scan date for a new scan - TODO: scan_id
 	SCAN_DATE = datetime.now()
@@ -265,7 +268,7 @@ def lambda_handler(event, context):
 	
 	# Get only wizzair flights
 	generate_and_send_telegram_report(telegram_chat_id = SPECIAL_CHATS["CZ"], query_function=db.prepare_cheapest_flights_month,
-						limit = 6, dont_send = args.dont_send)
+						limit = 6, dont_send = args.dont_send,  print_output = args.print)
 
 
 	if not args.local:
