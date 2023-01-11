@@ -215,6 +215,7 @@ def parse_args():
 	parser.add_argument(r'-from', dest='from_date', help = 'scan start date (DD-MM-YY)')
 	parser.add_argument(r'-to', dest='to_date', help = 'scan end date (DD-MM-YY)')
 	parser.add_argument(r'-price', dest='price', help = 'max ticket price (nis)', default=500)
+	parser.add_argument(r'-airline', dest='airline', help = 'airline name', default=None)
 
 	args = parser.parse_args()
 
@@ -247,8 +248,12 @@ def lambda_handler(event, context):
 
 	# search for special destinations
 	scan_all_flights(date_from, date_to, fly_to = ','.join(SPECIAL_DESTINATION), price_to=args.price)
-	# generate telegram report
-	generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send, print_output = args.print)
+	# generate telegram report	
+	if args.airline:
+		generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send, print_output = args.print,\
+		 where=db.Flights.airlines == f"{args.airline},{args.airline}")
+	else:
+		generate_and_send_telegram_report(telegram_chat_id = bot.CHAT_ID, dont_send = args.dont_send, print_output = args.print)
 
 	# update the scan date for a new scan - TODO: scan_id
 	SCAN_DATE = datetime.now()
