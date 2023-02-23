@@ -72,7 +72,7 @@ def query_flight_kiwi(search_params):
 	response = requests.get(f"{URL}", params=search_params, headers=HEADERS)
 	return response.json()
 
-def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
+def scan_all_flights(date_from, date_to, fly_to = "", price_to=400, generate_weekends=True):
 	# default search params - should be changed
 	kiwi_query_params = {
 		"fly_from": "TLV",
@@ -91,7 +91,10 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 		"ret_from_diff_airport": 0
 	}
 
-	weekend_dates = helpers.get_weekends(date_from, date_to)
+	if generate_weekends:
+		weekend_dates = helpers.get_weekends(date_from, date_to)
+	else:
+		weekend_dates = [[date_from.strftime("%Y-%m-%d"), date_to.strftime("%Y-%m-%d")]]
 
 	for weekend_id, weekend in enumerate(weekend_dates):
 		kiwi_query_params["date_from"] = kiwi_query_params["return_from"] = weekend[0]
@@ -104,6 +107,7 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400):
 			flights_data = flights["data"]
 		except Exception as e:
 			logging.error(f"failed to fetch flight from kiwi api, error:{e}")
+			logging.error(flights)
 			continue
 
 		for flight in flights_data:
