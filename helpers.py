@@ -60,7 +60,6 @@ def calculate_days_off(departure, arrival):
 
 	return days_off
 
-
 def dump_csv(query, file_or_name, include_header=True, close_file=True,
 			 append=False, csv_writer=None):
 	"""

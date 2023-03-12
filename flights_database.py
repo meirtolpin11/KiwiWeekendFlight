@@ -10,6 +10,8 @@ class Flights(Model):
 	price = IntegerField()
 	discount_price = IntegerField()
 	airlines = CharField()
+	flight_numbers = CharField()
+	flight_confirmed = BooleanField()
 	departure_to = DateTimeField()
 	arrival_to = DateTimeField()
 	departure_from = DateTimeField()
@@ -35,7 +37,7 @@ def prepare_flights_per_city(**query_params):
 	user_where_cause = query_params["where"] if "where" in query_params else True	
 
 	# query the cheapest flights per city
-	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.discount_price, Flights.airlines, Flights.nights,\
+	flights = Flights.select(Flights.fly_to, fn.Min(Flights.price).alias("price"), Flights.discount_price, Flights.airlines, Flights.flight_numbers, Flights.flight_confirmed, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
 	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
 	 Flights.link_to, Flights.link_from).where((user_where_cause) & (Flights.date_of_scan == last_scan_data[0].date_of_scan)).group_by(Flights.fly_to).order_by(Flights.price)
@@ -49,7 +51,7 @@ def prepare_cheapest_flights_month(**query_params):
 
 	last_scan_data = Flights.select(fn.Max(Flights.date_of_scan).alias('date_of_scan')).execute()
 	
-	flights = Flights.select(Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines, Flights.nights,\
+	flights = Flights.select(Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines, Flights.flight_numbers, Flights.flight_confirmed, Flights.nights,\
 	 Flights.days_off, Flights.departure_to,\
 	 Flights.arrival_to, Flights.departure_from, Flights.arrival_from, \
 	 Flights.link_to, Flights.link_from).where((Flights.date_of_scan == last_scan_data[0].date_of_scan)\

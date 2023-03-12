@@ -50,7 +50,7 @@ SCAN_DATE = None
 FLY_FROM = 'TLV'
 
 # load kiwi api key from seperate file (for security reasons)
-def load_config(path = "config.json.private"):
+def load_config(path = "configs/config.json.private"):
 	global API_KEY
 	global HEADERS
 
@@ -142,17 +142,19 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400, generate_wee
 
 				if str_airlines.split(',')[1].lower() in airlines.airlines_dict.keys():
 					link_from = airlines.airlines_dict[str_airlines.split(',')[1].lower()](flight['flyFrom'], flight['flyTo'], source_departure, dest_departure, isround=False)
-				
+			
+			# store flight numbers  
+			flight_numbers = ','.join([direction['airline'] + str(direction['flight_no']) for direction in flight['route']])
 
 			# caclulate how many days off the work are needed
 			days_off = helpers.calculate_days_off(source_departure, source_arrival)
 
 			# insert the flight into the database 
-			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, discount_price = discount_price, \
+			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, flight_confirmed=True, discount_price = discount_price, \
 				nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, \
 				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
 				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
-				link_to = link_to, link_from = link_from, weekend_id = weekend_id)
+				link_to = link_to, link_from = link_from, weekend_id = weekend_id, flight_numbers = flight_numbers)
 
 			db_flight.save()
 
@@ -233,7 +235,7 @@ def lambda_handler(event, context):
 	if not args.local:
 		download_from_bucket("flights.db", '/tmp/flight.db')
 
-	load_config("testing_config.json.private")
+	load_config("configs/testing_config.json.private")
 	#load_config()
 
 	try:

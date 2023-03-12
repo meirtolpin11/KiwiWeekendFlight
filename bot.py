@@ -10,11 +10,17 @@ def generate_message(query):
 		message += f"\n<b>{flight.fly_to.split('/')[1]}</b> <i>({flight.fly_to.split('/')[0]})</i>\n "
 		 
 		if flight.departure_to.month == flight.arrival_from.month:
-			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d')}-{flight.arrival_from.strftime('%d/%m')}</b> "
+			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M ')}-{flight.arrival_from.strftime(' %d/%m %H:%M')}</b> "
 		else:
-			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m')}-{flight.arrival_from.strftime('%d/%m')}</b> "
+			message += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M ')}-{flight.arrival_from.strftime(' %d/%m %H:%M')}</b> "
 
 		message += f"<i>({flight.departure_to.strftime('%a')} - {flight.arrival_from.strftime('%a')})</i> \N{calendar}\n "
+
+		# if flight.confirmed:
+		# 	message += f"\N{white heavy check mark} Flight - {flight.flight_no.split(',')[0]} confirmed \N{white heavy check mark}\n" 
+		# else:
+		# 	message += f"\N{cross mark} Flight - {flight.flight_no.split(',')[0]} not confirmed \N{cross mark}\n" 
+
 
 		if flight.price == flight.discount_price:
 			message += f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}\n"
