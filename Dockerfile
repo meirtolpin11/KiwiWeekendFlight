@@ -1,5 +1,3 @@
-
-\
 FROM ubuntu:22.10
 
 RUN apt update 
@@ -20,5 +18,5 @@ COPY . .
 RUN python3 -m pip install pip IPython -U 
 RUN python3 -m pip install -r requirements.txt
 
-ENTRYPOINT python3 lambda_function.py
+ENTRYPOINT python3 lambda_function.py --local
 
