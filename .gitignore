@@ -1,6 +1,8 @@
 # private config files
 *.private 
 
+terraform/
+*terraform/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
