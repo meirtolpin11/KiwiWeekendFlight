@@ -1,3 +1,5 @@
 peewee
 requests
 boto3
+selenium
+selenium-wire

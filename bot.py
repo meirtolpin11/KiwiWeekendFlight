@@ -1,5 +1,6 @@
 import requests
 import airlines
+import airport_information
 
 TOKEN = ""
 CHAT_ID = ""
@@ -16,10 +17,11 @@ def generate_message(query):
 
 		message += f"<i>({flight.departure_to.strftime('%a')} - {flight.arrival_from.strftime('%a')})</i> \N{calendar}\n "
 
-		# if flight.confirmed:
-		# 	message += f"\N{white heavy check mark} Flight - {flight.flight_no.split(',')[0]} confirmed \N{white heavy check mark}\n" 
-		# else:
-		# 	message += f"\N{cross mark} Flight - {flight.flight_no.split(',')[0]} not confirmed \N{cross mark}\n" 
+		check_confirmed = airport_information.get_flight_information_tlv(flight.flight_numbers.split(',')[0], flight.fly_to.split('/')[1], flight.departure_to)
+		if check_confirmed:
+			message += f"\N{white heavy check mark} Flight - {flight.flight_numbers.split(',')[0]} confirmed \N{white heavy check mark}\n"
+		else:
+			message += f"\N{cross mark} Flight - MAYBE {flight.flight_numbers.split(',')[0]} not confirmed \N{cross mark}\n"
 
 
 		if flight.price == flight.discount_price:

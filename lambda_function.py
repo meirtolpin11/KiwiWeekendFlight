@@ -50,22 +50,19 @@ SCAN_DATE = None
 FLY_FROM = 'TLV'
 
 # load kiwi api key from seperate file (for security reasons)
-def load_config(path = "configs/config.json.private"):
+def load_config():
 	global API_KEY
 	global HEADERS
 
-	with open(path) as config:
-		data = json.load(config)
+	API_KEY = os.getenv('KIWI_API_KEY').strip()
+	HEADERS['apikey'] = API_KEY
 
-		API_KEY = data['kiwi_api']
-		HEADERS['apikey'] = API_KEY
-
-		# update other files config
-		bot.TOKEN = data['bot_token']
-		bot.CHAT_ID = data['chat_id']
-		SPECIAL_CHATS["HU"] = data['budapest_chat_id']
-		SPECIAL_CHATS["CZ"] = data['czech_chat_id']
-		airlines.CURRENCY_API_TOKEN = data['currency_convert_api']
+	# update other files config
+	bot.TOKEN = os.getenv('TELEGRAM_BOT_TOKEN').strip()
+	bot.CHAT_ID = os.getenv('TELEGRAM_CHAT_ID').strip()
+	SPECIAL_CHATS["HU"] = os.getenv(r'TELEGRAM_BUDAPEST_CHAT_ID').strip()
+	SPECIAL_CHATS["CZ"] = os.getenv(r'TELEGRAM_PRAGUE_CHAT_ID').strip()
+	airlines.CURRENCY_API_TOKEN = os.getenv(r'CURRENCY_API_KEY').strip()
 
 def query_flight_kiwi(search_params):
 
@@ -150,7 +147,7 @@ def scan_all_flights(date_from, date_to, fly_to = "", price_to=400, generate_wee
 			days_off = helpers.calculate_days_off(source_departure, source_arrival)
 
 			# insert the flight into the database 
-			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, flight_confirmed=True, discount_price = discount_price, \
+			db_flight = db.Flights(fly_from = source, fly_to = dest, price = price, discount_price = discount_price, \
 				nights = int(flight['nightsInDest']), airlines = str_airlines, departure_to =  source_departure, \
 				days_off = days_off,  arrival_to = dest_arrival, departure_from = dest_departure, \
 				arrival_from = source_arrival, date_of_scan = SCAN_DATE, month = source_departure.month, \
@@ -235,8 +232,7 @@ def lambda_handler(event, context):
 	if not args.local:
 		download_from_bucket("flights.db", '/tmp/flight.db')
 
-	load_config("configs/testing_config.json.private")
-	#load_config()
+	load_config()
 
 	try:
 		os.mkdir(r'/tmp/reports')
