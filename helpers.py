@@ -1,34 +1,9 @@
-from datetime import timedelta
-import requests
 import csv
+import config
+import requests
+from datetime import datetime, timedelta
 
 CACHED_RATES = {}
-
-def convert_currency_api(amount, from_currency, to_currency):
-
-	if f"{from_currency}:{to_currency}" not in CACHED_RATES.keys():
-		url = f"https://open.er-api.com/v6/latest/{from_currency.upper()}"
-
-		response = requests.get(url)
-		result = response.json()
-		
-		CACHED_RATES[f"{from_currency}:{to_currency}"] = result
-	else:
-		result = CACHED_RATES[f"{from_currency}:{to_currency}"]
-
-	try:
-		return int(int(amount) * result["rates"][to_currency.upper()])
-	except Exception as e:
-		print(f"Error while fetching currency info {e}")
-		# TODO: fix this shit
-		if from_currency.lower() == "eur":
-			return int(int(amount) * 3.74)
-		else:
-			return 0
-
-def daterange(date1, date2):
-	for n in range(int ((date2 - date1).days)+1):
-		yield date1 + timedelta(n)
 
 def get_weekends(start_dt, end_dt):
 	weekend_days = [4,7]
@@ -45,6 +20,33 @@ def get_weekends(start_dt, end_dt):
 				pair = ["", ""]
 
 	return weekends
+
+# TODO: refactor
+def daterange(date1, date2):
+	for n in range(int((date2 - date1).days)+1):
+		yield date1 + timedelta(n)
+
+
+def convert_currency_api(amount, from_currency, to_currency):
+	if f"{from_currency}:{to_currency}" not in CACHED_RATES.keys():
+		url = f"https://open.er-api.com/v6/latest/{from_currency.upper()}"
+
+		response = requests.get(url)
+		result = response.json()
+
+		CACHED_RATES[f"{from_currency}:{to_currency}"] = result
+	else:
+		result = CACHED_RATES[f"{from_currency}:{to_currency}"]
+
+	try:
+		return int(int(amount) * result["rates"][to_currency.upper()])
+	except Exception as e:
+		print(f"Error while fetching currency info {e}")
+		# TODO: fix this shit
+		if from_currency.lower() == "eur":
+			return int(int(amount) * 3.74)
+		else:
+			return 0
 
 def calculate_days_off(departure, arrival):
 	days_off = 0

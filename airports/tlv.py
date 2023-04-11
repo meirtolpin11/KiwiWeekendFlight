@@ -1,9 +1,10 @@
 import requests
 import logging
-from seleniumwire import webdriver
 from time import sleep
+from seleniumwire import webdriver
 
 IAA_HEADERS = None
+CACHE = {}
 
 
 def get_iaa_headers():
@@ -34,54 +35,65 @@ def get_iaa_headers():
     return headers
 
 
-'''
-
-import datetime
-from airport_information import * 
-
-get_flight_information_tlv('w62326', 'budapest', datetime.datetime(2023,6,15))
-
-'''
-
-
-def get_flight_information_tlv(flight_number, destination_city, departure_date):
+def get_flight_confirmation(flight_number, departure_date):
     global IAA_HEADERS
+    global CACHE
 
     if not IAA_HEADERS:
         IAA_HEADERS = get_iaa_headers()
+
+    if departure_date.strftime("%d/%m/%Y").replace('/0', '/') in CACHE:
+        for flight in CACHE[departure_date.strftime("%d/%m/%Y").replace('/0', '/')]['Flights']:
+            if flight_number.lower() == flight['Flight'].replace(' ', '').lower():
+                return flight
+        return -1
 
     data = {
         'g-recaptcha-response': '',
         'FlightType': 'Outgoing',
         'AirportId': 'LLBG',
         'UICulture': 'he-IL',
-        'City': destination_city.upper(),
+        'City': '',
         'Country': '',
         'AirlineCompany': '',
         'FromDate': departure_date.strftime("%d/%m/%Y").replace('/0', '/'),
         'ToDate': departure_date.strftime("%d/%m/%Y").replace('/0', '/'),
         'ufprt': '',
     }
-
+    max_error_counter = 2
     error_counter = 0
-    while error_counter <= 10:
+
+    # we try up to 10 times to get a valid response
+    while error_counter <= max_error_counter:
         r = requests.post('https://www.iaa.gov.il/umbraco/surface/FlightBoardSurface/Search', data=data,
                           headers=IAA_HEADERS)
-        print(r.text)
-        try:
-            r.json()
-            if len(r.json()['Flights']) == 0:
-                error_counter += 1
-                continue
-        except:
-            IAA_HEADERS = get_iaa_headers()
 
+        # noinspection PyBroadException
+        try:
+            iaa_flights = r.json()
+            if len(iaa_flights['Flights']) == 0:
+                IAA_HEADERS = get_iaa_headers()
+                sleep(2)
+                error_counter += 1
+
+                if error_counter >= max_error_counter:
+                    # return status that no flight are returned
+                    return -2
+
+                # try to fetch again
+                continue
+        except Exception as e:
+            IAA_HEADERS = get_iaa_headers()
             error_counter += 1
             continue
 
-        for flight in r.json()['Flights']:
+        CACHE[departure_date.strftime("%d/%m/%Y").replace('/0', '/')] = iaa_flights
+
+        # try to find the valid flight
+        for flight in iaa_flights['Flights']:
             if flight_number.lower() == flight['Flight'].replace(' ', '').lower():
                 return flight
-        break
 
-    return None
+        return -1
+
+    return -3

@@ -4278,7 +4278,7 @@
 		"logo": "https://pics.avs.io/200/200/VU@2x.png"
 	},
 	"WU":{
-		"name": "Wizz Air Ukraine",
+		"name": "Wizz Air",
 		"code": "WU",
 		"is_lowcost": false,
 		"logo": "https://pics.avs.io/200/200/WU@2x.png"
@@ -4446,9 +4446,9 @@
 		"logo": "https://pics.avs.io/200/200/C3@2x.png"
 	},
 	"W4":{
-		"name": "LC Busre SAC",
+		"name": "Wizz Air",
 		"code": "W4",
-		"is_lowcost": false,
+		"is_lowcost": true,
 		"logo": "https://pics.avs.io/200/200/W4@2x.png"
 	},
 	"M2":{
