@@ -16,7 +16,6 @@ TELEGRAM_BOTS = {
     }
 }
 
-CURRENCY_API_TOKEN = None
 MONTHS_TO_SCAN = 5
 
 SPECIAL_DESTINATIONS = [
@@ -60,7 +59,6 @@ def init_config():
     global API_KEY
     global HEADERS
     global TELEGRAM_BOTS
-    global CURRENCY_API_TOKEN
 
     # load the config from the environment variable
     API_KEY = os.getenv('KIWI_API_KEY').strip()
@@ -86,4 +84,3 @@ def init_config():
         max_price = int(chat.split(';')[2]) if chat.split(';')[2] else 0
         TELEGRAM_BOTS['default']['chats'][chat_name] = [chat_id, max_price]
 
-    CURRENCY_API_TOKEN = os.getenv('CURRENCY_API_KEY').strip()
