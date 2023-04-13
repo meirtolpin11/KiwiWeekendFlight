@@ -10,7 +10,7 @@ class Elal:
                                 f"&origin={fly_from}&destination={fly_to}&" \
                                 f"departDay={date_to.day}&departMonth={date_to.month}&departYear={date_to.year}" \
                                 f"&journeyType=1&" \
-                                f"returnFrom={fly_from}&returnTo={fly_to}&" \
+                                f"returnFrom={fly_to}&returnTo={fly_from}&" \
                                 f"returnDay={date_from.day}&returnMonth={date_from.month}&returnYear={date_from.year}"
             return elal_round_url
 
@@ -21,3 +21,5 @@ class Elal:
                          f"departDay={date_to.day}&departMonth={date_to.month}&departYear={date_to.year}" \
                          f"&journeyType=0"
         return elal_oneway_url
+
+

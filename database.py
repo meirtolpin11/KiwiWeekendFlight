@@ -51,7 +51,6 @@ def prepare_flights_per_city(scan_timestamp, **query_params):
 
 def prepare_single_destination_flights(scan_timestamp, **query_params):
     user_where_cause = query_params["where"] if "where" in query_params else True
-    limit_cause = query_params["limit"] if "limit" in query_params else None
 
     flights = Flights.select(Flights.fly_from, Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines,
                              Flights.flight_numbers, Flights.nights,
