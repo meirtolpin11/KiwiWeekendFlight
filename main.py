@@ -42,17 +42,23 @@ def main():
         date_to = date_from + timedelta(days=config.MONTHS_TO_SCAN * 30)
 
     for chat_name, details in config.TELEGRAM_BOTS['default']['chats'].items():
-
+        if chat_name != 'hu':
+            continue
         chat_id, max_price = details
         max_price = max_price if max_price > args.price else args.price
         fly_to = ','.join(config.SPECIAL_DESTINATIONS) if chat_name == 'all' else chat_name.upper()
-        scan_timestamp = kiwi.generate_weekend_flights(date_from, date_to, fly_to=fly_to, price_to=max_price)
+        scan_timestamp = int(datetime.timestamp(datetime.now()))
+        kiwi.generate_weekend_flights(date_from, date_to, fly_to=fly_to, price_to=max_price, scan_timestamp=scan_timestamp)
+        kiwi.generate_holidays_flights(date_from, date_to, fly_to=fly_to, price_to=max_price, scan_timestamp=scan_timestamp)
         config.publish = args.publish
 
         if chat_name != 'all':
-            bot.publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_single_destination_flights)
+            report = bot.publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_single_destination_flights)
         else:
-            bot.publish_default_report(chat_id, scan_timestamp)
+            report = bot.publish_default_report(chat_id, scan_timestamp)
+
+        if args.print:
+            print(report)
 
 
 if __name__ == '__main__':

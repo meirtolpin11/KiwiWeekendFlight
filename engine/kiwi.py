@@ -3,9 +3,10 @@ import config
 import helpers
 import logging
 import airlines
+import holidays
 import requests
 import database as db
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # noinspection PyBroadException
@@ -21,13 +22,42 @@ def get_date(flight, field):
     return datetime.strptime(flight[field], r"%Y-%m-%dT%H:%M:%S.%fZ")
 
 
+def generate_holidays_flights(date_from: datetime, date_to: datetime, fly_to: str, price_to: int = 1000,
+                              nights_in_dst_from: str = 1, nights_in_dst_to: str = 10,
+                              country='IL', scan_timestamp=None) -> int:
+    country_holidays = holidays.country_holidays(country, years=date_to.year)
+
+    holiday_start = None
+    prev_holiday = None
+    prev_holiday_name = None
+    for _holiday in country_holidays.items():
+        if not (date_from.date() < _holiday[0] < date_to.date()):
+            continue
+
+        if not prev_holiday:
+            holiday_start = _holiday
+            prev_holiday = _holiday
+            prev_holiday_name = _holiday[1].split('-')[0]
+
+        elif (_holiday[0] - prev_holiday[0]).days != 1:
+            generate_flights(holiday_start[0] - timedelta(days=1), prev_holiday[0] + timedelta(days=1),
+                             fly_to, price_to, nights_in_dst_from,
+                             nights_in_dst_to, scan_timestamp, holiday_name=prev_holiday_name)
+
+            holiday_start = _holiday
+            prev_holiday = _holiday
+            prev_holiday_name = _holiday[1].split('-')[0]
+
+        else:
+            prev_holiday = _holiday
+
+
 def generate_weekend_flights(date_from: datetime, date_to: datetime, fly_to: str,
-                             price_to: int = 500, nights_in_dst_from: str = 2, nights_in_dst_to: str = 5) -> int:
-    scan_timestamp = int(datetime.timestamp(datetime.now()))
+                             price_to: int = 500, nights_in_dst_from: str = 2,
+                             nights_in_dst_to: str = 5, scan_timestamp=None):
     weekend_dates = helpers.get_weekends(date_from, date_to)
     for weekend_id, weekend in enumerate(weekend_dates):
         generate_flights(weekend[0], weekend[1], fly_to, price_to, nights_in_dst_from, nights_in_dst_to, scan_timestamp)
-    return scan_timestamp
 
 
 def prepare_kiwi_api(fly_to, price_to, date_from, date_to, nights_in_dst_from, nights_in_dst_to):
@@ -47,7 +77,7 @@ def prepare_kiwi_api(fly_to, price_to, date_from, date_to, nights_in_dst_from, n
 
 def generate_flights(date_from: datetime, date_to: datetime, fly_to: str,
                      price_to: int = 500, nights_in_dst_from: str = 2, nights_in_dst_to: str = 5,
-                     scan_timestamp: int = int(datetime.timestamp(datetime.now()))):
+                     scan_timestamp: int = int(datetime.timestamp(datetime.now())), holiday_name=""):
     kiwi_api_params = prepare_kiwi_api(fly_to, price_to, date_from, date_to, nights_in_dst_from, nights_in_dst_to)
 
     flights = query_flight_kiwi(kiwi_api_params)
@@ -120,6 +150,6 @@ def generate_flights(date_from: datetime, date_to: datetime, fly_to: str,
                                month=get_date(flight['route'][0], 'local_departure').month,
                                days_off=days_off, date_of_scan=scan_timestamp,
                                link_to=links[0], link_from=links[1], weekend_id=-1,  # TODO: update weekend id
-                               flight_numbers=flight_numbers)
+                               flight_numbers=flight_numbers, holiday_name=holiday_name)
 
         db_flight.save()

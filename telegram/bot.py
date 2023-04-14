@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 def generate_cheapest_flights(scan_timestamp):
-    cheapest_flights_query = db.prepare_flights_per_city(scan_timestamp)
+    cheapest_flights_query = db.prepare_flights_per_city(scan_timestamp, where=db.Flights.holiday_name == "")
     output_path = os.path.join(config.tmp_folder, "cheapest.csv")
     helpers.dump_csv(cheapest_flights_query, output_path)
 
@@ -39,7 +39,24 @@ def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_fl
         total_report.append(message)
         current_month += 1
 
+    cheapest_holidays_report, output_path = generate_holidays_report(scan_timestamp)
+    if config.publish:
+        send_message_to_chat(cheapest_holidays_report, chat_id)
+        send_file_to_chat(output_path, "", chat_id)
+    total_report.append(cheapest_holidays_report)
+
     return total_report
+
+
+def generate_holidays_report(scan_timestamp):
+    # we need a new query here
+    cheapest_flights_query = db.prepare_flights_per_city(scan_timestamp, where=db.Flights.holiday_name != "")
+    output_path = os.path.join(config.tmp_folder, "holidays.csv")
+    helpers.dump_csv(cheapest_flights_query, output_path)
+
+    title = "<b>\N{airplane} Holiday Flights - \N{airplane}</b>\n"
+    body = generate_message(cheapest_flights_query)
+    return "\n".join([title, body]), output_path
 
 
 def generate_report_per_month(month, scan_timestamp, query_function=db.prepare_flights_per_city, **query_params):
@@ -49,10 +66,12 @@ def generate_report_per_month(month, scan_timestamp, query_function=db.prepare_f
     # query the cheapest flights by month
     # TODO: verify
     if "where" in query_params:
-        where_clause = {"where": query_params["where"] & (db.Flights.month == month)}
+        where_clause = {"where": query_params["where"] & (db.Flights.month == month) & (db.Flights.holiday_name == "")}
         month_query = query_function(scan_timestamp, **where_clause)
     else:
-        month_query = query_function(scan_timestamp, where=db.Flights.month == month, **query_params)
+        month_query = query_function(scan_timestamp,
+                                     where=(db.Flights.month == month) & (db.Flights.holiday_name == ""),
+                                     **query_params)
 
     if len(month_query) == 0:
         return None, None
@@ -76,6 +95,10 @@ def generate_message(query):
         message.append(flight_line)
 
         # generate departure and arrival dates lines
+
+        if flight.holiday_name != "":
+            message.append(f"\N{star of David} {flight.holiday_name} \N{star of David}")
+
         dates_line = ""
         if flight.departure_to.month == flight.arrival_from.month:
             dates_line += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - " \

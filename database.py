@@ -20,6 +20,7 @@ class Flights(Model):
     link_from = CharField()
     month = IntegerField()
     date_of_scan = DateTimeField()
+    holiday_name = CharField()
 
     class Meta:
         database = db
@@ -41,7 +42,7 @@ def prepare_flights_per_city(scan_timestamp, **query_params):
                              Flights.discount_price, Flights.airlines, Flights.flight_numbers, Flights.nights,
                              Flights.days_off, Flights.departure_to,
                              Flights.arrival_to, Flights.departure_from, Flights.arrival_from,
-                             Flights.link_to, Flights.link_from). \
+                             Flights.link_to, Flights.link_from, Flights.holiday_name). \
         where(user_where_cause & (Flights.date_of_scan == scan_timestamp)). \
         group_by(Flights.fly_to, Flights.fly_from). \
         order_by(Flights.price)
@@ -56,7 +57,7 @@ def prepare_single_destination_flights(scan_timestamp, **query_params):
                              Flights.flight_numbers, Flights.nights,
                              Flights.days_off, Flights.departure_to,
                              Flights.arrival_to, Flights.departure_from, Flights.arrival_from,
-                             Flights.link_to, Flights.link_from).\
+                             Flights.link_to, Flights.link_from, Flights.holiday_name).\
         where((Flights.date_of_scan == scan_timestamp) & user_where_cause).\
         order_by(Flights.price)
 
