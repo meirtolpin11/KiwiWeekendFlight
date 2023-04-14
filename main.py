@@ -42,8 +42,6 @@ def main():
         date_to = date_from + timedelta(days=config.MONTHS_TO_SCAN * 30)
 
     for chat_name, details in config.TELEGRAM_BOTS['default']['chats'].items():
-        if chat_name != 'hu':
-            continue
         chat_id, max_price = details
         max_price = max_price if max_price > args.price else args.price
         fly_to = ','.join(config.SPECIAL_DESTINATIONS) if chat_name == 'all' else chat_name.upper()
