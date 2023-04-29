@@ -114,8 +114,12 @@ def generate_message(query):
         # generate flight confirmation line
         if hasattr(airports, flight.fly_from.split('/')[2].lower()):
             airport_helper = getattr(airports, flight.fly_from.split('/')[2].lower())
-            is_flight_confirmed = airport_helper.get_flight_confirmation(flight.flight_numbers.split(',')[0],
-                                                                         flight.departure_to)
+
+            try:
+                is_flight_confirmed = airport_helper.get_flight_confirmation(flight.flight_numbers.split(',')[0],
+                                                                             flight.departure_to)
+            except:
+                is_flight_confirmed = -2
 
             if is_flight_confirmed == -1:
                 # if returned -1 that means that flight are found but the flight is missing
@@ -131,7 +135,7 @@ def generate_message(query):
         if flight.price == flight.discount_price:
             message.append(f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}")
         else:
-            message.append(f"\t\N{money bag} <b>{flight.price} nis, " 
+            message.append(f"\t\N{money bag} <b>{flight.price} nis, "
                            f"<i>Members: {flight.discount_price} nis</i></b> \N{money bag}")
 
         # generate airlines and links line
