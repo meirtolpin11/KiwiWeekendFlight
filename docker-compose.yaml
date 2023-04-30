@@ -1,0 +1,30 @@
+version: "3.3"
+name: kiwi-flights
+services:
+  vpn:
+    container_name: vpn
+    image: qmcgaw/gluetun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - OPENVPN_USER=<user>
+      - OPENVPN_PASSWORD=<pass>
+      - SERVER_REGIONS=Switzerland
+    networks:
+      - mynetwork
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: "unless-stopped"
+
+  kiwi-bot:
+    image: public.ecr.aws/v7h5e2i7/kiwi_flights_bot
+    entrypoint: "sleep 10; python3 /src/main.py --publish"
+    network_mode: service:vpn
+    env_file:
+      - <path>
+networks:
+  mynetwork:
+    external: true
