@@ -26,6 +26,21 @@ class Flights(Model):
         database = db
 
 
+class UserQueryDetails(Model):
+    fly_from = CharField()
+    fly_to = CharField()
+    min_nights = IntegerField()
+    max_nights = IntegerField()
+    date_from = DateTimeField()
+    date_to = DateTimeField()
+    chat_id = IntegerField()
+    max_price = IntegerField()
+    only_weekends = BooleanField()
+
+    class Meta:
+        database = db
+
+
 class IATA(Model):
     code = CharField()
     airline = CharField()
@@ -65,5 +80,25 @@ def prepare_single_destination_flights(scan_timestamp, **query_params):
 
     return flights
 
+# def prepare_userquery_flights(chat_id):
+#
+#     query_details = UserQueryDetails.select().where(UserQueryDetails.chat_id == chat_id)
+#     if len(query_details) == 0:
+#         return []
+#
+#     for query in query_details:
+#         flights = Flights.select(Flights.fly_from, Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines,
+#                              Flights.flight_numbers, Flights.nights,
+#                              Flights.days_off, Flights.departure_to,
+#                              Flights.arrival_to, Flights.departure_from, Flights.arrival_from,
+#                              Flights.link_to, Flights.link_from, Flights.holiday_name).where(
+#             Flights.fly_from == query.fly_from,
+#             Flights.fly_to == query.fly_to,
+#             query.min_nights <= Flights.nights <= query.max_nights,
+#             Flights.departure_to >= query.date_from,
+#             Flights.arrival_from <= query.date_to,
+#             Flights.price <= query.max_price
+#         )
 
-db.create_tables([Flights, IATA])
+
+db.create_tables([Flights, IATA, UserQueryDetails])

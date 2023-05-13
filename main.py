@@ -31,6 +31,7 @@ def create_env():
     except Exception as e:
         logging.error(e)
 
+
 def handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_dest=False):
     scan_timestamp = int(datetime.timestamp(datetime.now()))
     kiwi.generate_weekend_flights(date_from, date_to, fly_to=fly_to, price_to=max_price, scan_timestamp=scan_timestamp)
@@ -42,13 +43,15 @@ def handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_de
     else:
         report = bot.publish_default_report(chat_id, scan_timestamp)
 
-    return report
+    if config.print:
+        print(report)
 
 
 def main():
     args = parse_args()
     config.init_config()
     config.publish = args.publish
+    config.print = args.print
     create_env()
 
     if args.from_date and args.to_date:
@@ -62,22 +65,16 @@ def main():
         fly_to = args.dest.upper()
         chat_id = args.chat_id if args.chat_id else config.TELEGRAM_BOTS['default']['chats']['all'][0]
         max_price = int(args.price) if args.price else config.TELEGRAM_BOTS['default']['chats']['all'][1]
-        report = handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_dest=True)
 
-        if args.print:
-            print(report)
+        handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_dest=True)
+    else:
+        # iterate over the default configuration
+        for chat_name, details in config.TELEGRAM_BOTS['default']['chats'].items():
+            chat_id, max_price = details
+            max_price = max_price if max_price > args.price else args.price
+            fly_to = ','.join(config.SPECIAL_DESTINATIONS) if chat_name == 'all' else chat_name.upper()
 
-        return
-
-    for chat_name, details in config.TELEGRAM_BOTS['default']['chats'].items():
-        chat_id, max_price = details
-        max_price = max_price if max_price > args.price else args.price
-        fly_to = ','.join(config.SPECIAL_DESTINATIONS) if chat_name == 'all' else chat_name.upper()
-
-        report = handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_dest= (chat_name != 'all' ))
-
-        if args.print:
-            print(report)
+            handle_destination(fly_to, date_from, date_to, max_price, chat_id, single_dest=(chat_name != 'all'))
 
 
 if __name__ == '__main__':

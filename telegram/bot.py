@@ -31,6 +31,10 @@ def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_fl
     for i in range(config.NUM_OF_MONTHS):
         message, output_path = generate_report_per_month(current_month, scan_timestamp, query_function, **query_params)
 
+        if not message:
+            current_month += 1
+            continue
+
         # send the message and the query
         if config.publish and message and output_path:
             send_message_to_chat(message, chat_id)
@@ -40,10 +44,12 @@ def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_fl
         current_month += 1
 
     cheapest_holidays_report, output_path = generate_holidays_report(scan_timestamp)
-    if config.publish:
-        send_message_to_chat(cheapest_holidays_report, chat_id)
-        send_file_to_chat(output_path, "", chat_id)
-    total_report.append(cheapest_holidays_report)
+
+    if cheapest_holidays_report:
+        if config.publish:
+            send_message_to_chat(cheapest_holidays_report, chat_id)
+            send_file_to_chat(output_path, "", chat_id)
+        total_report.append(cheapest_holidays_report)
 
     return total_report
 
@@ -56,6 +62,8 @@ def generate_holidays_report(scan_timestamp):
 
     title = "<b>\N{airplane} Holiday Flights - \N{airplane}</b>\n"
     body = generate_message(cheapest_flights_query)
+    if len(body.strip()) == 0:
+        return None, None
     return "\n".join([title, body]), output_path
 
 
@@ -83,6 +91,9 @@ def generate_report_per_month(month, scan_timestamp, query_function=db.prepare_f
     # generate bot message per month
     title = f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
     body = generate_message(month_query)
+
+    if len(body.strip()) == 0:
+        return None, None
 
     return '\n'.join([title, body]), output_file
 
