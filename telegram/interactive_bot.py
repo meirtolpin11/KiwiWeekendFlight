@@ -53,6 +53,7 @@ class InteractiveBot:
                 self.chats[c.message.chat.id]['next_func'](c.message, result)
 
         def parse_date_from(message, result):
+            bot.send_message(message.chat.id, f"Your selected start date is {result}")
             self.chats[message.chat.id]['date_from'] = result
             calendar, step = DetailedTelegramCalendar().build()
             self.chats[message.chat.id]['next_func'] = parse_date_to
@@ -61,13 +62,32 @@ class InteractiveBot:
                              reply_markup=calendar)
 
         def parse_date_to(message, result):
+            bot.send_message(message.chat.id, f"Your selected end date is {result}")
             self.chats[message.chat.id]['date_to'] = result
-            msg = bot.send_message(message.chat.id, text="Min number of nights in destination:")
+            markup = telebot.types.ReplyKeyboardMarkup(row_width=3, one_time_keyboard=True)
+            markup.add(
+                telebot.types.KeyboardButton('0'),
+                telebot.types.KeyboardButton('1'),
+                telebot.types.KeyboardButton('2'),
+                telebot.types.KeyboardButton('3'),
+                telebot.types.KeyboardButton('4'),
+                telebot.types.KeyboardButton('5'),
+            )
+            msg = bot.send_message(message.chat.id, text="Min number of nights in destination:", reply_markup=markup)
             bot.register_next_step_handler(msg, parse_min_nights)
 
         def parse_min_nights(message):
             self.chats[message.chat.id]['min_nights'] = message.text
-            msg = bot.send_message(message.chat.id, text="Max number of nights in destination:")
+            markup = telebot.types.ReplyKeyboardMarkup(row_width=3, one_time_keyboard=True)
+            markup.add(
+                telebot.types.KeyboardButton('0'),
+                telebot.types.KeyboardButton('1'),
+                telebot.types.KeyboardButton('2'),
+                telebot.types.KeyboardButton('3'),
+                telebot.types.KeyboardButton('4'),
+                telebot.types.KeyboardButton('5'),
+            )
+            msg = bot.send_message(message.chat.id, text="Max number of nights in destination:", reply_markup=markup)
             bot.register_next_step_handler(msg, parse_max_nights)
 
         def parse_max_nights(message):
