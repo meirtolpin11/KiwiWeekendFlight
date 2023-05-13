@@ -2,8 +2,9 @@ import argparse
 import os
 import config
 import logging
-from engine import kiwi
 import database as db
+import telegram.interactive_bot as interactive_bot
+from engine import kiwi
 from telegram import bot
 from datetime import datetime, timedelta
 
@@ -19,6 +20,7 @@ def parse_args():
     parser.add_argument(r'--price', dest='price', help='max ticket price (nis)', default=500)
     parser.add_argument(r'--airline', dest='airline', help='airline name', default=None)
     parser.add_argument(r'--chat-id', dest='chat_id', help='telegram chat id to send the result to')
+    parser.add_argument(r'--bot', action='store_true')
 
     args = parser.parse_args()
 
@@ -53,6 +55,10 @@ def main():
     config.publish = args.publish
     config.print = args.print
     create_env()
+
+    if args.bot:
+        interactive_bot.run()
+        return
 
     if args.from_date and args.to_date:
         date_from = datetime.strptime(args.from_date, "%d-%m-%y")

@@ -163,6 +163,7 @@ class InteractiveBot:
         return bot
 
 
-a = InteractiveBot()
-_bot = a.create_telebot()
-_bot.infinity_polling()
+def run():
+    a = InteractiveBot()
+    _bot = a.create_telebot()
+    _bot.infinity_polling()
