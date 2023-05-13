@@ -75,7 +75,7 @@ def prepare_kiwi_api(fly_to, price_to, date_from, date_to, nights_in_dst_from, n
     return kiwi_api_params
 
 
-def generate_flights(date_from: datetime, date_to: datetime, fly_to: str,
+def generate_flights(date_from: str, date_to: str, fly_to: str,
                      price_to: int = 500, nights_in_dst_from: str = 2, nights_in_dst_to: str = 5,
                      scan_timestamp: int = int(datetime.timestamp(datetime.now())), holiday_name=""):
     kiwi_api_params = prepare_kiwi_api(fly_to, price_to, date_from, date_to, nights_in_dst_from, nights_in_dst_to)
