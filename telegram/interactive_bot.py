@@ -135,6 +135,7 @@ class InteractiveBot:
                     bot.send_message(message.chat.id, "No config is found, please type /start :)")
                     return
 
+            bot.send_message(message.chat.id, "scanning for flights, please wait...")
             # scan flights
             scan_timestamp = int(datetime.timestamp(datetime.now()))
             if flight_details['only_weekends']:
