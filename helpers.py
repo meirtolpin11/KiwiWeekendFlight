@@ -9,16 +9,16 @@ CACHED_RATES = {}
 def get_weekends(start_dt, end_dt):
     weekend_days = [4, 7]
     weekends = []
-    pair = ["", ""]
+    pair = [None, None]
 
     for dt in daterange(start_dt, end_dt):
         if dt.isoweekday() in weekend_days:
             if dt.isoweekday() == weekend_days[0]:
-                pair[0] = dt.strftime("%Y-%m-%d")
+                pair[0] = dt
             else:
-                pair[1] = dt.strftime("%Y-%m-%d")
+                pair[1] = dt
                 weekends.append(pair)
-                pair = ["", ""]
+                pair = [None, None]
 
     return weekends
 
@@ -66,19 +66,23 @@ def calculate_days_off(departure, arrival):
     return days_off
 
 
-def dump_csv(query, file_or_name, include_header=True, close_file=True,
-             append=False, csv_writer=None):
+def dump_csv(
+    query,
+    file_or_name,
+    include_header=True,
+    close_file=True,
+    append=False,
+    csv_writer=None,
+):
     """
-	Create a CSV dump of a query.
-	"""
+    Create a CSV dump of a query.
+    """
 
-    fh = open(file_or_name, append and 'a' or 'w', encoding='utf-8', newline='')
+    fh = open(file_or_name, append and "a" or "w", encoding="utf-8", newline="")
 
     writer = csv_writer or csv.writer(
-        fh,
-        delimiter=',',
-        quotechar='"',
-        quoting=csv.QUOTE_MINIMAL)
+        fh, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
+    )
 
     if include_header:
         writer.writerow([header.name for header in query.selected_columns])

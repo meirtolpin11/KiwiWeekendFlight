@@ -8,7 +8,9 @@ from datetime import datetime
 
 
 def generate_cheapest_flights(scan_timestamp):
-    cheapest_flights_query = db.prepare_flights_per_city(scan_timestamp, where=db.Flights.holiday_name == "")
+    cheapest_flights_query = db.prepare_flights_per_city(
+        scan_timestamp, where=db.Flights.holiday_name == ""
+    )
     output_path = os.path.join(config.tmp_folder, "cheapest.csv")
     helpers.dump_csv(cheapest_flights_query, output_path)
 
@@ -17,7 +19,14 @@ def generate_cheapest_flights(scan_timestamp):
     return "\n".join([title, body]), output_path
 
 
-def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_flights_per_city, **query_params):
+def publish_default_report(
+    chat_id,
+    date_from,
+    date_to,
+    scan_timestamp,
+    query_function=db.prepare_flights_per_city,
+    **query_params,
+):
     total_report = []
 
     cheapest_flights_report, output_path = generate_cheapest_flights(scan_timestamp)
@@ -27,9 +36,16 @@ def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_fl
     total_report.append(cheapest_flights_report)
 
     # Cheap flights by Months
-    current_month = datetime.now().month
-    for i in range(config.NUM_OF_MONTHS):
-        message, output_path = generate_report_per_month(current_month, scan_timestamp, query_function, **query_params)
+    current_month = date_from.month
+    number_of_months = date_to.month - current_month
+    if number_of_months < 0:
+        number_of_months += 12
+
+    # to do: make this parameterized
+    for i in range(number_of_months + 1):
+        message, output_path = generate_report_per_month(
+            current_month, scan_timestamp, query_function, **query_params
+        )
 
         if not message:
             current_month += 1
@@ -56,7 +72,9 @@ def publish_default_report(chat_id, scan_timestamp, query_function=db.prepare_fl
 
 def generate_holidays_report(scan_timestamp):
     # we need a new query here
-    cheapest_flights_query = db.prepare_flights_per_city(scan_timestamp, where=db.Flights.holiday_name != "")
+    cheapest_flights_query = db.prepare_flights_per_city(
+        scan_timestamp, where=db.Flights.holiday_name != ""
+    )
     output_path = os.path.join(config.tmp_folder, "holidays.csv")
     helpers.dump_csv(cheapest_flights_query, output_path)
 
@@ -67,24 +85,34 @@ def generate_holidays_report(scan_timestamp):
     return "\n".join([title, body]), output_path
 
 
-def generate_report_per_month(month, scan_timestamp, query_function=db.prepare_flights_per_city, **query_params):
+def generate_report_per_month(
+    month, scan_timestamp, query_function=db.prepare_flights_per_city, **query_params
+):
     if month > 12:
         month %= 12
 
     # query the cheapest flights by month
     # TODO: verify
     if "where" in query_params:
-        where_clause = {"where": query_params["where"] & (db.Flights.month == month) & (db.Flights.holiday_name == "")}
+        where_clause = {
+            "where": query_params["where"]
+            & (db.Flights.month == month)
+            & (db.Flights.holiday_name == "")
+        }
         month_query = query_function(scan_timestamp, **where_clause)
     else:
-        month_query = query_function(scan_timestamp,
-                                     where=(db.Flights.month == month) & (db.Flights.holiday_name == ""),
-                                     **query_params)
+        month_query = query_function(
+            scan_timestamp,
+            where=(db.Flights.month == month) & (db.Flights.holiday_name == ""),
+            **query_params,
+        )
 
     if len(month_query) == 0:
         return None, None
 
-    output_file = os.path.join(config.tmp_folder, f"{datetime.strptime(str(month), '%m').strftime('%B')}.csv")
+    output_file = os.path.join(
+        config.tmp_folder, f"{datetime.strptime(str(month), '%m').strftime('%B')}.csv"
+    )
     # dump the query output to the reports folder
     helpers.dump_csv(month_query, output_file)
 
@@ -95,7 +123,7 @@ def generate_report_per_month(month, scan_timestamp, query_function=db.prepare_f
     if len(body.strip()) == 0:
         return None, None
 
-    return '\n'.join([title, body]), output_file
+    return "\n".join([title, body]), output_file
 
 
 def generate_message(query):
@@ -112,59 +140,74 @@ def generate_message(query):
 
         dates_line = ""
         if flight.departure_to.month == flight.arrival_from.month:
-            dates_line += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - " \
-                          f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+            dates_line += (
+                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
+                f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+            )
         else:
-            dates_line += f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - " \
-                          f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
-        dates_line += f"<i>({flight.departure_to.strftime('%a')} - " \
-                      f"{flight.arrival_from.strftime('%a')})</i> \N{calendar}"
+            dates_line += (
+                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
+                f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+            )
+        dates_line += (
+            f"<i>({flight.departure_to.strftime('%a')} - "
+            f"{flight.arrival_from.strftime('%a')})</i> \N{calendar}"
+        )
 
         message.append(dates_line)
 
         # generate flight confirmation line
-        if hasattr(airports, flight.fly_from.split('/')[2].lower()):
-            airport_helper = getattr(airports, flight.fly_from.split('/')[2].lower())
+        if hasattr(airports, flight.fly_from.split("/")[2].lower()):
+            airport_helper = getattr(airports, flight.fly_from.split("/")[2].lower())
 
             try:
-                is_flight_confirmed = airport_helper.get_flight_confirmation(flight.flight_numbers.split(',')[0],
-                                                                             flight.departure_to)
+                is_flight_confirmed = airport_helper.get_flight_confirmation(
+                    flight.flight_numbers.split(",")[0], flight.departure_to
+                )
             except:
                 is_flight_confirmed = -2
 
             if is_flight_confirmed == -1:
                 # if returned -1 that means that flight are found but the flight is missing
-                message.append(f"\N{cross mark} Flight - {flight.flight_numbers.split(',')[0]} maybe is not confirmed")
+                message.append(
+                    f"\N{cross mark} Flight - {flight.flight_numbers.split(',')[0]} maybe is not confirmed"
+                )
             elif is_flight_confirmed == -2 or is_flight_confirmed == -3:
                 # if returned -2 that means that no flight returned from iaa api - can be an error
                 pass
             else:
                 # flight is found and it's confirmed
                 message.append(
-                    f"\N{white heavy check mark} Flight - {flight.flight_numbers.split(',')[0]} is confirmed")
+                    f"\N{white heavy check mark} Flight - {flight.flight_numbers.split(',')[0]} is confirmed"
+                )
 
         if flight.price == flight.discount_price:
             message.append(f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}")
         else:
-            message.append(f"\t\N{money bag} <b>{flight.price} nis, "
-                           f"<i>Members: {flight.discount_price} nis</i></b> \N{money bag}")
+            message.append(
+                f"\t\N{money bag} <b>{flight.price} nis, "
+                f"<i>Members: {flight.discount_price} nis</i></b> \N{money bag}"
+            )
 
         # generate airlines and links line
         message += generate_airline_link(flight)
-    return '\n'.join(message)
+    return "\n".join(message)
 
 
 def generate_airline_link(flight):
     message = []
 
-    if flight.airlines.split(',')[0] == flight.airlines.split(',')[1]:
+    if flight.airlines.split(",")[0] == flight.airlines.split(",")[1]:
         # in case of the same airline
         if flight.link_to == flight.link_from == "":
             # in case there is no link for this airline
-            message.append(f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}")
+            message.append(
+                f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}"
+            )
         else:
             message.append(
-                f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}")
+                f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}"
+            )
     else:
         # different airlines
         links_line = ""
@@ -197,7 +240,7 @@ def send_file_to_chat(filename, caption, chat_id):
     url = f"https://api.telegram.org/bot{config.TELEGRAM_BOTS['default']['token']}/sendDocument"
 
     data = {"chat_id": chat_id, "caption": caption}
-    file_handle = open(filename, 'rb')
+    file_handle = open(filename, "rb")
 
     resp = requests.post(url, data=data, files={"document": file_handle})
 
