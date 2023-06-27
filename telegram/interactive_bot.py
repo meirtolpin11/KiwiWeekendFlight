@@ -66,7 +66,7 @@ class InteractiveBot:
 
         def parse_date_from(message, result):
             bot.send_message(message.chat.id, f"Your selected start date is {result}")
-            self.chats[message.chat.id]["date_from"] = result
+            self.chats[message.chat.id]["date_from"] = datetime.fromordinal(result.toordinal())
             calendar, step = DetailedTelegramCalendar().build()
             self.chats[message.chat.id]["next_func"] = parse_date_to
             bot.send_message(message.chat.id, "Scan To: ")
@@ -74,7 +74,7 @@ class InteractiveBot:
 
         def parse_date_to(message, result):
             bot.send_message(message.chat.id, f"Your selected end date is {result}")
-            self.chats[message.chat.id]["date_to"] = result
+            self.chats[message.chat.id]["date_to"] = datetime.fromordinal(result.toordinal())
             markup = telebot.types.ReplyKeyboardMarkup(
                 row_width=3, one_time_keyboard=True
             )
@@ -241,3 +241,7 @@ def run():
     a = InteractiveBot()
     _bot = a.create_telebot()
     _bot.infinity_polling()
+
+
+if __name__ == "__main__":
+    run()

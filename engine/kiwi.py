@@ -117,6 +117,9 @@ def generate_flights(
     scan_timestamp: int = int(datetime.timestamp(datetime.now())),
     holiday_name="",
 ):
+    if date_to is None or date_from is None:
+        return
+
     kiwi_api_params = prepare_kiwi_api(
         fly_to, price_to, date_from, date_to, nights_in_dst_from, nights_in_dst_to
     )
