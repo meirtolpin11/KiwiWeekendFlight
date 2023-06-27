@@ -11,4 +11,4 @@ def get_airline_name(airline_iata_code):
         return airlines_date[airline_iata_code]["name"]
     except Exception as e:
         print(e)
-        return iata_code
+        return airline_iata_code
