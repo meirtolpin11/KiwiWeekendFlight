@@ -73,8 +73,8 @@ def generate_weekend_flights(
     date_to: datetime,
     fly_to: str,
     price_to: int = 500,
-    nights_in_dst_from: str = 2,
-    nights_in_dst_to: str = 5,
+    nights_in_dst_from: str = config.DEFAULT_NIGHTS_IN_DST_FROM,
+    nights_in_dst_to: str = config.DEFAULT_NIGHTS_IN_DST_TO,
     scan_timestamp=None,
 ):
     weekend_dates = helpers.get_weekends(date_from, date_to)
@@ -112,8 +112,8 @@ def generate_flights(
     date_to: datetime,
     fly_to: str,
     price_to: int = 500,
-    nights_in_dst_from: str = 2,
-    nights_in_dst_to: str = 5,
+    nights_in_dst_from: str = config.DEFAULT_NIGHTS_IN_DST_FROM,
+    nights_in_dst_to: str = config.DEFAULT_NIGHTS_IN_DST_TO,
     scan_timestamp: int = int(datetime.timestamp(datetime.now())),
     holiday_name="",
 ):
