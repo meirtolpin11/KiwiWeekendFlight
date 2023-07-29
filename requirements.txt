@@ -1,5 +1,8 @@
 peewee~=3.16.0
 requests~=2.28.2
 holidays~=0.22
-
-boto3~=1.26.80
+pyTelegramBotAPI
+selenium-wire
+holidays~=0.22
+python-telegram-bot-calendar
+boto3

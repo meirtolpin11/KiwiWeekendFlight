@@ -76,7 +76,7 @@ def init_config():
         TELEGRAM_BOTS = {
             "default": {
                 "token": os.getenv("TELEGRAM_BOT_TOKEN").strip(),
-                "chats": {"all": [os.getenv("TELEGRAM_CHAT_ID").strip(), "all", 500]},
+                "chats": {"all": [os.getenv("TELEGRAM_CHAT_ID").strip(), "all", 500, -1, -1, -1, -1]},
             }
         }
 

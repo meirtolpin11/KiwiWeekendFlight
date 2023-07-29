@@ -19,8 +19,15 @@ def download_config_from_s3(test_config: bool = False):
     return s3_response['Body'].read()
 
 
-def get_weekends(start_dt, end_dt):
-    weekend_days = [config.WEEKEND_START, config.WEEKEND_END]
+def get_weekends(start_dt, end_dt, details=None):
+    if details:
+        weekend_days = [
+            config.WEEKEND_START if details[3] == -1 else details[3],
+            config.WEEKEND_END if details[4] == -1 else details[4]
+        ]
+    else:
+        weekend_days = [config.WEEKEND_START, config.WEEKEND_END]
+
     weekends = []
     pair = [None, None]
 

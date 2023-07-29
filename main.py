@@ -60,7 +60,7 @@ def create_env():
 
 
 def handle_destination(
-    fly_to, date_from, date_to, max_price, chat_id, single_dest=False
+    fly_to, date_from, date_to, max_price, chat_id, single_dest=False, details=None
 ):
     scan_timestamp = int(datetime.timestamp(datetime.now()))
     kiwi.generate_weekend_flights(
@@ -69,6 +69,7 @@ def handle_destination(
         fly_to=fly_to,
         price_to=max_price,
         scan_timestamp=scan_timestamp,
+        details=details
     )
     kiwi.generate_holidays_flights(
         date_from,
@@ -144,7 +145,7 @@ def main():
     else:
         # iterate over the default configuration
         for chat_name, details in config.TELEGRAM_BOTS["default"]["chats"].items():
-            chat_id, destinations, max_price = details
+            chat_id, destinations, max_price, _, _, _, _ = details
             max_price = max_price if max_price > args.price else args.price
             fly_to = (
                 ",".join(config.SPECIAL_DESTINATIONS)
@@ -159,6 +160,7 @@ def main():
                 max_price,
                 chat_id,
                 single_dest=(chat_name != "all"),
+                details=details
             )
 
 

@@ -76,8 +76,14 @@ def generate_weekend_flights(
     nights_in_dst_from: str = config.DEFAULT_NIGHTS_IN_DST_FROM,
     nights_in_dst_to: str = config.DEFAULT_NIGHTS_IN_DST_TO,
     scan_timestamp=None,
+    details=None
 ):
-    weekend_dates = helpers.get_weekends(date_from, date_to)
+    weekend_dates = helpers.get_weekends(date_from, date_to, details)
+
+    if details:
+        nights_in_dst_from = nights_in_dst_from if details[5] == -1 else details[5]
+        nights_in_dst_to = nights_in_dst_to if details[6] == -1 else details[6]
+
     for weekend_id, weekend in enumerate(weekend_dates):
         generate_flights(
             weekend[0],
