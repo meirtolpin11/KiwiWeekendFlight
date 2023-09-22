@@ -1,4 +1,5 @@
 import csv
+import boto3
 import config
 import requests
 from datetime import datetime, timedelta
@@ -6,8 +7,27 @@ from datetime import datetime, timedelta
 CACHED_RATES = {}
 
 
-def get_weekends(start_dt, end_dt):
-    weekend_days = [4, 7]
+def download_config_from_s3(test_config: bool = False):
+    client = boto3.client("s3",
+                          aws_access_key_id=config.AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=config.AWS_SECRET_ACCESS_KEY
+                          )
+    s3_response = client.get_object(
+        Bucket=config.AWS_BUCKET_NAME,
+        Key=config.AWS_TEST_CONFIG_FILE_NAME if test_config else config.AWS_CONFIG_FILE_NAME
+    )
+    return s3_response['Body'].read()
+
+
+def get_weekends(start_dt, end_dt, details=None):
+    if details:
+        weekend_days = [
+            config.WEEKEND_START if details[3] == -1 else details[3],
+            config.WEEKEND_END if details[4] == -1 else details[4]
+        ]
+    else:
+        weekend_days = [config.WEEKEND_START, config.WEEKEND_END]
+
     weekends = []
     pair = [None, None]
 

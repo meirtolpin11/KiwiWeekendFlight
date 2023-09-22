@@ -5,3 +5,4 @@ pyTelegramBotAPI
 selenium-wire
 holidays~=0.22
 python-telegram-bot-calendar
+boto3

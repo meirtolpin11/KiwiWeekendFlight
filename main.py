@@ -1,6 +1,8 @@
 import argparse
 import os
 import config
+import helpers
+import tempfile
 import logging
 import database as db
 import telegram.interactive_bot as interactive_bot
@@ -41,6 +43,9 @@ def parse_args():
         r"--chat-id", dest="chat_id", help="telegram chat id to send the result to"
     )
     parser.add_argument(r"--bot", action="store_true")
+    parser.add_argument(r"--config_from_file", help="load config from provided file", default="")
+    parser.add_argument(r"--aws_config", help="load config from aws s3", default=False, action="store_true")
+    parser.add_argument(r"--aws_test_config", help="use config_test.json from s3", default=False, action="store_true")
 
     args = parser.parse_args()
 
@@ -55,7 +60,7 @@ def create_env():
 
 
 def handle_destination(
-    fly_to, date_from, date_to, max_price, chat_id, single_dest=False
+    fly_to, date_from, date_to, max_price, chat_id, single_dest=False, details=None
 ):
     scan_timestamp = int(datetime.timestamp(datetime.now()))
     kiwi.generate_weekend_flights(
@@ -64,6 +69,7 @@ def handle_destination(
         fly_to=fly_to,
         price_to=max_price,
         scan_timestamp=scan_timestamp,
+        details=details
     )
     kiwi.generate_holidays_flights(
         date_from,
@@ -90,7 +96,21 @@ def handle_destination(
 
 def main():
     args = parse_args()
+
+    # load config from env variables
     config.init_config()
+    if path := args.config_from_file:
+        config.load_config_from_file(path)
+    if args.aws_config:
+        with tempfile.NamedTemporaryFile(mode="wb") as t:
+            if args.aws_test_config:
+                config_content = helpers.download_config_from_s3(test_config=True)
+            else:
+                config_content = helpers.download_config_from_s3()
+            t.write(config_content)
+            t.flush()
+            config.load_config_from_file(t.file.name)
+
     config.publish = args.publish
     config.print = args.print
     create_env()
@@ -116,7 +136,7 @@ def main():
         max_price = (
             int(args.price)
             if args.price
-            else config.TELEGRAM_BOTS["default"]["chats"]["all"][1]
+            else config.TELEGRAM_BOTS["default"]["chats"]["all"][2]
         )
 
         handle_destination(
@@ -125,12 +145,12 @@ def main():
     else:
         # iterate over the default configuration
         for chat_name, details in config.TELEGRAM_BOTS["default"]["chats"].items():
-            chat_id, max_price = details
+            chat_id, destinations, max_price, _, _, _, _ = details
             max_price = max_price if max_price > args.price else args.price
             fly_to = (
                 ",".join(config.SPECIAL_DESTINATIONS)
-                if chat_name == "all"
-                else chat_name.upper()
+                if destinations == "all"
+                else ",".join(destinations)
             )
 
             handle_destination(
@@ -140,6 +160,7 @@ def main():
                 max_price,
                 chat_id,
                 single_dest=(chat_name != "all"),
+                details=details
             )
 
 
