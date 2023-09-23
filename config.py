@@ -13,6 +13,7 @@ AWS_CONFIG_FILE_NAME = "config.json"
 AWS_TEST_CONFIG_FILE_NAME = "config_test.json"
 
 TELEGRAM_BOTS = {"default": {"token": "", "chats": {"all": -1}}}
+SPECIAL_DATES = []  # type: ignore
 
 MONTHS_TO_SCAN = 5
 
@@ -35,24 +36,29 @@ SPECIAL_DESTINATIONS = [
 WEEKEND_START = 4
 WEEKEND_END = 7
 
+# https://support.travelpayouts.com/hc/en-us/articles/360019237899-Kiwi-com-affiliate-program-API
 KIWI_API_PARAMS = {
     "fly_from": "TLV",
     "fly_to": "",
     "date_from": "",
+    "dtime_from": "",
+    "dtime_to": "",
     "date_to": "",
     "return_from": "",
     "return_to": "",
     "nights_in_dst_from": "",
     "nights_in_dst_to": "",
-    "flight_type": "round",
+    "flight_type": "round", # round, oneway
     "one_for_city": False,
     "max_stopovers": 0,
     "price_to": "",
     "curr": "ILS",
     "ret_from_diff_airport": 0,
+    "select_airlines": ""
 }
 DEFAULT_NIGHTS_IN_DST_FROM = 2
 DEFAULT_NIGHTS_IN_DST_TO = 5
+CHECK_FLIGHT_CONFIRMATION = False
 
 tmp_folder = "/tmp"
 
@@ -103,11 +109,14 @@ def load_config_from_file(file_path: str):
     global MONTHS_TO_SCAN
     global WEEKEND_START
     global WEEKEND_END
+    global SPECIAL_DATES
+
     with open(file_path) as f:
         data = json.loads(f.read())
 
         # update values in case there is a special config in the json file
         TELEGRAM_BOTS = data.get("bots", TELEGRAM_BOTS)
+        SPECIAL_DATES = data.get("special_dates", SPECIAL_DATES)
         MONTHS_TO_SCAN = data.get("months_to_scan", MONTHS_TO_SCAN)
         WEEKEND_START = data.get("weekend_start", WEEKEND_START)
         WEEKEND_END = data.get("weekend_end", WEEKEND_END)
