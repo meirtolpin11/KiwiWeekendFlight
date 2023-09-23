@@ -222,6 +222,7 @@ class InteractiveBot:
                     scan_timestamp,
                     query_function=db.prepare_single_destination_flights,
                 )
+
             else:
                 kiwi_bot.publish_default_report(
                     message.chat.id,

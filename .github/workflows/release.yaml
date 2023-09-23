@@ -6,7 +6,7 @@ on:
 
 jobs:
   Release:
-    name: "Generate tag"
+    name: "Release Image"
     runs-on: ubuntu-latest
     steps:
       - name: Make checkout speedy

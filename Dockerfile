@@ -1,6 +1,7 @@
 FROM ubuntu:22.10
 
-RUN apt update 
+RUN apt install -y ca-certificates curl gnupg lsb-release
+RUN apt update
 RUN apt-get install -y libappindicator1 fonts-liberation wget python3 python3-pip
 RUN apt-get install -f 
 
