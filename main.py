@@ -190,7 +190,7 @@ def main():
             fly_to, date_from, date_to, max_price, chat_id, single_dest=True
         )
     else:
-        # scan_monthly_flights(args)
+        scan_monthly_flights(args)
         scan_special_dates()
 
 

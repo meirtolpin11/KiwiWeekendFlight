@@ -1,12 +1,12 @@
 name: release
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 
 jobs:
   Release:
-    name: "Generate tag"
+    name: "Release Image"
     runs-on: ubuntu-latest
     steps:
       - name: Make checkout speedy
