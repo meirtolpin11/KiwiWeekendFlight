@@ -136,17 +136,18 @@ def get_airline_links(flight, is_round=True):
 
     links = ["", ""]
     if len(set(airlines_list)) == 1:
-        airline_class = getattr(airlines, airlines_list[0].lower().replace(" ", "_"))
-        if airline_class:
-            links[0] = airline_class.generate_link(
-                flight["flyFrom"],
-                flight["flyTo"],
-                get_date(flight["route"][0], "local_departure"),
-                get_date(flight["route"][1], "local_departure") if is_round else None,
-                is_round=is_round
-            )
-            if is_round:
-                links[1] = links[0]
+        if hasattr(airlines, airlines_list[i].lower().replace(" ", "_")):
+            airline_class = getattr(airlines, airlines_list[0].lower().replace(" ", "_"))
+            if airline_class:
+                links[0] = airline_class.generate_link(
+                    flight["flyFrom"],
+                    flight["flyTo"],
+                    get_date(flight["route"][0], "local_departure"),
+                    get_date(flight["route"][1], "local_departure") if is_round else None,
+                    is_round=is_round
+                )
+                if is_round:
+                    links[1] = links[0]
     else:
         for i in range(2):
             # generate separate links for every flight
