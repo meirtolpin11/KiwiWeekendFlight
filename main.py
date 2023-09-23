@@ -5,10 +5,11 @@ import helpers
 import tempfile
 import logging
 import database as db
-import telegram.interactive_bot as interactive_bot
+from typing import Dict
 from engine import kiwi
 from telegram import bot
 from datetime import datetime, timedelta
+import telegram.interactive_bot as interactive_bot
 
 
 def parse_args():
@@ -43,9 +44,21 @@ def parse_args():
         r"--chat-id", dest="chat_id", help="telegram chat id to send the result to"
     )
     parser.add_argument(r"--bot", action="store_true")
-    parser.add_argument(r"--config_from_file", help="load config from provided file", default="")
-    parser.add_argument(r"--aws_config", help="load config from aws s3", default=False, action="store_true")
-    parser.add_argument(r"--aws_test_config", help="use config_test.json from s3", default=False, action="store_true")
+    parser.add_argument(
+        r"--config_from_file", help="load config from provided file", default=""
+    )
+    parser.add_argument(
+        r"--aws_config",
+        help="load config from aws s3",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        r"--aws_test_config",
+        help="use config_test.json from s3",
+        default=False,
+        action="store_true",
+    )
 
     args = parser.parse_args()
 
@@ -69,7 +82,7 @@ def handle_destination(
         fly_to=fly_to,
         price_to=max_price,
         scan_timestamp=scan_timestamp,
-        details=details
+        details=details,
     )
     kiwi.generate_holidays_flights(
         date_from,
@@ -92,6 +105,40 @@ def handle_destination(
 
     if config.print:
         print(report)
+
+
+def scan_monthly_flights(args):
+    # iterate over the default configuration
+    for chat_name, details in config.TELEGRAM_BOTS["default"]["chats"].items():
+        chat_id, destinations, max_price, _, _, _, _ = details
+        max_price = max_price if max_price > int(args.price) else int(args.price)
+        fly_to = (
+            ",".join(config.SPECIAL_DESTINATIONS)
+            if destinations == "all"
+            else ",".join(destinations)
+        )
+
+        handle_destination(
+            fly_to,
+            date_from,
+            date_to,
+            max_price,
+            chat_id,
+            single_dest=(chat_name != "all"),
+            details=details,
+        )
+
+
+def scan_special_dates():
+    scan_timestamp = int(datetime.timestamp(datetime.now()))
+
+    for special_date in config.SPECIAL_DATES["dates"]:
+        kiwi.generate_special_date(special_date, scan_timestamp)
+
+    if config.publish:
+        bot.publish_special_date_report(
+            config.SPECIAL_DATES["chat_id"], scan_timestamp
+        )
 
 
 def main():
@@ -143,25 +190,8 @@ def main():
             fly_to, date_from, date_to, max_price, chat_id, single_dest=True
         )
     else:
-        # iterate over the default configuration
-        for chat_name, details in config.TELEGRAM_BOTS["default"]["chats"].items():
-            chat_id, destinations, max_price, _, _, _, _ = details
-            max_price = max_price if max_price > args.price else args.price
-            fly_to = (
-                ",".join(config.SPECIAL_DESTINATIONS)
-                if destinations == "all"
-                else ",".join(destinations)
-            )
-
-            handle_destination(
-                fly_to,
-                date_from,
-                date_to,
-                max_price,
-                chat_id,
-                single_dest=(chat_name != "all"),
-                details=details
-            )
+        # scan_monthly_flights(args)
+        scan_special_dates()
 
 
 if __name__ == "__main__":

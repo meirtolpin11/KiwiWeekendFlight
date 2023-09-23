@@ -19,6 +19,15 @@ def generate_cheapest_flights(scan_timestamp):
     return "\n".join([title, body]), output_path
 
 
+def publish_special_date_report(chat_id, scan_timestamp):
+    special_dates = db.get_special_date_flights(scan_timestamp)
+    cheapest_flights_report = generate_message(special_dates)
+    if config.publish:
+        send_message_to_chat(cheapest_flights_report, chat_id)
+
+    return cheapest_flights_report
+
+
 def publish_default_report(
     chat_id,
     date_from,
@@ -139,20 +148,25 @@ def generate_message(query):
             message.append(f"\N{star of David} {flight.holiday_name} \N{star of David}")
 
         dates_line = ""
-        if flight.departure_to.month == flight.arrival_from.month:
+        if flight.arrival_from:
+            if flight.departure_to.month == flight.arrival_from.month:
+                dates_line += (
+                    f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
+                    f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+                )
+            else:
+                dates_line += (
+                    f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
+                    f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+                )
             dates_line += (
-                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
-                f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+                f"<i>({flight.departure_to.strftime('%a')} - "
+                f"{flight.arrival_from.strftime('%a')})</i> \N{calendar}"
             )
         else:
             dates_line += (
-                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
-                f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
+                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')}</b>"
             )
-        dates_line += (
-            f"<i>({flight.departure_to.strftime('%a')} - "
-            f"{flight.arrival_from.strftime('%a')})</i> \N{calendar}"
-        )
 
         message.append(dates_line)
 
@@ -161,9 +175,12 @@ def generate_message(query):
             airport_helper = getattr(airports, flight.fly_from.split("/")[2].lower())
 
             try:
-                is_flight_confirmed = airport_helper.get_flight_confirmation(
-                    flight.flight_numbers.split(",")[0], flight.departure_to
-                )
+                if config.CHECK_FLIGHT_CONFIRMATION:
+                    is_flight_confirmed = airport_helper.get_flight_confirmation(
+                        flight.flight_numbers.split(",")[0], flight.departure_to
+                    )
+                else:
+                    is_flight_confirmed = -2
             except:
                 is_flight_confirmed = -2
 
@@ -197,33 +214,37 @@ def generate_message(query):
 def generate_airline_link(flight):
     message = []
 
-    if flight.airlines.split(",")[0] == flight.airlines.split(",")[1]:
-        # in case of the same airline
-        if flight.link_to == flight.link_from == "":
-            # in case there is no link for this airline
-            message.append(
-                f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}"
-            )
+    if flight.airlines.split(",") == 2:
+        if flight.airlines.split(",")[0] == flight.airlines.split(",")[1]:
+            # in case of the same airline
+            if flight.link_to == flight.link_from == "":
+                # in case there is no link for this airline
+                message.append(
+                    f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}"
+                )
+            else:
+                message.append(
+                    f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}"
+                )
         else:
-            message.append(
-                f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}"
-            )
+            # different airlines
+            links_line = ""
+
+            # departure leg
+            if flight.link_to != "":
+                links_line += f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>, "
+            else:
+                links_line += f"\t\N{airplane} {flight.airlines.split(',')[0]}, "
+
+            # arrival leg
+            if flight.link_from != "":
+                links_line += f"<a href='{flight.link_from}'>{flight.airlines.split(',')[1]}</a> \N{airplane}"
+            else:
+                links_line += f"{flight.airlines.split(',')[1]} \N{airplane}"
+
+            message.append(links_line)
     else:
-        # different airlines
-        links_line = ""
-
-        # departure leg
-        if flight.link_to != "":
-            links_line += f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>, "
-        else:
-            links_line += f"\t\N{airplane} {flight.airlines.split(',')[0]}, "
-
-        # arrival leg
-        if flight.link_from != "":
-            links_line += f"<a href='{flight.link_from}'>{flight.airlines.split(',')[1]}</a> \N{airplane}"
-        else:
-            links_line += f"{flight.airlines.split(',')[1]} \N{airplane}"
-
+        links_line = f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>"
         message.append(links_line)
 
     return message
