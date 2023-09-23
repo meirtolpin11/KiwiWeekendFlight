@@ -107,7 +107,7 @@ def handle_destination(
         print(report)
 
 
-def scan_monthly_flights(args):
+def scan_monthly_flights(date_from, date_to, args):
     # iterate over the default configuration
     for chat_name, details in config.TELEGRAM_BOTS["default"]["chats"].items():
         chat_id, destinations, max_price, _, _, _, _ = details
@@ -190,7 +190,7 @@ def main():
             fly_to, date_from, date_to, max_price, chat_id, single_dest=True
         )
     else:
-        scan_monthly_flights(args)
+        scan_monthly_flights(date_from, date_to, args)
         scan_special_dates()
 
 
