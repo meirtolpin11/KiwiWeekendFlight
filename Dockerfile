@@ -17,7 +17,7 @@ WORKDIR /src
 
 COPY . . 
 
-RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install --break-system-packages -r requirements.txt
 
 ENTRYPOINT python3 main.py --publish
 
