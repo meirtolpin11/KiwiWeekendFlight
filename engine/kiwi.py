@@ -122,9 +122,8 @@ def prepare_kiwi_api(**kwargs):
     # get a local copy of the api params dict
     kiwi_api_params = copy.deepcopy(config.KIWI_API_PARAMS)
     for key, value in kwargs.items():
-        if "date" in key:
-            if type(value) != str:
-                value = value.strftime("%Y-%m-%d")
+        if type(value) == datetime:
+            value = value.strftime("%Y-%m-%d")
         kiwi_api_params[key] = value
 
     return kiwi_api_params
