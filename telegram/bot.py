@@ -214,7 +214,7 @@ def generate_message(query):
 def generate_airline_link(flight):
     message = []
 
-    if flight.airlines.split(",") == 2:
+    if len(flight.airlines.split(",")) == 2:
         if flight.airlines.split(",")[0] == flight.airlines.split(",")[1]:
             # in case of the same airline
             if flight.link_to == flight.link_from == "":

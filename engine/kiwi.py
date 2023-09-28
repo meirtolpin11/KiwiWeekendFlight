@@ -136,7 +136,7 @@ def get_airline_links(flight, is_round=True):
 
     links = ["", ""]
     if len(set(airlines_list)) == 1:
-        if hasattr(airlines, airlines_list[i].lower().replace(" ", "_")):
+        if hasattr(airlines, airlines_list[0].lower().replace(" ", "_")):
             airline_class = getattr(airlines, airlines_list[0].lower().replace(" ", "_"))
             if airline_class:
                 links[0] = airline_class.generate_link(
