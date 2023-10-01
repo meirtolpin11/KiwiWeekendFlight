@@ -132,7 +132,6 @@ def get_special_date_flights(scan_timestamp):
         .where(
             (Flights.date_of_scan == scan_timestamp) & (Flights.special_date == True)
         )
-        .order_by(Flights.price)
     )
 
     return flights

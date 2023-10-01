@@ -33,6 +33,11 @@ def parse_args():
         ' or 3 letter airports. seperated with ","',
     )
     parser.add_argument(
+        r"--just-special",
+        default=False,
+        action="store_true"
+    )
+    parser.add_argument(
         r"--from-date", dest="from_date", help="scan start date (DD-MM-YY)"
     )
     parser.add_argument(r"--to-date", dest="to_date", help="scan end date (DD-MM-YY)")
@@ -190,7 +195,8 @@ def main():
             fly_to, date_from, date_to, max_price, chat_id, single_dest=True
         )
     else:
-        scan_monthly_flights(date_from, date_to, args)
+        if not args.just_special:
+            scan_monthly_flights(date_from, date_to, args)
         scan_special_dates()
 
 

@@ -139,7 +139,10 @@ def generate_message(query):
     # TODO: use jinja template
     message = []
     for flight in query:
-        flight_line = f"\n<b>{flight.fly_to.split('/')[1]}</b> <i>({flight.fly_to.split('/')[0]})</i>"
+        if flight.fly_from.split('/')[1] != 'Tel Aviv':
+            flight_line = f"\n<b>{flight.fly_from.split('/')[1]} -> {flight.fly_to.split('/')[1]}</b> <i>({flight.fly_from.split('/')[0]} -> {flight.fly_to.split('/')[0]})</i>"
+        else:
+            flight_line = f"\n<b>{flight.fly_to.split('/')[1]}</b> <i>({flight.fly_to.split('/')[0]})</i>"
         message.append(flight_line)
 
         # generate departure and arrival dates lines
@@ -165,7 +168,7 @@ def generate_message(query):
             )
         else:
             dates_line += (
-                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')}</b>"
+                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - {flight.arrival_to.strftime('%d/%m %H:%M')}</b>"
             )
 
         message.append(dates_line)
