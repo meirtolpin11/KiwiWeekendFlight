@@ -1,0 +1,45 @@
+{% if fly_from.split('/')[1] != 'Tel Aviv' -%}
+<b>{{fly_from.split('/')[1]}} -> {{fly_to.split('/')[1]}}</b> <i>({{fly_from.split('/')[0]}} -> {{fly_to.split('/')[0]}})</i>
+{% else -%}
+<b>{{fly_to.split('/')[1]}}</b> <i>({{fly_to.split('/')[0]}})</i>
+{% endif -%}
+{% if holiday -%}
+{{ "\N{star of David}" ~ holiday ~ "\N{star of David}" | safe }}
+{% endif -%}
+{% if round -%}
+    {{ "\t\N{calendar}" | safe }}<b> {{ takeoff_to.strftime('%d/%m %H:%M') }} - {{ landing_back.strftime('%d/%m %H:%M') }}</b> <i>({{ takeoff_to.strftime('%a') }} - {{ landing_back.strftime('%a') }})</i> {{ "\N{calendar}" | safe }}
+{% else -%}
+    {{ "\t\N{calendar}" | safe }}<b> {{ takeoff_to.strftime('%d/%m %H:%M') }} - {{ landing_to.strftime('%d/%m %H:%M') }}</b>
+{% endif -%}
+{% if flight_confirmed > 0 -%}
+    {{ "\t\N{white heavy check mark}" }} Flight - {{ flight_numbers.split(',')[0] }} is confirmed
+{% elif flight_confirmed == -1 -%}
+    {{ "\t\N{cross mark}" }} Flight - {{ flight_numbers.split(',')[0] }} maybe is not confirmed
+{% endif -%}
+{% if price == discounted_price -%}
+    {{ "\t\N{money bag}" }} <b>{{ price }} nis</b> {{ "\N{money bag}" | safe }}
+{% else -%}
+    {{ "\t\N{money bag}" }} <b>{{ price }} nis, <i>Members: {{ discounted_price }} nis</i> </b> {{ "\N{money bag}" | safe }}
+{% endif -%}
+{% if airlines|length == 2 -%}
+    {% if airlines[0] == airlines[1] -%}
+        {% if link_to == "" and link_from == "" -%}
+            {{ "\t\N{airplane}" }} {{ airlines[0] }} {{  "\N{airplane}" }}
+        {% else -%}
+            {{ "\t\N{airplane}" }} <a href='{{  link_to }}'>{{ airlines[0] }}</a> {{ "\N{airplane}" }}
+        {% endif -%}
+    {% else -%}
+            {% if link_to -%}
+                {{ "\t\N{airplane}" }} <a href='{{ link_to }}'>{{ airlines[0] }}</a>,
+            {% else -%}
+                {{ "\t\N{airplane}" }} {{ airlines[0]}},
+            {% endif -%}
+            {% if link_from -%}
+                 <a href='{{ link_from }}'>{{ airlines[1] }}</a> {{ "\N{airplane}" }}
+            {% else -%}
+                {{ airlines[1]}}, {{ "\N{airplane}" }}
+            {% endif -%}
+    {% endif -%}
+{% else -%}
+{{  "\t\N{airplane}" }} <a href='{{ link_to }}'> {{ airlines[0] }}</a>
+{% endif %}
