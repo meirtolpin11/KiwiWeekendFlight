@@ -1,10 +1,14 @@
 import os
-import requests
 import config
 import helpers
 import airports
+import requests
 import database as db
 from datetime import datetime
+from jinja2 import Environment, FileSystemLoader
+
+# Create a Jinja2 environment and specify the template directory
+env = Environment(loader=FileSystemLoader("telegram/jinja"))
 
 
 def generate_cheapest_flights(scan_timestamp):
@@ -23,7 +27,7 @@ def publish_special_date_report(chat_id, scan_timestamp):
     special_dates = db.get_special_date_flights(scan_timestamp)
     cheapest_flights_report = generate_message(special_dates)
     if config.publish:
-        send_message_to_chat(cheapest_flights_report, chat_id)
+        status_code = send_message_to_chat(cheapest_flights_report, chat_id)
 
     return cheapest_flights_report
 
@@ -61,7 +65,7 @@ def publish_default_report(
             continue
 
         # send the message and the query
-        if config.publish and message and output_path:
+        if all([config.publish, message, output_path]):
             send_message_to_chat(message, chat_id)
             send_file_to_chat(output_path, "", chat_id)
 
@@ -136,47 +140,15 @@ def generate_report_per_month(
 
 
 def generate_message(query):
+    # Load the template from the file
+    template = env.get_template("flight.jinja2")
+
     # TODO: use jinja template
     message = []
     for flight in query:
-        if flight.fly_from.split('/')[1] != 'Tel Aviv':
-            flight_line = f"\n<b>{flight.fly_from.split('/')[1]} -> {flight.fly_to.split('/')[1]}</b> <i>({flight.fly_from.split('/')[0]} -> {flight.fly_to.split('/')[0]})</i>"
-        else:
-            flight_line = f"\n<b>{flight.fly_to.split('/')[1]}</b> <i>({flight.fly_to.split('/')[0]})</i>"
-        message.append(flight_line)
-
-        # generate departure and arrival dates lines
-
-        if flight.holiday_name != "":
-            message.append(f"\N{star of David} {flight.holiday_name} \N{star of David}")
-
-        dates_line = ""
-        if flight.arrival_from:
-            if flight.departure_to.month == flight.arrival_from.month:
-                dates_line += (
-                    f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
-                    f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
-                )
-            else:
-                dates_line += (
-                    f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - "
-                    f"{flight.arrival_from.strftime('%d/%m %H:%M')}</b>"
-                )
-            dates_line += (
-                f"<i>({flight.departure_to.strftime('%a')} - "
-                f"{flight.arrival_from.strftime('%a')})</i> \N{calendar}"
-            )
-        else:
-            dates_line += (
-                f"\N{calendar} \t<b>{flight.departure_to.strftime('%d/%m %H:%M')} - {flight.arrival_to.strftime('%d/%m %H:%M')}</b>"
-            )
-
-        message.append(dates_line)
-
         # generate flight confirmation line
         if hasattr(airports, flight.fly_from.split("/")[2].lower()):
             airport_helper = getattr(airports, flight.fly_from.split("/")[2].lower())
-
             try:
                 if config.CHECK_FLIGHT_CONFIRMATION:
                     is_flight_confirmed = airport_helper.get_flight_confirmation(
@@ -184,73 +156,31 @@ def generate_message(query):
                     )
                 else:
                     is_flight_confirmed = -2
-            except:
+            except Exception:
                 is_flight_confirmed = -2
-
-            if is_flight_confirmed == -1:
-                # if returned -1 that means that flight are found but the flight is missing
-                message.append(
-                    f"\N{cross mark} Flight - {flight.flight_numbers.split(',')[0]} maybe is not confirmed"
-                )
-            elif is_flight_confirmed == -2 or is_flight_confirmed == -3:
-                # if returned -2 that means that no flight returned from iaa api - can be an error
-                pass
-            else:
-                # flight is found and it's confirmed
-                message.append(
-                    f"\N{white heavy check mark} Flight - {flight.flight_numbers.split(',')[0]} is confirmed"
-                )
-
-        if flight.price == flight.discount_price:
-            message.append(f"\t\N{money bag} <b>{flight.price} nis</b> \N{money bag}")
         else:
-            message.append(
-                f"\t\N{money bag} <b>{flight.price} nis, "
-                f"<i>Members: {flight.discount_price} nis</i></b> \N{money bag}"
-            )
+            is_flight_confirmed = -1
 
-        # generate airlines and links line
-        message += generate_airline_link(flight)
-    return "\n".join(message)
+        message += [
+            template.render(
+                fly_from=flight.fly_from,
+                fly_to=flight.fly_to,
+                holiday=flight.holiday_name,
+                round=bool(flight.arrival_from),
+                takeoff_to=flight.departure_to,
+                landing_back=flight.arrival_from,
+                landing_to=flight.arrival_to,
+                flight_confirmed=is_flight_confirmed,
+                flight_numbers=flight.flight_numbers,
+                price=flight.price,
+                discounted_price=flight.discount_price,
+                airlines=flight.airlines.split(","),
+                link_to=flight.link_to,
+                link_from=flight.link_from,
+            ).strip()
+        ]
 
-
-def generate_airline_link(flight):
-    message = []
-
-    if len(flight.airlines.split(",")) == 2:
-        if flight.airlines.split(",")[0] == flight.airlines.split(",")[1]:
-            # in case of the same airline
-            if flight.link_to == flight.link_from == "":
-                # in case there is no link for this airline
-                message.append(
-                    f"\t\N{airplane} {flight.airlines.split(',')[0]} \N{airplane}"
-                )
-            else:
-                message.append(
-                    f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a> \N{airplane}"
-                )
-        else:
-            # different airlines
-            links_line = ""
-
-            # departure leg
-            if flight.link_to != "":
-                links_line += f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>, "
-            else:
-                links_line += f"\t\N{airplane} {flight.airlines.split(',')[0]}, "
-
-            # arrival leg
-            if flight.link_from != "":
-                links_line += f"<a href='{flight.link_from}'>{flight.airlines.split(',')[1]}</a> \N{airplane}"
-            else:
-                links_line += f"{flight.airlines.split(',')[1]} \N{airplane}"
-
-            message.append(links_line)
-    else:
-        links_line = f"\t\N{airplane} <a href='{flight.link_to}'>{flight.airlines.split(',')[0]}</a>"
-        message.append(links_line)
-
-    return message
+    return "\n\n".join(message)
 
 
 def send_message_to_chat(message_to_send, chat_id):

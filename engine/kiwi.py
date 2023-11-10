@@ -6,17 +6,25 @@ import airlines
 import holidays
 import requests
 import database as db
+from typing import Tuple
+from dataclasses import dataclass
 from datetime import datetime, timedelta
+
+
+@dataclass
+class Holiday:
+    start: Tuple[datetime, str]
+    end: Tuple[datetime, str]
+    name: str
 
 
 # noinspection PyBroadException
 def query_flight_kiwi(search_params):
     try:
-        response = requests.get(
+        return requests.get(
             config.URL, params=search_params, headers=config.HEADERS
-        )
-        return response.json()
-    except Exception as e:
+        ).json()
+    except Exception:
         return -1
 
 
@@ -36,36 +44,30 @@ def generate_holidays_flights(
 ) -> None:
     country_holidays = holidays.country_holidays(country, years=date_to.year)
 
-    holiday_start = None
-    prev_holiday = None
-    prev_holiday_name = None
+    holiday = None
     for _holiday in country_holidays.items():
-        if not (date_from.date() < _holiday[0] < date_to.date()):
-            continue
+        if not holiday:
+            holiday = Holiday(_holiday, _holiday, _holiday[1].split("-")[0])  # type: ignore
 
-        if not prev_holiday:
-            holiday_start = _holiday
-            prev_holiday = _holiday
-            prev_holiday_name = _holiday[1].split("-")[0]
-
-        elif (_holiday[0] - prev_holiday[0]).days != 1:
+        elif (_holiday[0] - holiday.end[0]).days != 1:
             generate_flights(
-                holiday_start[0] - timedelta(days=1),
-                prev_holiday[0] + timedelta(days=1),
+                holiday.start[0] - timedelta(days=1),
+                holiday.end[0] + timedelta(days=1),
                 fly_to,
                 price_to,
                 nights_in_dst_from,
                 nights_in_dst_to,
                 scan_timestamp,
-                holiday_name=prev_holiday_name,
+                holiday_name=holiday.name,
             )
-
-            holiday_start = _holiday
-            prev_holiday = _holiday
-            prev_holiday_name = _holiday[1].split("-")[0]
-
+            holiday = Holiday(_holiday, _holiday, _holiday[1].split("-")[0])
+            if not (date_from.date() < _holiday[0] < date_to.date()):
+                logging.info(
+                    f"Stopping holiday generation - out of range - {holiday.name}"
+                )
+                break
         else:
-            prev_holiday = _holiday
+            holiday.end = _holiday
 
 
 def generate_special_date(
@@ -76,9 +78,9 @@ def generate_special_date(
 
     flights = query_flight_kiwi(kiwi_api_params)
     if flights == -1:
+        logging.error("Unable to fetch flights from KIWI")
         return
 
-    # flights data
     try:
         flights_data = flights["data"]
     except Exception as e:
@@ -137,14 +139,18 @@ def get_airline_links(flight, is_round=True):
     links = ["", ""]
     if len(set(airlines_list)) == 1:
         if hasattr(airlines, airlines_list[0].lower().replace(" ", "_")):
-            airline_class = getattr(airlines, airlines_list[0].lower().replace(" ", "_"))
+            airline_class = getattr(
+                airlines, airlines_list[0].lower().replace(" ", "_")
+            )
             if airline_class:
                 links[0] = airline_class.generate_link(
                     flight["flyFrom"],
                     flight["flyTo"],
                     get_date(flight["route"][0], "local_departure"),
-                    get_date(flight["route"][1], "local_departure") if is_round else None,
-                    is_round=is_round
+                    get_date(flight["route"][1], "local_departure")
+                    if is_round
+                    else None,
+                    is_round=is_round,
                 )
                 if is_round:
                     links[1] = links[0]
@@ -172,15 +178,13 @@ def parse_and_save_flight(flight, scan_timestamp, special_date=False, holiday_na
     # parse the relevant flight information
     source = f"{flight['countryFrom']['name']}/{flight['cityFrom']}/{flight['flyFrom']}"
     dest = f"{flight['countryTo']['name']}/{flight['cityTo']}/{flight['flyTo']}"
-    price = int(flight["price"]) - 25 # usually their price is around 25 NIS higher
+    price = int(flight["price"]) - 25  # usually their price is around 25 NIS higher
 
     airlines_list = [
         airlines.get_airline_name(route["airline"]) for route in flight["route"]
     ]
 
-    airline_class = None
     discount_price = price
-
     # get discount price is available
     if len(set(airlines_list)) == 1:
         # check that there is an airline class
@@ -190,7 +194,9 @@ def parse_and_save_flight(flight, scan_timestamp, special_date=False, holiday_na
             )
             # check there is a discount calculation function
             if hasattr(airline_class, "calculate_discount_price"):
-                discount_price = airline_class.calculate_discount_price(price, is_round=is_round)
+                discount_price = airline_class.calculate_discount_price(
+                    price, is_round=is_round
+                )
 
     links = get_airline_links(flight, is_round)
 
@@ -248,7 +254,7 @@ def generate_flights(
     scan_timestamp: int = int(datetime.timestamp(datetime.now())),
     holiday_name="",
 ):
-    if date_to is None or date_from is None:
+    if not all([date_to, date_from]):
         return
 
     kiwi_api_params = prepare_kiwi_api(

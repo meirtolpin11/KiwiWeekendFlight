@@ -74,7 +74,7 @@ def prepare_flights_per_city(scan_timestamp, **query_params):
         )
         .where(user_where_cause & (Flights.date_of_scan == scan_timestamp))
         .group_by(Flights.fly_to, Flights.fly_from)
-        .order_by(Flights.price)
+        .order_by(Flights.discount_price)
     )
 
     return flights
@@ -102,7 +102,7 @@ def prepare_single_destination_flights(scan_timestamp, **query_params):
             Flights.holiday_name,
         )
         .where((Flights.date_of_scan == scan_timestamp) & user_where_cause)
-        .order_by(Flights.price)
+        .order_by(Flights.discount_price)
     )
 
     flights = flights.limit(5)
@@ -135,27 +135,5 @@ def get_special_date_flights(scan_timestamp):
     )
 
     return flights
-
-
-# def prepare_userquery_flights(chat_id):
-#
-#     query_details = UserQueryDetails.select().where(UserQueryDetails.chat_id == chat_id)
-#     if len(query_details) == 0:
-#         return []
-#
-#     for query in query_details:
-#         flights = Flights.select(Flights.fly_from, Flights.fly_to, Flights.price, Flights.discount_price, Flights.airlines,
-#                              Flights.flight_numbers, Flights.nights,
-#                              Flights.days_off, Flights.departure_to,
-#                              Flights.arrival_to, Flights.departure_from, Flights.arrival_from,
-#                              Flights.link_to, Flights.link_from, Flights.holiday_name).where(
-#             Flights.fly_from == query.fly_from,
-#             Flights.fly_to == query.fly_to,
-#             query.min_nights <= Flights.nights <= query.max_nights,
-#             Flights.departure_to >= query.date_from,
-#             Flights.arrival_from <= query.date_to,
-#             Flights.price <= query.max_price
-#         )
-
 
 db.create_tables([Flights, IATA, UserQueryDetails])
