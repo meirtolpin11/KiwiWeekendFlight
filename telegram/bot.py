@@ -19,7 +19,7 @@ def generate_cheapest_flights(scan_timestamp: int, one_per_city: bool = True):
     )
 
     title = "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
-    body = generate_message_refactored(cheapest_flights_query)
+    body = generate_message(cheapest_flights_query)
     return "\n".join([title, body])
 
 
@@ -36,7 +36,7 @@ def publish_special_date_report(special_dates, chat_id, scan_timestamp):
         & (db.ConfigToFlightMap.scan_date == scan_timestamp)
     )
 
-    cheapest_flights_report = generate_message_refactored(special_dates_query)
+    cheapest_flights_report = generate_message(special_dates_query)
     if config.publish:
         status_code = send_message_to_chat(cheapest_flights_report, chat_id)
 
@@ -91,7 +91,7 @@ def generate_holidays_report(scan_timestamp):
     )
 
     title = "<b>\N{airplane} Holiday Flights - \N{airplane}</b>\n"
-    body = generate_message_refactored(cheapest_flights_query)
+    body = generate_message(cheapest_flights_query)
     if len(body.strip()) == 0:
         return None
     return "\n".join([title, body])
@@ -118,7 +118,7 @@ def generate_report_per_month(month: int, scan_timestamp: int):
     title = (
         f"<b>\N{airplane} Cheapest Flights <i>({month_name})</i> - \N{airplane}</b>\n"
     )
-    body = generate_message_refactored(month_query)
+    body = generate_message(month_query)
 
     if len(body.strip()) == 0:
         return None
@@ -145,7 +145,7 @@ def get_flight_confirmation_status(outbound_flight):
     return is_flight_confirmed
 
 
-def generate_message_refactored(flights):
+def generate_message(flights):
     # Load the template from the file
     template = env.get_template("flight.jinja2")
 
@@ -185,50 +185,6 @@ def generate_message_refactored(flights):
                 ],
                 link_to=outbound_flight.link,
                 link_from=getattr(inbound_flight, "link", ""),
-            ).strip()
-        ]
-
-    return "\n\n".join(message)
-
-
-def generate_message(query):
-    # Load the template from the file
-    template = env.get_template("flight.jinja2")
-
-    # TODO: use jinja template
-    message = []
-    for flight in query:
-        # generate flight confirmation line
-        if hasattr(airports, flight.fly_from.split("/")[2].lower()):
-            airport_helper = getattr(airports, flight.fly_from.split("/")[2].lower())
-            try:
-                if config.CHECK_FLIGHT_CONFIRMATION:
-                    is_flight_confirmed = airport_helper.get_flight_confirmation(
-                        flight.flight_numbers.split(",")[0], flight.departure_to
-                    )
-                else:
-                    is_flight_confirmed = -2
-            except Exception:
-                is_flight_confirmed = -2
-        else:
-            is_flight_confirmed = -1
-
-        message += [
-            template.render(
-                fly_from=flight.fly_from,
-                fly_to=flight.fly_to,
-                holiday=flight.holiday_name,
-                round=bool(flight.arrival_from),
-                takeoff_to=flight.departure_to,
-                landing_back=flight.arrival_from,
-                landing_to=flight.arrival_to,
-                flight_confirmed=is_flight_confirmed,
-                flight_numbers=flight.flight_numbers,
-                price=flight.price,
-                discounted_price=flight.discount_price,
-                airlines=flight.airlines.split(","),
-                link_to=flight.link_to,
-                link_from=flight.link_from,
             ).strip()
         ]
 
