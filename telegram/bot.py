@@ -106,7 +106,6 @@ def generate_report_per_month(month: int, scan_timestamp: int):
         .where(
             (db.WeekendFlights.month == month)
             & (db.WeekendFlights.scan_date == scan_timestamp)
-            & db.WeekendFlights.is_round
         )
         .group_by(db.WeekendFlights.dest, db.WeekendFlights.source)
         .order_by(db.WeekendFlights.discounted_price)

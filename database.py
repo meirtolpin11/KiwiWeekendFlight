@@ -43,8 +43,6 @@ class WeekendFlights(Model):
     source = CharField()
     dest = CharField()
     outbound_flight = CharField()
-    inbound_flight = CharField()
-    is_round = BooleanField()
     scan_date = DateTimeField()
     discounted_price = IntegerField()
 
@@ -85,7 +83,7 @@ def cheapest_flights_by_source_dest(
     one_per_city: bool = True,
     limit: int = 5,
 ):
-    query = table.select().where((table.scan_date == scan_timestamp) & table.is_round)
+    query = table.select().where((table.scan_date == scan_timestamp))
     if one_per_city:
         return (
             query.group_by(table.dest, table.source)

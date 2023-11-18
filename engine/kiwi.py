@@ -259,8 +259,6 @@ def parse_and_save_monthly_flight(flight, scan_timestamp, holiday_name=""):
         source=outbound_flight.source,
         dest=outbound_flight.dest,
         outbound_flight=outbound_flight.id,
-        inbound_flight=getattr(inbound_flight, "id", ""),
-        is_round=True,
         scan_date=scan_timestamp,
         discounted_price=outbound_flight.discounted_price,
         **additional_keys,
