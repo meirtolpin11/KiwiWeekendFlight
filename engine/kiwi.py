@@ -1,3 +1,4 @@
+import json
 import copy
 import config
 import helpers
@@ -89,7 +90,9 @@ def generate_special_date(
         return
 
     for flight in flights_data:
-        parse_and_save_flight(flight, scan_timestamp, special_date=True)
+        parse_and_save_custom_search(
+            flight, scan_timestamp, str(hash(json.dumps(special_date)))
+        )
 
 
 def generate_weekend_flights(
@@ -172,7 +175,7 @@ def get_airline_links(flight, is_round=True):
     return links
 
 
-def parse_and_save_flight(flight, scan_timestamp, special_date=False, holiday_name=""):
+def parse_and_save_direct_flights(flight, scan_date):
     is_round = True if len(flight["route"]) == 2 else False
 
     # parse the relevant flight information
@@ -201,47 +204,76 @@ def parse_and_save_flight(flight, scan_timestamp, special_date=False, holiday_na
     links = get_airline_links(flight, is_round)
 
     # store flight numbers
-    flight_numbers = ",".join(
-        [
-            direction["airline"] + str(direction["flight_no"])
-            for direction in flight["route"]
-        ]
-    )
+    flight_numbers = [
+        direction["airline"] + str(direction["flight_no"])
+        for direction in flight["route"]
+    ]
 
-    # calculate how many days off the work are needed
-    if is_round:
-        days_off = helpers.calculate_days_off(
-            get_date(flight["route"][0], "local_departure"),
-            get_date(flight["route"][1], "local_arrival"),
-        )
-    else:
-        days_off = 0
-
-    # insert the flight into the database
-    db_flight = db.Flights(
-        fly_from=source,
-        fly_to=dest,
+    outbound_flight = db.DirectFlight(
+        source=source,
+        dest=dest,
+        airline=airlines_list[0],
+        flight_number=flight_numbers[0],
         price=price,
-        discount_price=discount_price,
-        nights=int(flight["nightsInDest"]) if is_round else 0,
-        airlines=",".join(airlines_list),
-        departure_to=get_date(flight["route"][0], "local_departure"),
-        departure_from=get_date(flight["route"][1], "local_departure")
-        if is_round
-        else "",
-        arrival_to=get_date(flight["route"][0], "local_arrival"),
-        arrival_from=get_date(flight["route"][1], "local_arrival") if is_round else "",
-        month=get_date(flight["route"][0], "local_departure").month,
-        days_off=days_off,
-        date_of_scan=scan_timestamp,
-        link_to=links[0],
-        link_from=links[1],
-        weekend_id=-1,  # TODO: update weekend id
-        flight_numbers=flight_numbers,
-        holiday_name=holiday_name,
-        special_date=special_date,
+        discounted_price=discount_price,
+        link=links[0],
+        departure_time=get_date(flight["route"][0], "local_departure"),
+        landing_time=get_date(flight["route"][0], "local_arrival"),
+        scan_date=scan_date,
     )
-    db_flight.save()
+
+    inbound_flight = None
+    if is_round:
+        inbound_flight = db.DirectFlight(
+            source=dest,
+            dest=source,
+            airline=airlines_list[1],
+            flight_number=flight_numbers[1],
+            price=price,
+            discounted_price=discount_price,
+            link=links[1],
+            departure_time=get_date(flight["route"][1], "local_departure"),
+            landing_time=get_date(flight["route"][1], "local_arrival"),
+            scan_date=scan_date,
+        )
+
+    if inbound_flight:
+        inbound_flight.save()
+        outbound_flight.round_flight = inbound_flight.id
+
+    outbound_flight.save()
+
+    return outbound_flight, inbound_flight
+
+
+def parse_and_save_monthly_flight(flight, scan_timestamp, holiday_name=""):
+    outbound_flight, inbound_flight = parse_and_save_direct_flights(
+        flight, scan_timestamp
+    )
+
+    db_table = db.HolidayFlights if holiday_name else db.WeekendFlights
+    additional_keys = {"holiday_name": holiday_name} if holiday_name else {}
+
+    monthly_flight = db_table(
+        month=outbound_flight.departure_time.month,
+        source=outbound_flight.source,
+        dest=outbound_flight.dest,
+        outbound_flight=outbound_flight.id,
+        inbound_flight=getattr(inbound_flight, "id", ""),
+        is_round=True,
+        scan_date=scan_timestamp,
+        discounted_price=outbound_flight.discounted_price,
+        **additional_keys,
+    )
+
+    monthly_flight.save()
+
+
+def parse_and_save_custom_search(flight, scan_timestamp, config_hash: str):
+    outbound_flight, _ = parse_and_save_direct_flights(flight, scan_timestamp)
+    db.ConfigToFlightMap(
+        config_hash=config_hash, flight_id=outbound_flight.id, scan_date=scan_timestamp
+    ).save()
 
 
 def generate_flights(
@@ -282,6 +314,4 @@ def generate_flights(
 
     for flight in flights_data:
         # parse the relevant flight information
-        parse_and_save_flight(
-            flight, scan_timestamp, special_date=False, holiday_name=holiday_name
-        )
+        parse_and_save_monthly_flight(flight, scan_timestamp, holiday_name=holiday_name)

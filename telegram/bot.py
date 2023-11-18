@@ -1,9 +1,11 @@
 import os
+import json
 import config
 import helpers
 import airports
 import requests
 import database as db
+from peewee import JOIN
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
@@ -11,21 +13,30 @@ from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader("telegram/jinja"))
 
 
-def generate_cheapest_flights(scan_timestamp):
-    cheapest_flights_query = db.prepare_flights_per_city(
-        scan_timestamp, where=db.Flights.holiday_name == ""
+def generate_cheapest_flights(scan_timestamp: int, one_per_city: bool = True):
+    cheapest_flights_query = db.cheapest_flights_by_source_dest(
+        db.WeekendFlights, scan_timestamp, one_per_city
     )
-    output_path = os.path.join(config.tmp_folder, "cheapest.csv")
-    helpers.dump_csv(cheapest_flights_query, output_path)
 
     title = "<b>\N{airplane} Cheapest Flights - \N{airplane}</b>\n"
-    body = generate_message(cheapest_flights_query)
-    return "\n".join([title, body]), output_path
+    body = generate_message_refactored(cheapest_flights_query)
+    return "\n".join([title, body])
 
 
-def publish_special_date_report(chat_id, scan_timestamp):
-    special_dates = db.get_special_date_flights(scan_timestamp)
-    cheapest_flights_report = generate_message(special_dates)
+def publish_special_date_report(special_dates, chat_id, scan_timestamp):
+    # generate all hashes of the relevant dates -
+    hashes_list = []
+    for special_date in special_dates:
+        hashes_list.append(str(hash(json.dumps(special_date))))
+
+    special_dates_query = db.ConfigToFlightMap.select(
+        db.ConfigToFlightMap.flight_id.alias("outbound_flight")
+    ).where(
+        (db.ConfigToFlightMap.config_hash << hashes_list)
+        & (db.ConfigToFlightMap.scan_date == scan_timestamp)
+    )
+
+    cheapest_flights_report = generate_message_refactored(special_dates_query)
     if config.publish:
         status_code = send_message_to_chat(cheapest_flights_report, chat_id)
 
@@ -33,19 +44,13 @@ def publish_special_date_report(chat_id, scan_timestamp):
 
 
 def publish_default_report(
-    chat_id,
-    date_from,
-    date_to,
-    scan_timestamp,
-    query_function=db.prepare_flights_per_city,
-    **query_params,
+    chat_id, date_from, date_to, scan_timestamp, one_per_city: bool = True
 ):
     total_report = []
 
-    cheapest_flights_report, output_path = generate_cheapest_flights(scan_timestamp)
+    cheapest_flights_report = generate_cheapest_flights(scan_timestamp)
     if config.publish:
         send_message_to_chat(cheapest_flights_report, chat_id)
-        send_file_to_chat(output_path, "", chat_id)
     total_report.append(cheapest_flights_report)
 
     # Cheap flights by Months
@@ -56,28 +61,24 @@ def publish_default_report(
 
     # to do: make this parameterized
     for i in range(number_of_months + 1):
-        message, output_path = generate_report_per_month(
-            current_month, scan_timestamp, query_function, **query_params
-        )
+        message = generate_report_per_month(current_month, scan_timestamp)
 
         if not message:
             current_month += 1
             continue
 
         # send the message and the query
-        if all([config.publish, message, output_path]):
+        if all([config.publish, message]):
             send_message_to_chat(message, chat_id)
-            send_file_to_chat(output_path, "", chat_id)
 
         total_report.append(message)
         current_month += 1
 
-    cheapest_holidays_report, output_path = generate_holidays_report(scan_timestamp)
+    cheapest_holidays_report = generate_holidays_report(scan_timestamp)
 
     if cheapest_holidays_report:
         if config.publish:
             send_message_to_chat(cheapest_holidays_report, chat_id)
-            send_file_to_chat(output_path, "", chat_id)
         total_report.append(cheapest_holidays_report)
 
     return total_report
@@ -85,58 +86,110 @@ def publish_default_report(
 
 def generate_holidays_report(scan_timestamp):
     # we need a new query here
-    cheapest_flights_query = db.prepare_flights_per_city(
-        scan_timestamp, where=db.Flights.holiday_name != ""
+    cheapest_flights_query = db.cheapest_flights_by_source_dest(
+        db.HolidayFlights, scan_timestamp
     )
-    output_path = os.path.join(config.tmp_folder, "holidays.csv")
-    helpers.dump_csv(cheapest_flights_query, output_path)
 
     title = "<b>\N{airplane} Holiday Flights - \N{airplane}</b>\n"
-    body = generate_message(cheapest_flights_query)
+    body = generate_message_refactored(cheapest_flights_query)
     if len(body.strip()) == 0:
-        return None, None
-    return "\n".join([title, body]), output_path
+        return None
+    return "\n".join([title, body])
 
 
-def generate_report_per_month(
-    month, scan_timestamp, query_function=db.prepare_flights_per_city, **query_params
-):
-    if month > 12:
-        month %= 12
+def generate_report_per_month(month: int, scan_timestamp: int):
+    month = month if month <= 12 else month % 12
+    month_name = datetime.strptime(str(month), "%m").strftime("%B")
 
-    # query the cheapest flights by month
-    # TODO: verify
-    if "where" in query_params:
-        where_clause = {
-            "where": query_params["where"]
-            & (db.Flights.month == month)
-            & (db.Flights.holiday_name == "")
-        }
-        month_query = query_function(scan_timestamp, **where_clause)
-    else:
-        month_query = query_function(
-            scan_timestamp,
-            where=(db.Flights.month == month) & (db.Flights.holiday_name == ""),
-            **query_params,
+    month_query = (
+        db.WeekendFlights.select()
+        .where(
+            (db.WeekendFlights.month == month)
+            & (db.WeekendFlights.scan_date == scan_timestamp)
+            & db.WeekendFlights.is_round
         )
-
-    if len(month_query) == 0:
-        return None, None
-
-    output_file = os.path.join(
-        config.tmp_folder, f"{datetime.strptime(str(month), '%m').strftime('%B')}.csv"
+        .group_by(db.WeekendFlights.dest, db.WeekendFlights.source)
+        .order_by(db.WeekendFlights.discounted_price)
     )
-    # dump the query output to the reports folder
-    helpers.dump_csv(month_query, output_file)
+
+    if not month_query.count():
+        return None
 
     # generate bot message per month
-    title = f"<b>\N{airplane} Cheapest Flights <i>({datetime.strptime(str(month), '%m').strftime('%B')})</i> - \N{airplane}</b>\n"
-    body = generate_message(month_query)
+    title = (
+        f"<b>\N{airplane} Cheapest Flights <i>({month_name})</i> - \N{airplane}</b>\n"
+    )
+    body = generate_message_refactored(month_query)
 
     if len(body.strip()) == 0:
-        return None, None
+        return None
 
-    return "\n".join([title, body]), output_file
+    return "\n".join([title, body])
+
+
+def get_flight_confirmation_status(outbound_flight):
+    # generate flight confirmation line
+    if hasattr(airports, outbound_flight.source.split("/")[2].lower()):
+        airport_helper = getattr(airports, outbound_flight.source.split("/")[2].lower())
+        try:
+            if config.CHECK_FLIGHT_CONFIRMATION:
+                is_flight_confirmed = airport_helper.get_flight_confirmation(
+                    outbound_flight.flight_number, outbound_flight.dest
+                )
+            else:
+                is_flight_confirmed = -2
+        except Exception:
+            is_flight_confirmed = -2
+    else:
+        is_flight_confirmed = -1
+
+    return is_flight_confirmed
+
+
+def generate_message_refactored(flights):
+    # Load the template from the file
+    template = env.get_template("flight.jinja2")
+
+    message = []
+    for flight in flights:
+        outbound_flight = db.DirectFlight.select().where(
+            db.DirectFlight.id == flight.outbound_flight
+        )[0]
+
+        inbound_flight = None
+        if getattr(outbound_flight, "round_flight", False):
+            inbound_flight = db.DirectFlight.select().where(
+                db.DirectFlight.id == outbound_flight.round_flight
+            )[0]
+
+        message += [
+            template.render(
+                fly_from=outbound_flight.source,
+                fly_to=outbound_flight.dest,
+                holiday=getattr(flight, "holiday_name", None),
+                round=getattr(outbound_flight, "round_flight", False),
+                takeoff_to=outbound_flight.departure_time,
+                landing_back=getattr(inbound_flight, "landing_time", ""),
+                landing_to=outbound_flight.landing_time,
+                flight_confirmed=get_flight_confirmation_status(outbound_flight),
+                flight_numbers=[
+                    outbound_flight.flight_number,
+                    getattr(
+                        inbound_flight, "flight_number", outbound_flight.flight_number
+                    ),
+                ],
+                price=outbound_flight.price,
+                discounted_price=outbound_flight.discounted_price,
+                airlines=[
+                    outbound_flight.airline,
+                    getattr(inbound_flight, "airline", outbound_flight.airline),
+                ],
+                link_to=outbound_flight.link,
+                link_from=getattr(inbound_flight, "link", ""),
+            ).strip()
+        ]
+
+    return "\n\n".join(message)
 
 
 def generate_message(query):

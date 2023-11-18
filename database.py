@@ -1,30 +1,59 @@
 from peewee import *
+from typing import Type
 
 db = SqliteDatabase("/tmp/flights.db")
 
 
-class Flights(Model):
-    fly_from = CharField()
-    fly_to = CharField()
-    nights = IntegerField()
-    days_off = IntegerField()
+class DirectFlight(Model):
+    source = CharField()
+    dest = CharField()
+    airline = CharField()
     price = IntegerField()
-    discount_price = IntegerField()
-    airlines = CharField()
-    flight_numbers = CharField()
-    departure_to = DateTimeField()
-    arrival_to = DateTimeField()
-    departure_from = DateTimeField()
-    arrival_from = DateTimeField()
-    link_to = CharField()
-    link_from = CharField()
-    month = IntegerField()
-    date_of_scan = DateTimeField()
-    holiday_name = CharField()
-    special_date = BooleanField(default=False)
+    discounted_price = IntegerField()
+    flight_number = CharField()
+    link = CharField()
+    departure_time = DateTimeField()
+    landing_time = DateTimeField()
+    scan_date = DateTimeField()
+    next_flight = IntegerField(null=True)
+    round_flight = IntegerField(null=True)
 
     class Meta:
         database = db
+        constraints = [
+            SQL("FOREIGN KEY(next_flight) REFERENCES DirectFlight(id)"),
+            SQL("FOREIGN KEY(round_flight) REFERENCES DirectFlight(id)"),
+        ]
+
+
+class ConfigToFlightMap(Model):
+    config_hash = CharField()
+    flight_id = IntegerField()
+    scan_date = CharField()
+
+    class Meta:
+        database = db
+        constraints = [
+            SQL("FOREIGN KEY(flight_id) REFERENCES DirectFlight(id)"),
+        ]
+
+
+class WeekendFlights(Model):
+    month = IntegerField()
+    source = CharField()
+    dest = CharField()
+    outbound_flight = CharField()
+    inbound_flight = CharField()
+    is_round = BooleanField()
+    scan_date = DateTimeField()
+    discounted_price = IntegerField()
+
+    class Meta:
+        database = db
+
+
+class HolidayFlights(WeekendFlights):
+    holiday_name = CharField()
 
 
 class UserQueryDetails(Model):
@@ -50,90 +79,21 @@ class IATA(Model):
         database = db
 
 
-def prepare_flights_per_city(scan_timestamp, **query_params):
-    user_where_cause = query_params["where"] if "where" in query_params else True
-
-    # query the cheapest flights per city
-    flights = (
-        Flights.select(
-            Flights.fly_to,
-            Flights.fly_from,
-            fn.Min(Flights.price).alias("price"),
-            Flights.discount_price,
-            Flights.airlines,
-            Flights.flight_numbers,
-            Flights.nights,
-            Flights.days_off,
-            Flights.departure_to,
-            Flights.arrival_to,
-            Flights.departure_from,
-            Flights.arrival_from,
-            Flights.link_to,
-            Flights.link_from,
-            Flights.holiday_name,
+def cheapest_flights_by_source_dest(
+    table: Type[WeekendFlights],
+    scan_timestamp: int,
+    one_per_city: bool = True,
+    limit: int = 5,
+):
+    query = table.select().where((table.scan_date == scan_timestamp) & table.is_round)
+    if one_per_city:
+        return (
+            query.group_by(table.dest, table.source)
+            .order_by(table.discounted_price)
+            .limit(limit)
         )
-        .where(user_where_cause & (Flights.date_of_scan == scan_timestamp))
-        .group_by(Flights.fly_to, Flights.fly_from)
-        .order_by(Flights.discount_price)
-    )
-
-    return flights
+    else:
+        return query.order_by(table.discounted_price)
 
 
-def prepare_single_destination_flights(scan_timestamp, **query_params):
-    user_where_cause = query_params["where"] if "where" in query_params else True
-
-    flights = (
-        Flights.select(
-            Flights.fly_from,
-            Flights.fly_to,
-            Flights.price,
-            Flights.discount_price,
-            Flights.airlines,
-            Flights.flight_numbers,
-            Flights.nights,
-            Flights.days_off,
-            Flights.departure_to,
-            Flights.arrival_to,
-            Flights.departure_from,
-            Flights.arrival_from,
-            Flights.link_to,
-            Flights.link_from,
-            Flights.holiday_name,
-        )
-        .where((Flights.date_of_scan == scan_timestamp) & user_where_cause)
-        .order_by(Flights.discount_price)
-    )
-
-    flights = flights.limit(5)
-
-    return flights
-
-
-def get_special_date_flights(scan_timestamp):
-    flights = (
-        Flights.select(
-            Flights.fly_from,
-            Flights.fly_to,
-            Flights.price,
-            Flights.discount_price,
-            Flights.airlines,
-            Flights.flight_numbers,
-            Flights.nights,
-            Flights.days_off,
-            Flights.departure_to,
-            Flights.arrival_to,
-            Flights.departure_from,
-            Flights.arrival_from,
-            Flights.link_to,
-            Flights.link_from,
-            Flights.holiday_name,
-        )
-        .where(
-            (Flights.date_of_scan == scan_timestamp) & (Flights.special_date == True)
-        )
-    )
-
-    return flights
-
-db.create_tables([Flights, IATA, UserQueryDetails])
+db.create_tables([ConfigToFlightMap, DirectFlight, WeekendFlights, HolidayFlights])
