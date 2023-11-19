@@ -102,13 +102,21 @@ def generate_report_per_month(month: int, scan_timestamp: int):
     month_name = datetime.strptime(str(month), "%m").strftime("%B")
 
     month_query = (
-        db.WeekendFlights.select()
+        db.WeekendFlights.select(
+            db.WeekendFlights.id,
+            db.WeekendFlights.month,
+            db.WeekendFlights.source,
+            db.WeekendFlights.dest,
+            db.WeekendFlights.outbound_flight,
+            db.WeekendFlights.scan_date,
+            db.fn.MIN(db.WeekendFlights.discounted_price).alias("discounted_price"),
+        )
         .where(
             (db.WeekendFlights.month == month)
             & (db.WeekendFlights.scan_date == scan_timestamp)
         )
         .group_by(db.WeekendFlights.dest, db.WeekendFlights.source)
-        .order_by(db.WeekendFlights.discounted_price)
+        .order_by(db.SQL("discounted_price"))
     )
 
     if not month_query.count():

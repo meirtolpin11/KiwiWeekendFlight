@@ -81,17 +81,19 @@ def cheapest_flights_by_source_dest(
     table: Type[WeekendFlights],
     scan_timestamp: int,
     one_per_city: bool = True,
-    limit: int = 5,
+    limit: int = 10,
 ):
-    query = table.select().where((table.scan_date == scan_timestamp))
+    query = table.select(
+        table, fn.MIN(table.discounted_price).alias("discounted_price")
+    ).where((table.scan_date == scan_timestamp))
     if one_per_city:
         return (
             query.group_by(table.dest, table.source)
-            .order_by(table.discounted_price)
+            .order_by(SQL("discounted_price"))
             .limit(limit)
         )
     else:
-        return query.order_by(table.discounted_price)
+        return query.order_by(SQL("discounted_price"))
 
 
 db.create_tables([ConfigToFlightMap, DirectFlight, WeekendFlights, HolidayFlights])

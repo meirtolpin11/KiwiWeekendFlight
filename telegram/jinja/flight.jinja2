@@ -31,13 +31,13 @@
     {% else -%}
             {% if link_to -%}
                 {{ "\t\N{airplane}" }} <a href='{{ link_to }}'>{{ airlines[0] }}</a>,
-            {% else -%}
+            {%- else -%}
                 {{ "\t\N{airplane}" }} {{ airlines[0]}},
             {%- endif -%}
             {%- if link_from -%}
                  <a href='{{ link_from }}'>{{ airlines[1] }}</a> {{ "\N{airplane}" }}
             {%- else -%}
-                {{ airlines[1]}}, {{ "\N{airplane}" }}
+                {{ airlines[1]}} {{ "\N{airplane}" }}
             {% endif -%}
     {% endif -%}
 {% else -%}
