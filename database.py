@@ -79,13 +79,18 @@ class IATA(Model):
 
 def cheapest_flights_by_source_dest(
     table: Type[WeekendFlights],
-    scan_timestamp: int,
+    scan_timestamp: int = -1,
     one_per_city: bool = True,
     limit: int = 10,
 ):
     query = table.select(
         table, fn.MIN(table.discounted_price).alias("discounted_price")
-    ).where((table.scan_date == scan_timestamp))
+    )
+    if scan_timestamp != -1:
+        query = query.where((table.scan_date == scan_timestamp))
+    else:
+        # get results of last 10 minutes
+        query = query.where((table.scan_date > (table.select(fn.MAX(table.scan_date) - 600))))
     if one_per_city:
         return (
             query.group_by(table.dest, table.source)
