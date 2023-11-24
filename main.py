@@ -9,7 +9,6 @@ from typing import Dict
 from engine import kiwi
 from telegram import bot
 from datetime import datetime, timedelta
-import telegram.interactive_bot as interactive_bot
 
 
 def parse_args():
@@ -32,11 +31,7 @@ def parse_args():
         help="destination, can be 2 letter countries,"
         ' or 3 letter airports. seperated with ","',
     )
-    parser.add_argument(
-        r"--just-special",
-        default=False,
-        action="store_true"
-    )
+    parser.add_argument(r"--just-special", default=False, action="store_true")
     parser.add_argument(
         r"--from-date", dest="from_date", help="scan start date (DD-MM-YY)"
     )
@@ -89,6 +84,7 @@ def handle_destination(
         scan_timestamp=scan_timestamp,
         details=details,
     )
+
     kiwi.generate_holidays_flights(
         date_from,
         date_to,
@@ -99,11 +95,7 @@ def handle_destination(
 
     if single_dest:
         report = bot.publish_default_report(
-            chat_id,
-            date_from,
-            date_to,
-            scan_timestamp,
-            query_function=db.prepare_single_destination_flights,
+            chat_id, date_from, date_to, scan_timestamp, one_per_city=False
         )
     else:
         report = bot.publish_default_report(chat_id, date_from, date_to, scan_timestamp)
@@ -142,7 +134,9 @@ def scan_special_dates():
 
     if config.publish:
         bot.publish_special_date_report(
-            config.SPECIAL_DATES["chat_id"], scan_timestamp
+            config.SPECIAL_DATES["dates"],
+            config.SPECIAL_DATES["chat_id"],
+            scan_timestamp,
         )
 
 
@@ -166,10 +160,6 @@ def main():
     config.publish = args.publish
     config.print = args.print
     create_env()
-
-    if args.bot:
-        interactive_bot.run()
-        return
 
     if args.from_date and args.to_date:
         date_from = datetime.strptime(args.from_date, "%d-%m-%y")
